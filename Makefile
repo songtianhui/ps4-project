@@ -1,4 +1,11 @@
+.default = all
 TOKEN ?= submit
+
+all:
+	@if [[ ! -d build ]]; then \
+		mkdir -p build; \
+		cd build && cmake ..; fi
+	@make -C build
 
 submit:
 	$(eval TEMP := $(shell mktemp -d))
