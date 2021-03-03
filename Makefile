@@ -7,6 +7,10 @@ all:
 		cd build && cmake ..; fi
 	@make -C build
 
+clean:
+	@if [[ -d build ]]; then \
+		rm -r build; fi
+
 submit:
 	$(eval TEMP := $(shell mktemp -d))
 	$(eval BASE := $(shell basename $(CURDIR)))
