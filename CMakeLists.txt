@@ -8,16 +8,16 @@ include_directories("include")
 file(GLOB sources "source/**/*.cpp")
 add_library(GraphLibrary ${sources})
 
-add_custom_target(GitTrace1
+add_custom_target(GitTraceAdd
         COMMAND "${GIT_EXECUTABLE}" add -A . --ignore-errors
         WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
-add_custom_target(GitTrace2
+add_custom_target(GitTraceCommit
         COMMAND "${GIT_EXECUTABLE}"
         commit -q --allow-empty --no-verify -m "compile failed"
         --author="tracer-ps4-2021 <tracer-ps4-2021@ics.nju.edu.cn>"
         WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
-add_dependencies(GraphLibrary GitTrace1)
-add_dependencies(GraphLibrary GitTrace2)
+add_dependencies(GitTraceCommit GitTraceAdd) # Avoid data race
+add_dependencies(GraphLibrary GitTraceCommit)
 add_custom_command(TARGET GraphLibrary POST_BUILD
         COMMAND "${GIT_EXECUTABLE}"
         commit -q --allow-empty --no-verify --amend -m "compile passed"
