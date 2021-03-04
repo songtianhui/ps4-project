@@ -13,14 +13,14 @@ add_custom_target(GitTraceAdd
         WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
 add_custom_target(GitTraceCommit
         COMMAND "${GIT_EXECUTABLE}"
-        commit -q --allow-empty --no-verify -m "compile failed"
+        commit -q --allow-empty --no-verify -m "compile"
         --author="tracer-ps4-2021 <tracer-ps4-2021@ics.nju.edu.cn>"
         WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
 add_dependencies(GitTraceCommit GitTraceAdd) # Avoid data race
 add_dependencies(GraphLibrary GitTraceCommit)
 add_custom_command(TARGET GraphLibrary POST_BUILD
         COMMAND "${GIT_EXECUTABLE}"
-        commit -q --allow-empty --no-verify --amend -m "compile passed"
+        commit -q --allow-empty --no-verify -m "compile succeed"
         --author="tracer-ps4-2021 <tracer-ps4-2021@ics.nju.edu.cn>"
         WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
 
