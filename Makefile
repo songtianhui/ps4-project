@@ -1,5 +1,6 @@
 .default = all
 TOKEN ?= submit
+SHELL := /bin/bash
 
 all:
 	@if [[ ! -d build ]]; then \
