@@ -85,6 +85,9 @@ int main() {
   assert(g.AddEdge(9,5) == true);
   assert(g.AddEdge(5,5) == true);
 
+  print_vertex();
+  print_edge();
+  v1_nei();
 
 
   printf("Successful!\n");
