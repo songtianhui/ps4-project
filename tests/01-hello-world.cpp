@@ -3,8 +3,32 @@
 #include <DataStructures/Graph.h>
 using namespace std;
 
+Graph g;
+
+void print_edge(){
+  printf("all edges: \n");
+  std::vector<Edge> tmp = g.GetEdges();
+  for (Edge e: tmp) {
+    printf("(%d, %d)\n", e.GetSource(), e.GetDestination());
+  }
+}
+
+void print_vertex(){
+  printf("all vertices: \n");
+  std:vector<int> tmp = g.GetVertices();
+  for (int e: tmp) {
+    printf("%d\n", e);
+  }
+}
+
+void v1_nei(){
+  printf("v1 has neighbours: \n");
+  for (int i: g.GetNeighbors(1)){
+    printf("%d\n",i);
+  }
+}
+
 int main() {
-  Graph g;
 
   assert(g.GetDegree(2) == 0);
   assert(g.CountVertices() == 0);
@@ -53,16 +77,15 @@ int main() {
   
   assert(g.RemoveEdge(1,5) == true);
 
-  printf("all edges: \n");
-  std::vector<Edge> tmp = g.GetEdges();
-  for (Edge e: tmp) {
-    printf("(%d, %d)\n", e.GetSource(), e.GetDestination());
-  }
+  print_vertex();
+  print_edge();
+  v1_nei();
 
-  printf("v1 has neighbours: \n");
-  for (int i: g.GetNeighbors(1)){
-    printf("%d\n",i);
-  }
+  assert(g.AddEdge(2,9) == true);
+  assert(g.AddEdge(9,5) == true);
+  assert(g.AddEdge(5,5) == true);
+
+
 
   printf("Successful!\n");
 }
