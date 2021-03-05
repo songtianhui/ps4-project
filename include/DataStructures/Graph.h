@@ -131,8 +131,6 @@ std::vector<Edge> Graph::GetEdges() const {
       alledges.push_back(e);
     }
   }
-  Edges.clear();
-  Edges = alledges;
   return alledges;
 }
 
