@@ -6,6 +6,13 @@ using namespace std;
 int main() {
   Graph g;
 
+  assert(g.GetDegree(2) == 0);
+  assert(g.CountVertices() == 0);
+  assert(g.CountEdges() == 0);
+  assert(g.GetIncomingEdges().size() == 0);
+  assert(g.RemoveEdge(1,2) == false);
+
+
   assert(g.AddVertex(1) == true);
   assert(g.AddVertex(2) == true);
   assert(g.AddVertex(3) == true);
