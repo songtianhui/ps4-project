@@ -36,5 +36,4 @@ int main() {
   assert(g.GetNeighbors(1).size() == 2);
   assert(g.GetNeighbors(2).empty());
 
-  printf("Successful!\n");
 }
