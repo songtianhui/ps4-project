@@ -1,4 +1,5 @@
 #include <DataStructures/Graph.h>
+#include <cstdio>
 
 Graph::Graph() {
   memset(exist, false, sizeof(exist));
