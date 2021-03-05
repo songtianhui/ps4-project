@@ -95,7 +95,9 @@ int main() {
   print_edge();
   v1_nei();
 
+  assert(g.RemoveVertex(15) == true);
 
+  printf("v1 has incoming: \n");
   std::vector<Edge> out = g.GetIncomingEdges(1);
   for (Edge e: out) {
     printf("(%d, %d)", e.GetSource(), e.GetDestination());
