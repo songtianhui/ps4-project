@@ -53,7 +53,7 @@ int main() {
   
   assert(g.RemoveEdge(1,5) == true);
 
-  printf("all edges: \n")
+  printf("all edges: \n");
   std::vector<Edge> tmp = g.GetEdges();
   for (Edge e: tmp) {
     printf("(%d, %d)\n", e.GetSource(), e.GetDestination());
