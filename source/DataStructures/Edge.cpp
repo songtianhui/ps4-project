@@ -1,8 +1,8 @@
 #include <DataStructures/Edge.h>
 
 Edge::Edge(int source, int destination){
-  source = source;
-  destination = destination;
+  this->source = source;
+  this->destination = destination;
 }
 
 Edge::~Edge(){
