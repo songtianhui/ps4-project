@@ -17,6 +17,7 @@ int main() {
   assert(g.RemoveVertex(5) == false);
 
   std::vector<int> v = g.GetVertices();
+  printf("Have vertices: \n");
   for (int n: v) printf("%d\n",n);
 
   assert(g.AddEdge(1, 2) == true);
@@ -24,6 +25,10 @@ int main() {
   assert(g.AddEdge(2, 5) == false);
   assert(g.ContainsEdge(1, 2) == true);
   assert(g.ContainsEdge(2, 5) == false);
+
+  std::vector<Edge> e = g.GetEdges();
+  printf("Have edges: \n");
+  for (auto a: e) printf("(%d, %d)\n",a.GetSource, a.GetDestination);
 
   assert(g.GetDegree(1) == 2);
   assert(g.GetIncomingEdges(1).empty());
