@@ -3,7 +3,7 @@ TOKEN ?= submit
 SHELL := /bin/bash
 
 all:
-	@if [[ ! -d build ]]; then \
+	@if [[ ! -e build/Makefile ]]; then \
 		mkdir -p build; \
 		cd build && cmake ..; fi
 	@make -C build
