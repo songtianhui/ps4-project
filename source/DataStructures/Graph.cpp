@@ -95,12 +95,8 @@ std::vector<Edge> Graph::GetEdges() const {
     for (int j=0; j<MAXV; ++j) {
       if(map[i][j]) {
         alledges.push_back(Edge(i, j));
-        printf("Have edge (%d, %d)\n", i,j);
       }
     }
-  }
-  for (Edge e: alledges) {
-    printf("(%d, %d)\n", e.GetSource(), e.GetDestination());
   }
   return alledges;
 }
