@@ -122,6 +122,7 @@ std::vector<Edge> Graph::GetOutgoingEdges(int vertex) const {
 
 int Graph::GetDegree(int vertex) const {
   if (!exist[vertex]) return 0;
+  printf("Degree[%d] = %d\n", vertex, edges[vertex].size());
   return edges[vertex].size();
 }
 
