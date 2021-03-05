@@ -9,7 +9,7 @@ int main() {
   assert(g.GetDegree(2) == 0);
   assert(g.CountVertices() == 0);
   assert(g.CountEdges() == 0);
-  assert(g.GetIncomingEdges().size() == 0);
+  assert(g.GetIncomingEdges(3).size() == 0);
   assert(g.RemoveEdge(1,2) == false);
 
 
