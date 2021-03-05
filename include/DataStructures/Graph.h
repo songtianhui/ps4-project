@@ -9,7 +9,7 @@
 class Graph {
  private:
   int edges[MAXV][MAXV];  //邻接矩阵, [from][to]
-  vector<Edge> Edges;     //所有的边
+  std::vector<Edge> Edges;     //所有的边
   bool exist[MAXV];
   int degree[MAXV];
   int NR_vertices;
