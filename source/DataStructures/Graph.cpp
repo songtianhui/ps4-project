@@ -1,23 +1,20 @@
 #include <DataStructures/Graph.h>
 
 Graph::Graph() {
-  for (int i=0; i<MAXV; ++i) {
-    memset(edges, 0, sizeof(edges));
-    memset(exist, false, sizeof(exist));
-    Edges.clear();
-    NR_edges = NR_vertices = 0;
-  }
+  memset(exist, false, sizeof(exist));
+  memset(map, 0, sizeof(map));
+  for (int i=0; i<MAXV; ++i) edges[i].clear();
+  NR_edges = NR_vertices = 0;
 }
 
 Graph::~Graph() {
-
 }
 
 bool Graph::AddVertex(int vertex) {
   if (!exist[vertex]) {
     exist[vertex] = true;
-    degree[vertex] = 0;
     NR_vertices++;
+    edges[vertex].clear();
     return true;
   }
   return false;
@@ -26,11 +23,12 @@ bool Graph::AddVertex(int vertex) {
 bool Graph::RemoveVertex(int vertex) {
   if (exist[vertex]) {
     exist[vertex] = false;
-    for (int i = 0; i < MAXV; ++i) {
-      if(!edges[vertex][i]) edges[vertex][i] = 0;
-      if(!edges[i][vertex]) edges[i][vertex] = 0;
-    }
     NR_vertices--;
+    edges[vertex].clear();
+    for (int i = 0; i < MAXV; ++i) {
+      if(map[vertex][i]) map[vertex][i] = 0;
+      if(map[i][vertex]) map[i][vertex] = 0;
+    }
     return true;
   }
   return false;
@@ -40,9 +38,8 @@ bool Graph::AddEdge(int vertex1, int vertex2) {
   if (!exist[vertex1] || !exist[vertex2] || edges[vertex1][vertex2]) {
     return false;
   }
-  edges[vertex1][vertex2] = 1;
-  Edges.push_back(Edge(vertex1,vertex2));
-  degree[vertex1]++;
+  map[vertex1][vertex2] = 1;
+  edges[vertex1].push_back(vertex2);
   NR_edges++;
   return true;
 }
@@ -51,9 +48,14 @@ bool Graph::RemoveEdge(int vertex1, int vertex2) {
   if (!exist[vertex1] || !exist[vertex2] || !edges[vertex1][vertex2]){
     return false;
   }
-  edges[vertex1][vertex2] = 0;
-  degree[vertex1]--;
-  //Edges的remove开销有点大，可以先用edges[v1][v2]判断是否存在
+  map[vertex1][vertex2] = 0;
+  for (auto it=edges[vertex1].begin(); it != edges[vertex1].end(); ) {
+    if(*it == vertex2) {
+      it = edges[vertex1].erase(it);
+    } else {
+      ++it;
+    }
+  }
   NR_edges--;
   return true;
 }
@@ -88,11 +90,11 @@ std::vector<int> Graph::GetVertices() const {
 
 std::vector<Edge> Graph::GetEdges() const {
   std::vector<Edge> alledges;
-  for (Edge e: Edges) {
-    int src = e.GetSource();
-    int dst = e.GetDestination();
-    if (edges[src][dst]) {
-      alledges.push_back(e);
+  for (int i=0; i<MAXV; ++i) {
+    for (int j=0; j<MAXV; ++j) {
+      if(map[i][j]) {
+        alledges.push_back(Edge(i, j));
+      }
     }
   }
   return alledges;
@@ -101,7 +103,7 @@ std::vector<Edge> Graph::GetEdges() const {
 std::vector<Edge> Graph::GetIncomingEdges(int vertex) const {
   std::vector<Edge> ret;
   for (int i=0; i<MAXV; ++i) {
-    if (edges[i][vertex]) {
+    if (map[i][vertex]) {
       ret.push_back(Edge(i,vertex));
     }
   }
@@ -120,16 +122,10 @@ std::vector<Edge> Graph::GetOutgoingEdges(int vertex) const {
 
 int Graph::GetDegree(int vertex) const {
   if (!exist[vertex]) return 0;
-  return degree[vertex];
+  return edges[vertex].size();
 }
 
 std::vector<int> Graph::GetNeighbors(int vertex) const {
-  std::vector<int> neighbours;
-  for (int i=0; i<MAXV; ++i) {
-    if (exist[vertex] && exist[i] && edges[vertex][i]) {
-      neighbours.push_back(i);
-    }
-  }
-  return neighbours;
+  return edges[vertex];
 }
 

@@ -4,14 +4,13 @@
 #include <vector>
 #include <cstring>
 #include <DataStructures/Edge.h>
-#define MAXV 1000
+#define MAXV 1005
 
 class Graph {
  private:
-  int edges[MAXV][MAXV];  //邻接矩阵, [from][to]
-  std::vector<Edge> Edges;     //所有的边
   bool exist[MAXV];
-  int degree[MAXV];
+  int map[MAXV][MAXV];  //邻接矩阵, [from][to]
+  std::vector<int> edges[MAXV];
   int NR_vertices;
   int NR_edges;
 

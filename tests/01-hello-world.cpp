@@ -28,7 +28,7 @@ int main() {
 
   std::vector<Edge> e = g.GetEdges();
   printf("Have edges: \n");
-  for (auto a: e) printf("(%d, %d)\n",a.GetSource(), a.GetDestination());
+  for (Edge a: e) printf("(%d, %d)\n",a.GetSource(), a.GetDestination());
 
   assert(g.GetDegree(1) == 2);
   assert(g.GetIncomingEdges(1).empty());
