@@ -30,7 +30,6 @@ bool Graph::AddVertex(int vertex) {
     return false;
   }
   mp[vertex] = mapping(vertex);
-  exist[vertex] = vertex;
   NR_vertices++;
   edges[mp[vertex]].clear();
   return true;
