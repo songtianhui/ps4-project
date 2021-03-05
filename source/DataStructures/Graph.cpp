@@ -75,7 +75,7 @@ bool Graph::ContainsVertex(int vertex) const {
 }
 
 bool Graph::ContainsEdge(int vertex1, int vertex2) const {
-  if (exist[vertex1] && exist[vertex2] && edges[vertex1][vertex2]) {
+  if (exist[vertex1] && exist[vertex2] && map[vertex1][vertex2]) {
     return true;
   }
   return false;
