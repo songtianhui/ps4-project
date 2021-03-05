@@ -15,7 +15,6 @@ int main() {
   assert(g.RemoveVertex(4) == true);
   assert(g.ContainsVertex(4) == false);
   assert(g.RemoveVertex(5) == false);
-  printf("Here\n");
 
   assert(g.AddEdge(1, 2) == true);
   assert(g.AddEdge(1, 3) == true);
@@ -26,6 +25,7 @@ int main() {
   assert(g.GetDegree(1) == 2);
   assert(g.GetIncomingEdges(1).empty());
   assert(g.GetOutgoingEdges(1).size() == 2);
+  printf("Here\n");
   assert(g.GetNeighbors(1).size() == 2);
   assert(g.GetNeighbors(2).empty());
 
