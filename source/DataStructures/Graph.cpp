@@ -113,7 +113,7 @@ std::vector<Edge> Graph::GetIncomingEdges(int vertex) const {
 std::vector<Edge> Graph::GetOutgoingEdges(int vertex) const {
   std::vector<Edge> ret;
   for (int i=0;i<MAXV; ++i) {
-    if (edges[vertex][i]) {
+    if (map[vertex][i]) {
       ret.push_back(Edge(vertex,i));
     }
   }
