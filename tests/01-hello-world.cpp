@@ -26,6 +26,7 @@ int main() {
   assert(g.ContainsEdge(1, 2) == true);
   assert(g.ContainsEdge(2, 5) == false);
 
+  printf("Here\n");
   std::vector<Edge> e = g.GetEdges();
   printf("Have edges: \n");
   for (Edge a: e) printf("(%d, %d)\n",a.GetSource(), a.GetDestination());
