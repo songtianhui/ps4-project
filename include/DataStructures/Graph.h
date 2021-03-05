@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <cstring>
 #include <DataStructures/Edge.h>
-#define MAXV 10005
+#define MAXV 1005
 
 class Graph {
  private:
