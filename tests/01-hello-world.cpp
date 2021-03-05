@@ -45,7 +45,9 @@ int main() {
   assert(g.GetNeighbors(1).size() == 2);
   assert(g.GetNeighbors(2).empty());
 
-  printf("1 has neighbours: \n");
+  assert(g.AddEdge(1,5) == true);
+
+  printf("v1 has neighbours: \n");
   for (int i: g.GetNeighbors(1)){
     printf("%d\n",i);
   }
