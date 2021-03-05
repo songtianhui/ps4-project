@@ -16,6 +16,9 @@ int main() {
   assert(g.ContainsVertex(4) == false);
   assert(g.RemoveVertex(5) == false);
 
+  std::vector<int> v = g.GetVertices();
+  for (int n: v) printf("%d\n",n);
+
   assert(g.AddEdge(1, 2) == true);
   assert(g.AddEdge(1, 3) == true);
   assert(g.AddEdge(2, 5) == false);
