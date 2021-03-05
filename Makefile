@@ -13,6 +13,12 @@ clean:
 		rm -r build; fi
 
 run:
+	@if [[ ! -e build/Makefile ]]; then \
+		mkdir -p build; \
+		cd build && cmake ..; fi
+	@make -C build
+
+
 	@./build/Test01
 
 submit:
