@@ -29,4 +29,5 @@ int main() {
   Edge e(1,2);
   assert(e.GetSource() == 1);
   assert(e.GetDestination() == 2);
+  printf("Successful!\n");
 }

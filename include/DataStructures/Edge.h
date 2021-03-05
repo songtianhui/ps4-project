@@ -19,7 +19,6 @@ Edge::Edge(int source, int destination){
 }
 
 Edge::~Edge(){
-
 }
 
 int Edge::GetSource() const {
