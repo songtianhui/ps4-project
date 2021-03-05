@@ -12,6 +12,9 @@ clean:
 	@if [[ -d build ]]; then \
 		rm -r build; fi
 
+run:
+	@./build/Test01
+
 submit:
 	$(eval TEMP := $(shell mktemp -d))
 	$(eval BASE := $(shell basename $(CURDIR)))
