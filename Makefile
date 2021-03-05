@@ -1,4 +1,4 @@
-.default = all
+.DEFAULT_GOAL := all
 TOKEN ?= submit
 SHELL := /bin/bash
 
