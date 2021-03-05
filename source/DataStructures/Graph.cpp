@@ -36,7 +36,7 @@ bool Graph::RemoveVertex(int vertex) {
 }
 
 bool Graph::AddEdge(int vertex1, int vertex2) {
-  if (!exist[vertex1] || !exist[vertex2] || edges[vertex1][vertex2]) {
+  if (!exist[vertex1] || !exist[vertex2] || map[vertex1][vertex2]) {
     return false;
   }
   map[vertex1][vertex2] = 1;
@@ -46,7 +46,7 @@ bool Graph::AddEdge(int vertex1, int vertex2) {
 }
 
 bool Graph::RemoveEdge(int vertex1, int vertex2) {
-  if (!exist[vertex1] || !exist[vertex2] || !edges[vertex1][vertex2]){
+  if (!exist[vertex1] || !exist[vertex2] || !map[vertex1][vertex2]){
     return false;
   }
   map[vertex1][vertex2] = 0;
