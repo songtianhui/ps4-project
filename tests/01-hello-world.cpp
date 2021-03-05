@@ -16,6 +16,9 @@ int main() {
 
   assert(g.AddVertex(1) == true);
   assert(g.GetNeighbors(1).size() == 0);
+  assert(g.ContainsVertex(1) == true);
+  assert(g.CountVertices() == 1);
+  assert(g.CountEdges() == 0);
 
   assert(g.AddVertex(2) == true);
   assert(g.AddVertex(3) == true);
@@ -38,4 +41,5 @@ int main() {
   assert(g.GetNeighbors(1).size() == 2);
   assert(g.GetNeighbors(2).empty());
 
+  printf("Successful!\n");
 }
