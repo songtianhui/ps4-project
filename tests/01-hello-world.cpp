@@ -26,6 +26,7 @@ int main() {
   assert(g.AddVertex(4) == true);
   assert(g.ContainsVertex(4) == true);
   assert(g.RemoveVertex(4) == true);
+  assert(g.CountVertices() == 3);
   assert(g.ContainsVertex(4) == false);
   assert(g.RemoveVertex(5) == false);
 
