@@ -2,17 +2,20 @@
 #define GRAPH_H
 
 #include <vector>
+#include <unordered_map>
 #include <cstring>
 #include <DataStructures/Edge.h>
 #define MAXV 10005
 
 class Graph {
  private:
-  bool exist[MAXV];
+  int exist[MAXV];     //映射值对应的原值，0表示没有用
   int map[MAXV][MAXV];  //邻接矩阵, [from][to]
   std::vector<int> edges[MAXV];
   int NR_vertices;
   int NR_edges;
+ private:
+  std::unordered_map<int, int> mp;  //把编号离散到1~1000
 
  public:
   Graph();
@@ -33,6 +36,8 @@ class Graph {
   std::vector<Edge> GetOutgoingEdges(int vertex) const;
   int GetDegree(int vertex) const;
   std::vector<int> GetNeighbors(int vertex) const;
+ public:
+  int mapping(int vertex);
 };
 
 #endif
