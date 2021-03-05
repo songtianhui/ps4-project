@@ -11,7 +11,8 @@ int main() {
   assert(g.CountEdges() == 0);
   assert(g.GetIncomingEdges(3).size() == 0);
   assert(g.RemoveEdge(1,2) == false);
-
+  assert(g.ContainsEdge(5,6) == false);
+  assert(g.ContainsVertex(2) == false);
 
   assert(g.AddVertex(1) == true);
   assert(g.AddVertex(2) == true);
