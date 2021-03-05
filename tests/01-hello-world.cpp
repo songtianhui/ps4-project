@@ -51,13 +51,12 @@ int main() {
   assert(g.AddEdge(1,9) == true);
   assert(g.AddEdge(15,1) == true);
   
+  assert(g.RemoveEdge(1,5) == true);
 
   printf("v1 has neighbours: \n");
   for (int i: g.GetNeighbors(1)){
     printf("%d\n",i);
   }
-
-  
 
   printf("Successful!\n");
 }
