@@ -18,6 +18,10 @@ Edge::Edge(int source, int destination){
   destination = destination;
 }
 
+Edge::~Edge(){
+
+}
+
 int Edge::GetSource() const {
   return source;
 }
