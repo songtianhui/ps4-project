@@ -4,7 +4,7 @@
 #include <vector>
 #include <cstring>
 #include <DataStructures/Edge.h>
-#define MAXV 1005
+#define MAXV 10005
 
 class Graph {
  private:
