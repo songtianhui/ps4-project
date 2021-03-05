@@ -26,4 +26,8 @@ class Graph {
   std::vector<int> GetNeighbors(int vertex) const;
 };
 
+void Graph::Graph(){
+
+}
+
 #endif
