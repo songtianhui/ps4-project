@@ -99,6 +99,9 @@ std::vector<Edge> Graph::GetEdges() const {
       }
     }
   }
+  for (Edge e: alledges) {
+    printf("(%d, %d)\n", e.GetSource(), e.GetDestination());
+  }
   return alledges;
 }
 
