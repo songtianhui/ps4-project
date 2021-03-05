@@ -15,6 +15,8 @@ int main() {
   assert(g.ContainsVertex(2) == false);
 
   assert(g.AddVertex(1) == true);
+  assert(g.GetNeighbors(1).size() == 0);
+
   assert(g.AddVertex(2) == true);
   assert(g.AddVertex(3) == true);
   assert(g.AddVertex(3) == false);
