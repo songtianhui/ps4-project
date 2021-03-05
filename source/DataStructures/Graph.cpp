@@ -4,7 +4,7 @@
 
 int Graph::mapping(int vertex) {
   for (int i=1; i<MAXV; ++i) {
-    if (exist[i] < 0) {  //该映射值还没有用
+    if (exist[i] == 0) {  //该映射值还没有用
       exist[i] = vertex;
       return i;
     }
