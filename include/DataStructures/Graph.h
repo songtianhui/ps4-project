@@ -54,7 +54,7 @@ bool Graph::AddVertex(int vertex) {
     exist[vertex] = true;
     degree[vertex] = 0;
     NR_vertices++;
-    return false;
+    return true;
   }
   return false;
 }
