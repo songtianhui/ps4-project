@@ -2,6 +2,7 @@
 #define GRAPH_H
 
 #include <vector>
+#include <cstring>
 #include <DataStructures/Edge.h>
 #define MAXV 1000
 
@@ -37,14 +38,8 @@ class Graph {
 
 Graph::Graph() {
   for (int i=0; i<MAXV; ++i) {
-    //memset(edges, 0, sizeof(edges));
-    //memset(exist, false, sizeof(exist));
-    for (int i=0; i<MAXV; ++i) {
-      for (int j=0; j<MAXV; ++j) {
-        edges[i][j] = 0;
-      }
-      exist[i] = false;
-    }
+    memset(edges, 0, sizeof(edges));
+    memset(exist, false, sizeof(exist));
     Edges.clear();
     NR_edges = NR_vertices = 0;
   }
