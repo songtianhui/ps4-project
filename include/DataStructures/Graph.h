@@ -7,6 +7,16 @@
 #include <DataStructures/Edge.h>
 #define MAXV 1005
 
+#define RED "\33[1;31m"
+#define ORI "\33[0m"
+#define Assert(_con,_fmt,...) \
+ do{\
+     if(!(_con)){\
+         fprintf(stderr,RED "Assertion failed:\nLine: %d" _fmt, __LINE__ ,##__VA_ARGS__);\
+         assert(0);\
+     }\
+ }while(0)
+
 class Graph {
  private:
   int exist[MAXV];     //映射值对应的原值，0表示没有用

@@ -1,6 +1,6 @@
 #include <DataStructures/Graph.h>
 #include <cassert>
-#include <cstdio>
+
 
 int Graph::mapping(int vertex) {
   for (int i=1; i<MAXV; ++i) {
