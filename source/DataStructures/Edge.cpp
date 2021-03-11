@@ -1,18 +1,18 @@
 #include <DataStructures/Edge.h>
 
-Edge::Edge(int source, int destination){
-  this->source = source;
-  this->destination = destination;
+Edge::Edge(int source, int destination) {
+    this->source = source;
+    this->destination = destination;
 }
 
-Edge::~Edge(){
+Edge::~Edge() {
 }
 
 int Edge::GetSource() const {
-  return source;
+    return source;
 }
 
 int Edge::GetDestination() const {
-  return destination;
+    return destination;
 }
 
