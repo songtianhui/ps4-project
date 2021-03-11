@@ -1,6 +1,18 @@
 #include <DataStructures/Graph.h>
 #include <cassert>
 
+void Graph::update_list() {
+    int n = 0;
+    for (int i = 0; i < MAXV; ++i) {
+        if (exist[i]) {
+            for (auto it = edges[i].begin(); it != edges[i].end(); ++it) {
+                if (!map[i][*it]) edges[i].erase(it);
+                else n++;
+            }
+        }
+    }
+    assert(n == NR_edges);
+}
 
 int Graph::mapping(int vertex) {
   for (int i=1; i<MAXV; ++i) {
@@ -9,7 +21,7 @@ int Graph::mapping(int vertex) {
       return i;
     }
   }
-  assert(0);
+  Assert(0, "Exceed the max number of vertices\n");
 }
 
 Graph::Graph() {
@@ -41,12 +53,21 @@ bool Graph::RemoveVertex(int vertex) {
     vertex = mp[vertex];
     mp.erase(it);       //映射值取消
     exist[vertex] = 0;
+
     NR_vertices--;
     edges[vertex].clear();
     for (int i = 0; i < MAXV; ++i) {
-      if(map[vertex][i]) map[vertex][i] = 0;
-      if(map[i][vertex]) map[i][vertex] = 0;
+      if(map[vertex][i]) {
+          map[vertex][i] = 0;
+          NR_edges--;
+      }
+      if(map[i][vertex]) {
+          map[i][vertex] = 0;
+          NR_edges--;
+      }
     }
+    update_list();
+    //邻接链表也要删不过有点烦？
     return true;
   }
   return false;
@@ -60,7 +81,9 @@ bool Graph::AddEdge(int vertex1, int vertex2) {
   }
   vertex1 = mp[vertex1];
   vertex2 = mp[vertex2];
+
   if (map[vertex1][vertex2] == 1) return false;
+
   map[vertex1][vertex2] = 1;
   edges[vertex1].push_back(vertex2);
   NR_edges++;
@@ -73,9 +96,12 @@ bool Graph::RemoveEdge(int vertex1, int vertex2) {
   if (it1==mp.end() || it2==mp.end()) {
     return false;
   }
+
   vertex1 = mp[vertex1];
   vertex2 = mp[vertex2];
+
   if (map[vertex1][vertex2] == 0) return false;
+
   map[vertex1][vertex2] = 0;
   for (auto it=edges[vertex1].begin(); it != edges[vertex1].end(); ) {
     if (*it == vertex2) {

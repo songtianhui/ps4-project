@@ -29,7 +29,6 @@ void v1_nei(){
 }
 
 int main() {
-    Assert(0, "Assert test\n");
     assert(g.GetDegree(2) == 0);
   assert(g.CountVertices() == 0);
   assert(g.CountEdges() == 0);
