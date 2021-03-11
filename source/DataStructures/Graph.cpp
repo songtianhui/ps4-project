@@ -66,7 +66,7 @@ bool Graph::RemoveVertex(int vertex) {
           NR_edges--;
       }
     }
-    update_list();
+    //update_list();
     //邻接链表也要删不过有点烦？
     return true;
   }
