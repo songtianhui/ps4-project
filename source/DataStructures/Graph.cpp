@@ -21,7 +21,7 @@ int Graph::mapping(int vertex) {
       return i;
     }
   }
-  Assert(0, "Exceed the max number of vertices\n");
+  Assert(0, "Exceed the max number of vertices!\n");
 }
 
 Graph::Graph() {
