@@ -5,9 +5,9 @@ void Graph::update_list() {
     int n = 0;
     for (int i = 0; i < MAXV; ++i) {
         if (exist[i]) {
-            for (auto it = edges[i].begin(); it != edges[i].end(); ++it) {
-                if (!map[i][*it]) edges[i].erase(it);
-                else n++;
+            for (auto it = edges[i].begin(); it != edges[i].end(); ) {
+                if (!map[i][*it]) it = edges[i].erase(it);
+                else n++, it++;
             }
         }
     }
