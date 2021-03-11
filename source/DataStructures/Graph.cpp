@@ -103,14 +103,15 @@ bool Graph::RemoveEdge(int vertex1, int vertex2) {
   if (map[vertex1][vertex2] == 0) return false;
 
   map[vertex1][vertex2] = 0;
-  for (auto it=edges[vertex1].begin(); it != edges[vertex1].end(); ) {
-    if (*it == vertex2) {
-      it = edges[vertex1].erase(it);
-    } else {
-      ++it;
-    }
-  }
   NR_edges--;
+  update_list();
+//  for (auto it=edges[vertex1].begin(); it != edges[vertex1].end(); ) {
+//    if (*it == vertex2) {
+//      it = edges[vertex1].erase(it);
+//    } else {
+//      ++it;
+//    }
+//  }
   return true;
 }
 
