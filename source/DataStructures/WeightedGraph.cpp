@@ -3,6 +3,7 @@
 //
 
 #include <DataStructures/WeightedGraph.h>
+#include <cassert>
 
 WeightedGraph::WeightedGraph() : Graph() {
     weight.clear();
@@ -23,5 +24,7 @@ int WeightedGraph::GetWeight(int vertex1, int vertex2) const {
     auto it1 = mp.find(vertex1);
     auto it2 = mp.find(vertex2);
     if (it1 == mp.end() || it2 == mp.end()) return 0;
-    return weight[std::make_pair(mp[vertex1], mp[vertex2])];
+    auto it = weight.find(std::make_pair(it1->second, it2->second));
+    assert(it != weight.end());
+    return it->second;
 }
