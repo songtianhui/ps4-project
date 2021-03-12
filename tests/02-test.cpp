@@ -27,6 +27,7 @@ int main() {
     assert(g.AddEdge(1, 1000, 1) == false);
     assert(g.AddEdge(1,2, 12) == false);
 
+
     std::vector<WeightedEdge> es = g.GetEdges();
     std::vector<WeightedEdge> in = g.GetIncomingEdges(1000);
     std::vector<WeightedEdge> out = g.GetOutgoingEdges(1000);
@@ -34,6 +35,13 @@ int main() {
     printf("es: \n"); printvector(&es);
     printf("in: \n"); printvector(&in);
     printf("out: \n"); printvector(&out);
+
+    for (auto &e : es) {
+        int s = e.GetSource();
+        int d = e.GetDestination();
+        int w = e.GetWeight();
+        assert(g.GetWeight(s,d) == w);
+    }
 
     printf("OK\n");
     return 0;
