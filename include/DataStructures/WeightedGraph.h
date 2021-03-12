@@ -6,6 +6,7 @@
 #define GRAPHLIBRARY_WEIGHTEDGRAPH_H
 
 #include <DataStructures/Graph.h>
+#include <DataStructures/WeightedEdge.h>
 #include <map>
 
 class WeightedGraph : public Graph {

@@ -3,7 +3,6 @@
 //
 
 #include <DataStructures/WeightedGraph.h>
-#include <DataStructures/WeightedEdge.h>
 #include <cassert>
 
 WeightedGraph::WeightedGraph() : Graph(){
