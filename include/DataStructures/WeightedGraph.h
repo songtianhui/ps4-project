@@ -6,11 +6,11 @@
 #define GRAPHLIBRARY_WEIGHTEDGRAPH_H
 
 #include <DataStructures/Graph.h>
-#include <unordered_map>
+#include <map>
 
 class WeightedGraph : public Graph {
 private:
-    std::unordered_map<std::pair<int, int>, int> weight;
+    std::map<std::pair<int, int>, int> weight;
 
 public:
     WeightedGraph();

@@ -5,7 +5,8 @@
 #include <DataStructures/WeightedGraph.h>
 #include <cassert>
 
-WeightedGraph::WeightedGraph(){
+WeightedGraph::WeightedGraph() : Graph(){
+    weight.clear();
 }
 
 WeightedGraph::~WeightedGraph() {}
