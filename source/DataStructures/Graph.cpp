@@ -66,7 +66,7 @@ bool Graph::RemoveVertex(int vertex) {
                 NR_edges--;
             }
         }
-        update_list();
+        //update_list();
         //邻接链表也要删不过有点烦？
         return true;
     }
@@ -104,7 +104,7 @@ bool Graph::RemoveEdge(int vertex1, int vertex2) {
 
     map[vertex1][vertex2] = 0;
     NR_edges--;
-    update_list();
+    //update_list();
 //  for (auto it=edges[vertex1].begin(); it != edges[vertex1].end(); ) {
 //    if (*it == vertex2) {
 //      it = edges[vertex1].erase(it);
