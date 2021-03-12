@@ -38,7 +38,7 @@ std::vector<WeightedEdge> WeightedGraph::giveweight(std::vector<Edge> *es) const
         auto t2 = mp.find(d);
         assert(t1 != mp.end() && t2 != mp.end());
         auto t = weight.find(std::make_pair(t1->second, t2->second));
-        Wedges.push_back(WeightedEdge(t1->second, t2->second, t->second));
+        Wedges.push_back(WeightedEdge(t1->first, t2->first, t->second));
     }
     return Wedges;
 }
