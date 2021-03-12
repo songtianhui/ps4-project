@@ -2,7 +2,7 @@
 // Created by sth on 3/12/21.
 //
 
-#include <Edge.h>
+#include <DataStructures/Edge.h>
 #ifndef GRAPHLIBRARY_WEIGHTEDEDGE_H
 #define GRAPHLIBRARY_WEIGHTEDEDGE_H
 
