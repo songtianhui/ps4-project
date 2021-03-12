@@ -4,6 +4,7 @@
 
 #include <DataStructures/WeightedGraph.h>
 #include <cassert>
+#include <vector>
 
 WeightedGraph::WeightedGraph() : Graph(){
     weight.clear();
