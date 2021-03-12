@@ -166,7 +166,7 @@ std::vector<Edge> Graph::GetIncomingEdges(int vertex) const {
 
     for (int i = 1; i < MAXV; ++i) {
         if (map[i][vertex]) {
-            ret.push_back(Edge(it->first, exist[vertex]));
+            ret.push_back(Edge(exist[i], it->first));
         }
     }
     return ret;
