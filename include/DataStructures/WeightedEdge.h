@@ -12,7 +12,14 @@ private:
 
 public:
     WeightedEdge(int source, int destination, int weight);
-    int GetWeight();
+
+    int GetWeight() const;
+
+    std::vector<WeightedEdge> GetEdges() const;
+
+    std::vector<WeightedEdge> GetIncomingEdges(int vertex) const;
+
+    std::vector<WeightedEdge> GetOutgoingEdges(int vertex) const;
 };
 
 #endif //GRAPHLIBRARY_WEIGHTEDEDGE_H

@@ -28,3 +28,36 @@ int WeightedGraph::GetWeight(int vertex1, int vertex2) const {
     assert(it != weight.end());
     return it->second;
 }
+
+std::vector<WeightedEdge> WeightedGraph::giveweight(std::vector<Edge> *es) const {
+    std::vector<WeightedEdge> Wedges;
+    for (auto &e : *es) {
+        int s = e.GetSource();
+        int d = e.GetDestination();
+        auto t1 = mp.find(s);
+        auto t2 = mp.find(d);
+        assert(t1 != mp.end() && t2 != mp.end());
+        auto t = weight.find(std::make_pair(t1->second, t2->second));
+        Wedges.push_back(WeightedEdge(t1->second, t2->second, t->second));
+    }
+    return Wedges;
+}
+
+std::vector<WeightedEdge> WeightedGraph::GetEdges() const {
+    std::vector<Edge> alledges = Graph::GetEdges();
+    std::vector<WeightedEdge> allwedges;
+    allwedges = giveweight(&alledges);
+    return allwedges;
+}
+
+std::vector<WeightedEdge> WeightedGraph::GetIncomingEdges(int vertex) const {
+    std::vector<Edge> in = Graph::GetIncomingEdges(vertex);
+    std::vector<WeightedEdge> inw = giveweight(&in);
+    return inw;
+}
+
+std::vector<WeightedEdge> WeightedGraph::GetOutgoingEdges(int vertex) const {
+    std::vector<Edge> out = Graph::GetOutgoingEdges(vertex);
+    std::vector<WeightedEdge> outw = giveweight(&out);
+    return outw;
+}

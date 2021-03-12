@@ -8,6 +8,8 @@ WeightedEdge::WeightedEdge(int source, int destination, int weight) : Edge(sourc
     this->weight = weight;
 }
 
-int WeightedEdge::GetWeight() {
+int WeightedEdge::GetWeight() const {
     return weight;
 }
+
+int WeightedEdge::GetEdges() const {}

@@ -13,6 +13,8 @@ class WeightedGraph : public Graph {
 private:
     std::map<std::pair<int, int>, int> weight;
 
+private:
+    std::vector<WeightedEdge> giveweight(std::vector<Edge> *es) const;
 public:
     WeightedGraph();
 
@@ -23,6 +25,12 @@ public:
 
 public:
     int GetWeight(int vertex1, int vertex2) const;  //查询v1指向v2的边的权重，如果这条边不存在则属于UB
+
+    std::vector<WeightedEdge> GetEdges() const;
+
+    std::vector<WeightedEdge> GetIncomingEdges(int vertex) const;
+
+    std::vector<WeightedEdge> GetOutgoingEdges(int vertex) const;
 
 };
 
