@@ -179,13 +179,16 @@ std::vector<Edge> Graph::GetOutgoingEdges(int vertex) const {
     vertex = it->second;
 
     for (int next: edges[vertex]) {
-        ret.push_back(Edge(it->first, exist[next]));
+        if (map[it->second][next])
+            ret.push_back(Edge(it->first, exist[next]));
     }
     return ret;
 }
 
 int Graph::GetDegree(int vertex) const {
-    if (mp.find(vertex) == mp.end()) return 0;
+    auto it = mp.find(vertex);
+    if (it == mp.end()) return 0;
+    vertex = it->second;
     return edges[vertex].size();
 }
 
@@ -195,3 +198,4 @@ std::vector<int> Graph::GetNeighbors(int vertex) const {
     return edges[vertex];
 }
 
+//邻接链表和矩阵的协调不太好，链表删除点容易超时，暂时不维护链表?
