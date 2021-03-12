@@ -6,7 +6,6 @@
 #include <cassert>
 
 WeightedGraph::WeightedGraph(){
-    weight.clear();
 }
 
 WeightedGraph::~WeightedGraph() {}
