@@ -1,0 +1,8 @@
+//
+// Created by sth on 3/12/21.
+//
+
+#ifndef GRAPHLIBRARY_WEIGHTEDEDGE_H
+#define GRAPHLIBRARY_WEIGHTEDEDGE_H
+
+#endif //GRAPHLIBRARY_WEIGHTEDEDGE_H
