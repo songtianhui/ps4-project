@@ -8,6 +8,7 @@
 #include <DataStructures/Graph.h>
 #include <DataStructures/WeightedEdge.h>
 #include <map>
+#include <vector>
 
 class WeightedGraph : public Graph {
 private:
