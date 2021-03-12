@@ -1,10 +1,10 @@
 #include <cassert>
 #include <cstdio>
-#include <DataStructures/Graph.h>
+#include <DataStructures/WeightedGraph.h>
 
 using namespace std;
 
-Graph g;
+WeightedGraph g;
 
 void print_edge() {
     printf("all edges: \n");
@@ -57,10 +57,10 @@ int main() {
     assert(g.RemoveVertex(5) == false);
     assert(g.AddVertex(5) == true);
 
-    assert(g.AddEdge(1, 2) == true);
-    assert(g.AddEdge(1, 2) == false);
-    assert(g.AddEdge(1, 3) == true);
-    assert(g.AddEdge(2, 6) == false);
+    assert(g.AddEdge(1, 2, 1) == true);
+    assert(g.AddEdge(1, 2, 2) == false);
+    assert(g.AddEdge(1, 3, 3) == true);
+    assert(g.AddEdge(2, 6, 4) == false);
     assert(g.ContainsEdge(1, 2) == true);
     assert(g.ContainsEdge(2, 6) == false);
 
@@ -72,9 +72,9 @@ int main() {
 
     assert(g.AddVertex(9) == true);
     assert(g.AddVertex(15) == true);
-    assert(g.AddEdge(1, 5) == true);
-    assert(g.AddEdge(1, 9) == true);
-    assert(g.AddEdge(15, 1) == true);
+    assert(g.AddEdge(1, 5, 5) == true);
+    assert(g.AddEdge(1, 9, 6) == true);
+    assert(g.AddEdge(15, 1, 7) == true);
 
     assert(g.RemoveEdge(1, 5) == true);
 
@@ -82,9 +82,9 @@ int main() {
     print_edge();
     v1_nei();
 
-    assert(g.AddEdge(2, 9) == true);
-    assert(g.AddEdge(9, 5) == true);
-    assert(g.AddEdge(5, 5) == true);
+    assert(g.AddEdge(2, 9, 8) == true);
+    assert(g.AddEdge(9, 5, 9) == true);
+    assert(g.AddEdge(5, 5, 10) == true);
 
     print_vertex();
     print_edge();
