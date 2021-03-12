@@ -31,9 +31,9 @@ int main() {
     std::vector<WeightedEdge> in = g.GetIncomingEdges(1000);
     std::vector<WeightedEdge> out = g.GetOutgoingEdges(1000);
 
-    printf("es: "); printvector(&es);
-    printf("in: "); printvector(&in);
-    printf("out: "); printvector(&out);
+    printf("es: \n"); printvector(&es);
+    printf("in: \n"); printvector(&in);
+    printf("out: \n"); printvector(&out);
 
     printf("OK\n");
     return 0;
