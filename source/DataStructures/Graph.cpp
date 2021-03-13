@@ -145,7 +145,7 @@ std::vector<Edge> Graph::GetEdges() const {
     for (int i = 1; i < MAXV; ++i) {
         for (int j = 1; j < MAXV; ++j) {
             if (map[i][j]) {
-                alledges.push_back(Edge(exist[i], exist[j]));
+                alledges.emplace_back(Edge(exist[i], exist[j]));
             }
         }
     }
@@ -160,7 +160,7 @@ std::vector<Edge> Graph::GetIncomingEdges(int vertex) const {
 
     for (int i = 1; i < MAXV; ++i) {
         if (map[i][vertex]) {
-            ret.push_back(Edge(exist[i], it->first));
+            ret.emplace_back(Edge(exist[i], it->first));
         }
     }
     return ret;
@@ -174,7 +174,7 @@ std::vector<Edge> Graph::GetOutgoingEdges(int vertex) const {
 
     for (int i = 1; i < MAXV; ++i) {
         if (map[vertex][i]) {
-            ret.push_back(Edge(it->first, exist[i]));
+            ret.emplace_back(Edge(it->first, exist[i]));
         }
     }
     return ret;
