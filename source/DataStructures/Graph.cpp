@@ -134,8 +134,11 @@ bool Graph::ContainsEdge(int vertex1, int vertex2) const {
 
 std::vector<int> Graph::GetVertices() const {
     std::vector<int> allvertices;
-    for (int i = 1; i < MAXV; ++i) {
-        if (exist[i]) allvertices.push_back(exist[i]);
+//    for (int i = 1; i < MAXV; ++i) {
+//        if (exist[i]) allvertices.push_back(exist[i]);
+//    }
+    for (auto it = mp.begin(); it != mp.end(); ++it) {
+        allvertices.push_back(it->first);
     }
     return allvertices;
 }
