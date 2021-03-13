@@ -56,7 +56,7 @@ bool Graph::RemoveVertex(int vertex) {
 
         NR_vertices--;
 //        edges[vertex].clear();
-        for (int i = 0; i < MAXV; ++i) {
+        for (int i = 1; i < MAXV; ++i) {
             if (map[vertex][i]) {
                 map[vertex][i] = 0;
                 NR_edges--;
