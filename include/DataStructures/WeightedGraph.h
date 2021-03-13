@@ -12,7 +12,6 @@
 
 class WeightedGraph : public Graph {
 private:
-//    std::map<std::pair<int, int>, int> weights;
     int weights[MAXV][MAXV];
 
 private:

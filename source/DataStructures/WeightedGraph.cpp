@@ -12,7 +12,6 @@ WeightedGraph::WeightedGraph() : Graph(){
 WeightedGraph::~WeightedGraph() {}
 
 bool WeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
-
     bool succ = Graph::AddEdge(vertex1, vertex2);
     if (succ) {
         vertex1 = Getmap(vertex1);
@@ -21,11 +20,6 @@ bool WeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
         return true;
     }
     return false;
-//    if (succ) {
-//        weights[std::make_pair(vertex1, vertex2)] = weight;
-//        return true;
-//    }
-//    return false;
 }
 
 
@@ -33,9 +27,6 @@ int WeightedGraph::GetWeight(int vertex1, int vertex2) const {
     vertex1 = Getmap(vertex1);
     vertex2 = Getmap(vertex2);
     return weights[vertex1][vertex2];
-//    auto it = weights.find(std::make_pair(vertex1, vertex2));
-//    if (it != weights.end()) return it->second;
-//    return 0;
 }
 
 std::vector<WeightedEdge> WeightedGraph::giveweight(std::vector<Edge> *es) const {

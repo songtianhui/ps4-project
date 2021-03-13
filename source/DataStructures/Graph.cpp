@@ -1,21 +1,8 @@
 #include <DataStructures/Graph.h>
 #include <cassert>
 
-//void Graph::update_list() {
-//    int n = 0;
-//    for (int i = 0; i < MAXV; ++i) {
-//        if (exist[i]) {
-//            for (auto it = edges[i].begin(); it != edges[i].end();) {
-//                if (!map[i][*it]) it = edges[i].erase(it);
-//                else n++, it++;
-//            }
-//        }
-//    }
-//    assert(n == NR_edges);
-//}
-
 int Graph::mapping(int vertex) {
-    for (int i = 1; i <= 1000; ++i) {   //1~1000是有效映射值
+    for (int i = 1; i <= 1001; ++i) {   //1~1001是有效映射值
         if (exist[i] == 0) {  //该映射值还没有用
             exist[i] = vertex;
             return i;
@@ -134,9 +121,6 @@ bool Graph::ContainsEdge(int vertex1, int vertex2) const {
 
 std::vector<int> Graph::GetVertices() const {
     std::vector<int> allvertices;
-//    for (int i = 1; i < MAXV; ++i) {
-//        if (exist[i]) allvertices.push_back(exist[i]);
-//    }
     for (auto it = mp.begin(); it != mp.end(); ++it) {
         allvertices.push_back(it->first);
     }
@@ -193,7 +177,6 @@ int Graph::GetDegree(int vertex) const {
         if (map[vertex][i]) ans++;
     }
     return ans;
-//    return edges[vertex].size();
 }
 
 std::vector<int> Graph::GetNeighbors(int vertex) const {
@@ -207,7 +190,6 @@ std::vector<int> Graph::GetNeighbors(int vertex) const {
     }
 
     return nei;
-    //return edges[vertex];
 }
 
 //邻接链表和矩阵的协调不太好，链表删除点容易超时，暂时不维护链表?
