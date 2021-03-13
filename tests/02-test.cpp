@@ -54,6 +54,8 @@ int main() {
     std::vector<WeightedEdge> es2 = g.GetEdges();
     printf("es2: \n"); printvector(&es2);
 
+    printf("NR_edge = %d\n", g.CountEdges());
+
 
     printf("OK\n");
     return 0;
