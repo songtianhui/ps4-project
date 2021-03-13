@@ -3,7 +3,8 @@
 
 int Graph::mapping(int vertex) {
     for (int i = 1; i <= 1001; ++i) {   //1~1001是有效映射值
-        if (key[i] == 0) {  //该映射值还没有用
+        if (!used[i]) {  //该映射值还没有用
+            used[i] = true;
             key[i] = vertex;
             return i;
         }
@@ -19,6 +20,7 @@ int Graph::Getmap(int vertex) const {
 }
 
 Graph::Graph() {
+    memset(used, false, sizeof used);
     memset(key, 0, sizeof(key));
     memset(map, 0, sizeof(map));
     NR_edges = NR_vertices = 0;
@@ -45,7 +47,7 @@ bool Graph::RemoveVertex(int vertex) {
 
     vertex = it->second;
     mp.erase(it);       //映射值取消
-    key[vertex] = 0;
+    used[vertex] = false;
 
     NR_vertices--;
     for (int i = 1; i < MAXV; ++i) {
