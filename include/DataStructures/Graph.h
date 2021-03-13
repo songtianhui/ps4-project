@@ -20,8 +20,8 @@
 
 class Graph {
 private:
-    int exist[MAXV];     //映射值对应的原值，0表示没有用
-    int map[MAXV][MAXV];  //邻接矩阵, [from][to]
+    int exist[MAXV + 1];     //映射值对应的原值，0表示没有用
+    int map[MAXV + 1][MAXV + 1];  //邻接矩阵, [from][to]
     //std::vector<int> edges[MAXV]; //邻接链表
     int NR_vertices;
     int NR_edges;

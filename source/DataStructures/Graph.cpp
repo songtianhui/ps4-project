@@ -97,8 +97,8 @@ bool Graph::RemoveEdge(int vertex1, int vertex2) {
         return false;
     }
 
-    vertex1 = mp[vertex1];
-    vertex2 = mp[vertex2];
+    vertex1 = it1->second;
+    vertex2 = it2->second;
 
     if (map[vertex1][vertex2] == 0) return false;
 
@@ -205,9 +205,10 @@ std::vector<int> Graph::GetNeighbors(int vertex) const {
     if (it == mp.end()) return nei;
     vertex = it->second;
 
-    for (int i = 0; i < MAXV; ++i) {
+    for (int i = 1; i < MAXV; ++i) {
         if (map[vertex][i]) nei.push_back(exist[i]);
     }
+    return nei;
     //return edges[vertex];
 }
 
