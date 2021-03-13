@@ -12,7 +12,7 @@
 
 class WeightedGraph : public Graph {
 private:
-    std::map<std::pair<int, int>, int> weight;
+    std::map<std::pair<int, int>, int> weights;
 
 private:
     std::vector<WeightedEdge> giveweight(std::vector<Edge> *es) const;
