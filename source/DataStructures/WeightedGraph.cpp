@@ -20,6 +20,16 @@ bool WeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
     return false;
 }
 
+bool WeightedGraph::RemoveEdge(int vertex1, int vertex2) {
+    bool succ = Graph::RemoveEdge(vertex1, vertex2);
+    if (succ) {
+        auto it = weight.find(std::make_pair(mp[vertex1], mp[vertex2]));
+        weight.erase(it);
+        return true;
+    }
+    return false;
+}
+
 int WeightedGraph::GetWeight(int vertex1, int vertex2) const {
     auto it1 = mp.find(vertex1);
     auto it2 = mp.find(vertex2);
