@@ -35,6 +35,7 @@ int main() {
     std::vector<int> vs = g.GetVertices();
 
     printf("vs: \n"); for (int i : vs) printf("%d\n", i);
+    printf("NR_v = %d\n", g.CountVertices());
 
     printf("es: \n"); printvector(&es);
     printf("in: \n"); printvector(&in);
