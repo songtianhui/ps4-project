@@ -1,18 +1,18 @@
 #include <DataStructures/Graph.h>
 #include <cassert>
 
-void Graph::update_list() {
-    int n = 0;
-    for (int i = 0; i < MAXV; ++i) {
-        if (exist[i]) {
-            for (auto it = edges[i].begin(); it != edges[i].end();) {
-                if (!map[i][*it]) it = edges[i].erase(it);
-                else n++, it++;
-            }
-        }
-    }
-    assert(n == NR_edges);
-}
+//void Graph::update_list() {
+//    int n = 0;
+//    for (int i = 0; i < MAXV; ++i) {
+//        if (exist[i]) {
+//            for (auto it = edges[i].begin(); it != edges[i].end();) {
+//                if (!map[i][*it]) it = edges[i].erase(it);
+//                else n++, it++;
+//            }
+//        }
+//    }
+//    assert(n == NR_edges);
+//}
 
 int Graph::mapping(int vertex) {
     for (int i = 1; i < MAXV; ++i) {
@@ -27,7 +27,7 @@ int Graph::mapping(int vertex) {
 Graph::Graph() {
     memset(exist, 0, sizeof(exist));
     memset(map, 0, sizeof(map));
-    for (int i = 0; i < MAXV; ++i) edges[i].clear();
+//    for (int i = 0; i < MAXV; ++i) edges[i].clear();
     NR_edges = NR_vertices = 0;
 
     mp.clear();
@@ -43,7 +43,7 @@ bool Graph::AddVertex(int vertex) {
     }
     mp[vertex] = mapping(vertex);
     NR_vertices++;
-    edges[mp[vertex]].clear();
+//    edges[mp[vertex]].clear();
     return true;
 }
 
@@ -55,7 +55,7 @@ bool Graph::RemoveVertex(int vertex) {
         exist[vertex] = 0;
 
         NR_vertices--;
-        edges[vertex].clear();
+//        edges[vertex].clear();
         for (int i = 0; i < MAXV; ++i) {
             if (map[vertex][i]) {
                 map[vertex][i] = 0;
@@ -85,7 +85,7 @@ bool Graph::AddEdge(int vertex1, int vertex2) {
     if (map[vertex1][vertex2] == 1) return false;
 
     map[vertex1][vertex2] = 1;
-    edges[vertex1].push_back(vertex2);
+//    edges[vertex1].push_back(vertex2);
     NR_edges++;
     return true;
 }
@@ -178,9 +178,10 @@ std::vector<Edge> Graph::GetOutgoingEdges(int vertex) const {
     if (it == mp.end()) return ret;
     vertex = it->second;
 
-    for (int next: edges[vertex]) {
-        if (map[it->second][next])
-            ret.push_back(Edge(it->first, exist[next]));
+    for (int i = 1; i < MAXV; ++i) {
+        if (map[vertex][i]) {
+            ret.push_back(Edge(it->first, exist[i]));
+        }
     }
     return ret;
 }
@@ -189,13 +190,24 @@ int Graph::GetDegree(int vertex) const {
     auto it = mp.find(vertex);
     if (it == mp.end()) return 0;
     vertex = it->second;
-    return edges[vertex].size();
+
+    int ans = 0;
+    for (int i = 0; i < MAXV; ++i) {
+        if (map[vertex][i]) ans++;
+    }
+    return ans;
+//    return edges[vertex].size();
 }
 
 std::vector<int> Graph::GetNeighbors(int vertex) const {
     std::vector<int> a;
-    if (mp.find(vertex) == mp.end()) return a;
-    return edges[vertex];
+    auto it = mp.find(vertex);
+    if (it == mp.end()) return a;
+    vertex = it->second;
+    for (int i = 0; i < MAXV; ++i) {
+        if (map[vertex][i]) a.push_back(it->first);
+    }
+    //return edges[vertex];
 }
 
 //邻接链表和矩阵的协调不太好，链表删除点容易超时，暂时不维护链表?
