@@ -32,6 +32,9 @@ int main() {
     std::vector<WeightedEdge> es = g.GetEdges();
     std::vector<WeightedEdge> in = g.GetIncomingEdges(1000);
     std::vector<WeightedEdge> out = g.GetOutgoingEdges(1000);
+    std::vector<int> vs = g.GetVertices();
+
+    printf("vs: \n"); for (int i : vs) printf("%d\n", i);
 
     printf("es: \n"); printvector(&es);
     printf("in: \n"); printvector(&in);
