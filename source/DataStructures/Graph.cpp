@@ -116,6 +116,7 @@ bool Graph::RemoveEdge(int vertex1, int vertex2) {
 }
 
 int Graph::CountVertices() const {
+    assert(NR_vertices == mp.size());
     return NR_vertices;
 }
 

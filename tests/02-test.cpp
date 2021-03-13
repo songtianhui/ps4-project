@@ -64,6 +64,7 @@ int main() {
 //    g.RemoveEdge(99999, 1);
 
     std::vector<int> vs2 = g.GetVertices();
+    printf("NR_v = %d\n", g.CountVertices());
     printf("vs2: \n"); for (int i : vs2) printf("%d\n", i);
     printf("NR_v = %d\n", g.CountVertices());
 
