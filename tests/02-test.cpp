@@ -81,6 +81,8 @@ int main() {
     printf("es3: \n"); printvector(&es3);
 
     g.AddEdge(99999, 1, 9);
+    assert(g.AddEdge(99999, 1, 100) == false);
+    assert(g.AddEdge(99999, 1, 1000) == false);
     std::vector<WeightedEdge> es4 = g.GetEdges();
     printf("es4: \n"); printvector(&es4);
     printw(99999, 1);
