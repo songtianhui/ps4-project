@@ -6,41 +6,36 @@
 #include <cassert>
 
 WeightedGraph::WeightedGraph() : Graph(){
-    weights.clear();
+    memset(weights, 0, sizeof(weights));
 }
 
 WeightedGraph::~WeightedGraph() {}
 
 bool WeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
+
     bool succ = Graph::AddEdge(vertex1, vertex2);
     if (succ) {
-        weights[std::make_pair(vertex1, vertex2)] = weight;
+        vertex1 = Getmap(vertex1);
+        vertex2 = Getmap(vertex2);
+        weights[vertex1][vertex2] = weight;
         return true;
     }
     return false;
+//    if (succ) {
+//        weights[std::make_pair(vertex1, vertex2)] = weight;
+//        return true;
+//    }
+//    return false;
 }
 
-bool WeightedGraph::RemoveEdge(int vertex1, int vertex2) {
-    bool succ = Graph::RemoveEdge(vertex1, vertex2);
-    if (succ) {
-        auto it = weights.find(std::make_pair(vertex1, vertex2));
-        weights.erase(it);
-        return true;
-    }
-    return false;
-}
 
 int WeightedGraph::GetWeight(int vertex1, int vertex2) const {
-    auto it = weights.find(std::make_pair(vertex1, vertex2));
-    if (it != weights.end()) return it->second;
-    return 0;
-
-    // auto it1 = mp.find(vertex1);
-    // auto it2 = mp.find(vertex2);
-    // if (it1 == mp.end() || it2 == mp.end() || !ContainsEdge(vertex1, vertex2)) return INF;
-    // auto it = weights.find(std::make_pair(it1->second, it2->second));
-    // assert(it != weights.end());
-    // return it->second;
+    vertex1 = Getmap(vertex1);
+    vertex2 = Getmap(vertex2);
+    return weights[vertex1][vertex2];
+//    auto it = weights.find(std::make_pair(vertex1, vertex2));
+//    if (it != weights.end()) return it->second;
+//    return 0;
 }
 
 std::vector<WeightedEdge> WeightedGraph::giveweight(std::vector<Edge> *es) const {

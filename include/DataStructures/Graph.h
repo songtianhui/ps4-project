@@ -68,6 +68,10 @@ public:
     int GetDegree(int vertex) const;
 
     std::vector<int> GetNeighbors(int vertex) const;
+
+public:
+
+    int Getmap(int vertex) const;
 };
 
 #endif

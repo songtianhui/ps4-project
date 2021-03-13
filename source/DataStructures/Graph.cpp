@@ -24,6 +24,12 @@ int Graph::mapping(int vertex) {
     Assert(0, "Exceed the max number of vertices!\n");
 }
 
+int Graph::Getmap(int vertex) const {
+    auto it = mp.find(vertex);
+    if (it != mp.end()) return it->second;
+    return 0;
+}
+
 Graph::Graph() {
     memset(exist, 0, sizeof(exist));
     memset(map, 0, sizeof(map));
