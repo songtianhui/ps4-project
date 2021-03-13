@@ -58,7 +58,8 @@ int main() {
     g.RemoveVertex(1000);
     g.RemoveEdge(99999, 1);
 
-    printf("vs: \n"); for (int i : vs) printf("%d\n", i);
+    std::vector<int> vs2 = g.GetVertices();
+    printf("vs2: \n"); for (int i : vs2) printf("%d\n", i);
     printf("NR_v = %d\n", g.CountVertices());
 
     std::vector<WeightedEdge> es2 = g.GetEdges();
