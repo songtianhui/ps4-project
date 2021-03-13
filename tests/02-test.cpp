@@ -50,6 +50,7 @@ int main() {
 
     printf("remove 1000...\n");
     g.RemoveVertex(1000);
+    g.RemoveEdge(99999, 1);
     std::vector<WeightedEdge> es2 = g.GetEdges();
     printf("es2: \n"); printvector(&es2);
 
