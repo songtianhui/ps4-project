@@ -26,7 +26,8 @@ private:
     //std::vector<int> edges[MAXV]; //邻接链表
     int NR_vertices;
     int NR_edges;
-protected:
+
+private:
     std::unordered_map<int, int> mp;  //把编号离散到1~1000
 
 private:
