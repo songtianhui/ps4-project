@@ -24,7 +24,7 @@ bool WeightedGraph::RemoveEdge(int vertex1, int vertex2) {
     bool succ = Graph::RemoveEdge(vertex1, vertex2);
     if (succ) {
         auto it = weights.find(std::make_pair(mp[vertex1], mp[vertex2]));
-        weight.erase(it);
+        weights.erase(it);
         return true;
     }
     return false;
