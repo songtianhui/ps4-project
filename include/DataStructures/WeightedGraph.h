@@ -24,7 +24,7 @@ public:
 public:
     bool AddEdge(int vertex1, int vertex2, int weight);  //添加了权重参数
 
-    bool RemoveEdge(int vertex1, int vertex2);
+//    bool RemoveEdge(int vertex1, int vertex2);
 public:
     int GetWeight(int vertex1, int vertex2) const;  //查询v1指向v2的边的权重，如果这条边不存在则属于UB
 
