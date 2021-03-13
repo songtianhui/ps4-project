@@ -79,7 +79,6 @@ int main() {
     g.RemoveEdge(99999, 1);
     std::vector<WeightedEdge> es3 = g.GetEdges();
     printf("es3: \n"); printvector(&es3);
-    printw(99999, 1);
 
     g.AddEdge(99999, 1, 9);
     std::vector<WeightedEdge> es4 = g.GetEdges();
