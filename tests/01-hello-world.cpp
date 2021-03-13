@@ -8,7 +8,7 @@ WeightedGraph g;
 
 void print_edge() {
     printf("all edges: \n");
-    std::vector<Edge> tmp = g.GetEdges();
+    std::vector<WeightedEdge> tmp = g.GetEdges();
     for (Edge e: tmp) {
         printf("(%d, %d)\n", e.GetSource(), e.GetDestination());
     }
