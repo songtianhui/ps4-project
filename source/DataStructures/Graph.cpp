@@ -3,8 +3,8 @@
 
 int Graph::mapping(int vertex) {
     for (int i = 1; i <= 1001; ++i) {   //1~1001是有效映射值
-        if (exist[i] == 0) {  //该映射值还没有用
-            exist[i] = vertex;
+        if (key[i] == 0) {  //该映射值还没有用
+            key[i] = vertex;
             return i;
         }
     }
@@ -19,7 +19,7 @@ int Graph::Getmap(int vertex) const {
 }
 
 Graph::Graph() {
-    memset(exist, 0, sizeof(exist));
+    memset(key, 0, sizeof(key));
     memset(map, 0, sizeof(map));
     NR_edges = NR_vertices = 0;
 
@@ -45,7 +45,7 @@ bool Graph::RemoveVertex(int vertex) {
 
     vertex = it->second;
     mp.erase(it);       //映射值取消
-    exist[vertex] = 0;
+    key[vertex] = 0;
 
     NR_vertices--;
     for (int i = 1; i < MAXV; ++i) {
@@ -132,7 +132,7 @@ std::vector<Edge> Graph::GetEdges() const {
     for (int i = 1; i < MAXV; ++i) {
         for (int j = 1; j < MAXV; ++j) {
             if (map[i][j]) {
-                alledges.emplace_back(Edge(exist[i], exist[j]));
+                alledges.emplace_back(Edge(key[i], key[j]));
             }
         }
     }
@@ -147,7 +147,7 @@ std::vector<Edge> Graph::GetIncomingEdges(int vertex) const {
 
     for (int i = 1; i < MAXV; ++i) {
         if (map[i][vertex]) {
-            ret.emplace_back(Edge(exist[i], it->first));
+            ret.emplace_back(Edge(key[i], it->first));
         }
     }
     return ret;
@@ -161,7 +161,7 @@ std::vector<Edge> Graph::GetOutgoingEdges(int vertex) const {
 
     for (int i = 1; i < MAXV; ++i) {
         if (map[vertex][i]) {
-            ret.emplace_back(Edge(it->first, exist[i]));
+            ret.emplace_back(Edge(it->first, key[i]));
         }
     }
     return ret;
@@ -186,7 +186,7 @@ std::vector<int> Graph::GetNeighbors(int vertex) const {
     vertex = it->second;
 
     for (int i = 1; i < MAXV; ++i) {
-        if (map[vertex][i]) nei.push_back(exist[i]);
+        if (map[vertex][i]) nei.push_back(key[i]);
     }
 
     return nei;
