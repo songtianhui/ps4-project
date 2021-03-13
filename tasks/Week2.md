@@ -19,6 +19,20 @@
 提示：
 
 1. `WeightedEdge`与上周实现的`Edge`相比，只是多了一个新的权重属性，因此我们可以通过继承`Edge`类，继承后`WeightedEdge`就已经具有了并实现基类所没有的接口来实现。
+2. 继承`WeightedEdge`类时，由于`Edge`类没有默认构造函数，需要在[构造函数的参数初始化表](https://en.cppreference.com/w/cpp/language/initializer_list)中显式调用带参数的构造函数，否则可能会出现编译错误（如下所示）。
+
+```C++
+class Edge {
+    public:
+        Edge(int v1, int v2) {}
+};
+class WeightedEdge : public Edge {
+    public: 
+        WeightedEdge(int v1, int v2, int w) : Edge(v1, v2) {}
+        // 必须显式调用带参数的构造函数，否则会因为没有默认构造函数而编译错误
+        // 另一种解决方式是添加默认构造函数，但会导致代码冗余并可能在后续过程中引发逻辑错误
+};
+```
 
 ## Step 2 - 实现`WeightedGraph`
 
@@ -28,7 +42,7 @@
 - `~WeightedGraph()`
 - `bool AddVertex(int vertex)`
 - `bool RemoveVertex(int vertex)`
-- `bool AddEdge(int vertex1, int vertex2, int weight)`：添加了权重参数
+- `bool AddEdge(int vertex1, int vertex2, int weight)`：添加了权重参数；如果添加某条边时图中已经存在了相同起点和终点的边（无论权重是多少），则什么都不做并返回`false`
 - `bool RemoveEdge(int vertex1, int vertex2)`
 - `int CountVertices() const`
 - `int CountEdges() const`
