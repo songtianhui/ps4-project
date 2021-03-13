@@ -55,6 +55,9 @@ int main() {
     printf("es2: \n"); printvector(&es2);
 
     printf("NR_edge = %d\n", g.CountEdges());
+    printf("1000's degreee = %d\n", g.GetDegree(1000));
+    printf("99999's degree = %d\n", g.GetDegree(99999));
+    printf("w(1000, 99999) = %d\n", g.GetWeight(1000, 99999));
 
 
     printf("OK\n");
