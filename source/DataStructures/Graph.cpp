@@ -207,7 +207,7 @@ std::vector<int> Graph::GetNeighbors(int vertex) const {
     vertex = it->second;
 
     for (int i = 0; i < MAXV; ++i) {
-        if (map[vertex][i]) nei.push_back(it->first);
+        if (map[vertex][i]) nei.push_back(exist[i]);
     }
     //return edges[vertex];
 }
