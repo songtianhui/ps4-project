@@ -20,11 +20,11 @@ int main() {
     g.AddVertex(1);
     g.AddVertex(1000);
     g.AddVertex(99999);
-    g.AddEdge(1, 1000, 114514);
-    g.AddEdge(1000, 99999, 250);
-    g.AddEdge(1000, 1, 800);
-    g.AddEdge(99999, 1, 99);
-    g.AddEdge(1000, 1000, 10);
+    assert(g.AddEdge(1, 1000, 114514) == true);
+    assert(g.AddEdge(1000, 99999, 250) == true);
+    assert(g.AddEdge(1000, 1, 800) == true);
+    assert(g.AddEdge(99999, 1, 99) == true);
+    assert(g.AddEdge(1000, 1000, 10) == true);
     assert(g.AddEdge(1, 1000, 1) == false);
     assert(g.AddEdge(1,2, 12) == false);
 
