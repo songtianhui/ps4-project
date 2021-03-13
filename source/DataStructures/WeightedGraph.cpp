@@ -43,6 +43,7 @@ std::vector<WeightedEdge> WeightedGraph::giveweight(std::vector<Edge> *es) const
     for (auto &e : *es) {
         const int s = e.GetSource();
         const int d = e.GetDestination();
+        assert(ContainsVertex(s) && ContainsVertex(d));
 
         int w = GetWeight(s, d);
         Wedges.emplace_back(WeightedEdge(s, d, w));
