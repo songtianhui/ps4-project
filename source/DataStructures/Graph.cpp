@@ -208,6 +208,8 @@ std::vector<int> Graph::GetNeighbors(int vertex) const {
     for (int i = 1; i < MAXV; ++i) {
         if (map[vertex][i]) nei.push_back(exist[i]);
     }
+
+    printf("\n");
 //    return nei;
     //return edges[vertex];
 }
