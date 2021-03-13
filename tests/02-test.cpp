@@ -56,7 +56,7 @@ int main() {
     printf("remove 1000...\n");
 
     g.RemoveVertex(1000);
-    g.RemoveEdge(99999, 1);
+//    g.RemoveEdge(99999, 1);
 
     std::vector<int> vs2 = g.GetVertices();
     printf("vs2: \n"); for (int i : vs2) printf("%d\n", i);
