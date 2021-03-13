@@ -43,7 +43,6 @@ bool Graph::AddVertex(int vertex) {
     }
     mp[vertex] = mapping(vertex);
     NR_vertices++;
-//    edges[mp[vertex]].clear();
     return true;
 }
 
