@@ -54,6 +54,7 @@ std::vector<WeightedEdge> WeightedGraph::giveweight(std::vector<Edge> *es) const
 }
 
 std::vector<WeightedEdge> WeightedGraph::GetEdges() const {
+    while(1);
     std::vector<Edge> alledges = Graph::GetEdges();
     std::vector<WeightedEdge> allwedges;
     allwedges = giveweight(&alledges);
