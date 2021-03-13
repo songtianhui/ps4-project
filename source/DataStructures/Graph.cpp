@@ -21,7 +21,8 @@ int Graph::mapping(int vertex) {
             return i;
         }
     }
-    Assert(0, "Exceed the max number of vertices!\n");
+    return 0;
+//    Assert(0, "Exceed the max number of vertices!\n");
 }
 
 Graph::Graph() {
@@ -61,7 +62,7 @@ bool Graph::RemoveVertex(int vertex) {
                 map[vertex][i] = 0;
                 NR_edges--;
             }
-            if (map[i][vertex] && i != vertex) {
+            if (map[i][vertex]) {
                 map[i][vertex] = 0;
                 NR_edges--;
             }
@@ -79,8 +80,8 @@ bool Graph::AddEdge(int vertex1, int vertex2) {
     if (it1 == mp.end() || it2 == mp.end()) {
         return false;
     }
-    vertex1 = mp[vertex1];
-    vertex2 = mp[vertex2];
+    vertex1 = it1->second;
+    vertex2 = it2->second;
 
     if (map[vertex1][vertex2] == 1) return false;
 
@@ -192,7 +193,7 @@ int Graph::GetDegree(int vertex) const {
     vertex = it->second;
 
     int ans = 0;
-    for (int i = 0; i < MAXV; ++i) {
+    for (int i = 1; i < MAXV; ++i) {
         if (map[vertex][i]) ans++;
     }
     return ans;
@@ -200,12 +201,13 @@ int Graph::GetDegree(int vertex) const {
 }
 
 std::vector<int> Graph::GetNeighbors(int vertex) const {
-    std::vector<int> a;
+    std::vector<int> nei;
     auto it = mp.find(vertex);
-    if (it == mp.end()) return a;
+    if (it == mp.end()) return nei;
     vertex = it->second;
+
     for (int i = 0; i < MAXV; ++i) {
-        if (map[vertex][i]) a.push_back(it->first);
+        if (map[vertex][i]) nei.push_back(it->first);
     }
     //return edges[vertex];
 }
