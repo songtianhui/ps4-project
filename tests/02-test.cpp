@@ -71,6 +71,11 @@ int main() {
     printf("99999's degree = %d\n", g.GetDegree(99999));
     printf("w(1000, 99999) = %d\n", g.GetWeight(1000, 99999));
 
+    g.RemoveEdge(99999, 1);
+    std::vector<WeightedEdge> es3 = g.GetEdges();
+    printf("es3: \n"); printvector(&es3);
+
+
 
     printf("OK\n");
     return 0;
