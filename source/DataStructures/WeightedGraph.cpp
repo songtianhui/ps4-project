@@ -32,8 +32,8 @@ int WeightedGraph::GetWeight(int vertex1, int vertex2) const {
 std::vector<WeightedEdge> WeightedGraph::giveweight(std::vector<Edge> *es) const {
     std::vector<WeightedEdge> Wedges;
     for (auto &e : *es) {
-        int s = e.GetSource();
-        int d = e.GetDestination();
+        const int s = e.GetSource();
+        const int d = e.GetDestination();
         auto t1 = mp.find(s);
         auto t2 = mp.find(d);
         assert(t1 != mp.end() && t2 != mp.end());
