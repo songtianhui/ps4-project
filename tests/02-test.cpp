@@ -43,6 +43,11 @@ int main() {
         assert(g.GetWeight(s,d) == w);
     }
 
+    printf("1000's neibourhood: \n");
+    vector<int> nei = g.GetNeighbors(1000);
+    for (int i : nei) printf("%d ", i);
+    printf("\n");
+
     printf("OK\n");
     return 0;
 }
