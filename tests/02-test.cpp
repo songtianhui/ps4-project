@@ -47,6 +47,7 @@ int main() {
     vector<int> nei = g.GetNeighbors(1000);
     for (int i : nei) printf("%d ", i);
     printf("\n");
+    printf("w(1000, 99999) = %d\n", g.GetWeight(1000, 99999));
 
     printf("remove 1000...\n");
     g.RemoveVertex(1000);
