@@ -7,6 +7,7 @@
 #include <DataStructures/Edge.h>
 
 #define MAXV 1005
+#define INF 1e9+7
 
 #define RED "\33[1;31m"
 #define ORI "\33[0m"

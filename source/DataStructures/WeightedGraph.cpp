@@ -33,7 +33,7 @@ bool WeightedGraph::RemoveEdge(int vertex1, int vertex2) {
 int WeightedGraph::GetWeight(int vertex1, int vertex2) const {
     auto it1 = mp.find(vertex1);
     auto it2 = mp.find(vertex2);
-    if (it1 == mp.end() || it2 == mp.end() || !ContainsEdge(vertex1, vertex2)) return 0;
+    if (it1 == mp.end() || it2 == mp.end() || !ContainsEdge(vertex1, vertex2)) return INF;
     auto it = weight.find(std::make_pair(it1->second, it2->second));
     assert(it != weight.end());
     return it->second;
