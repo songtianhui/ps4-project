@@ -50,7 +50,7 @@ bool Graph::AddVertex(int vertex) {
 bool Graph::RemoveVertex(int vertex) {
     auto it = mp.find(vertex);
     if (it != mp.end()) { //存在该点
-        vertex = mp[vertex];
+        vertex = it->second;
         mp.erase(it);       //映射值取消
         exist[vertex] = 0;
 
@@ -61,7 +61,7 @@ bool Graph::RemoveVertex(int vertex) {
                 map[vertex][i] = 0;
                 NR_edges--;
             }
-            if (map[i][vertex]) {
+            if (map[i][vertex] && i != vertex) {
                 map[i][vertex] = 0;
                 NR_edges--;
             }
