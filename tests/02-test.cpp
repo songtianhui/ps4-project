@@ -17,7 +17,7 @@ void printvector(std::vector<WeightedEdge> *wes) {
 }
 
 void printw(int s, int d) {
-    printf("w(%d, %d) = %d", s, d ,g.GetWeight(s,d));
+    printf("w(%d, %d) = %d\n", s, d ,g.GetWeight(s,d));
 }
 
 int main() {
@@ -80,6 +80,10 @@ int main() {
     printf("es3: \n"); printvector(&es3);
     printw(99999, 1);
 
+    g.AddEdge(99999, 1, 9);
+    std::vector<WeightedEdge> es4 = g.GetEdges();
+    printf("es4: \n"); printvector(&es4);
+    printw(99999, 1);
 
 
     printf("OK\n");
