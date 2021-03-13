@@ -34,7 +34,6 @@ int Graph::Getmap(int vertex) const {
 Graph::Graph() {
     memset(exist, 0, sizeof(exist));
     memset(map, 0, sizeof(map));
-    exist = {};
     NR_edges = NR_vertices = 0;
 
     mp.clear();
