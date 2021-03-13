@@ -34,7 +34,7 @@ int Graph::Getmap(int vertex) const {
 Graph::Graph() {
     memset(exist, 0, sizeof(exist));
     memset(map, 0, sizeof(map));
-//    for (int i = 0; i < MAXV; ++i) edges[i].clear();
+    exist = {};
     NR_edges = NR_vertices = 0;
 
     mp.clear();
@@ -72,6 +72,7 @@ bool Graph::RemoveVertex(int vertex) {
             NR_edges--;
         }
     }
+    return true;
 }
 
 bool Graph::AddEdge(int vertex1, int vertex2) {
