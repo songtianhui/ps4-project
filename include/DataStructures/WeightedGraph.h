@@ -17,6 +17,7 @@ private:
 
 private:
     std::vector<WeightedEdge> giveweight(std::vector<Edge> *es) const;
+
 public:
     WeightedGraph();
 

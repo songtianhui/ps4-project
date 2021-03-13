@@ -15,12 +15,13 @@
 //}
 
 int Graph::mapping(int vertex) {
-    for (int i = 1; i <= 1000; ++i) {
+    for (int i = 1; i <= 1000; ++i) {   //1~1000是有效映射值
         if (exist[i] == 0) {  //该映射值还没有用
             exist[i] = vertex;
             return i;
         }
     }
+    return 0;
     Assert(0, "Exceed the max number of vertices!\n");
 }
 
@@ -54,44 +55,39 @@ bool Graph::AddVertex(int vertex) {
 
 bool Graph::RemoveVertex(int vertex) {
     auto it = mp.find(vertex);
-    if (it != mp.end()) { //存在该点
-        vertex = it->second;
-        mp.erase(it);       //映射值取消
-        exist[vertex] = 0;
+    if (it == mp.end()) return false;
 
-        NR_vertices--;
-//        edges[vertex].clear();
-        for (int i = 1; i < MAXV; ++i) {
-            if (map[vertex][i]) {
-                map[vertex][i] = 0;
-                NR_edges--;
-            }
-            if (map[i][vertex]) {
-                map[i][vertex] = 0;
-                NR_edges--;
-            }
+    vertex = it->second;
+    mp.erase(it);       //映射值取消
+    exist[vertex] = 0;
+
+    NR_vertices--;
+    for (int i = 1; i < MAXV; ++i) {
+        if (map[vertex][i]) {
+            map[vertex][i] = 0;
+            NR_edges--;
         }
-        //update_list();
-        //邻接链表也要删不过有点烦？
-        return true;
+        if (map[i][vertex]) {
+            map[i][vertex] = 0;
+            NR_edges--;
+        }
     }
-    return false;
 }
 
 bool Graph::AddEdge(int vertex1, int vertex2) {
     auto it1 = mp.find(vertex1);
     auto it2 = mp.find(vertex2);
-    if (it1 == mp.end() || it2 == mp.end()) {
+    if (it1 == mp.end() || it2 == mp.end()) {   //有点不存在
         return false;
     }
     vertex1 = it1->second;
     vertex2 = it2->second;
 
-    if (map[vertex1][vertex2] == 1) return false;
+    if (map[vertex1][vertex2] == 1) return false;   //边存在
 
     map[vertex1][vertex2] = 1;
-//    edges[vertex1].push_back(vertex2);
     NR_edges++;
+
     return true;
 }
 
@@ -101,22 +97,14 @@ bool Graph::RemoveEdge(int vertex1, int vertex2) {
     if (it1 == mp.end() || it2 == mp.end()) {
         return false;
     }
-
     vertex1 = it1->second;
     vertex2 = it2->second;
 
-    if (map[vertex1][vertex2] == 0) return false;
+    if (map[vertex1][vertex2] == 0) return false;   //边不存在
 
     map[vertex1][vertex2] = 0;
     NR_edges--;
-    //update_list();
-//  for (auto it=edges[vertex1].begin(); it != edges[vertex1].end(); ) {
-//    if (*it == vertex2) {
-//      it = edges[vertex1].erase(it);
-//    } else {
-//      ++it;
-//    }
-//  }
+
     return true;
 }
 

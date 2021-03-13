@@ -32,6 +32,9 @@ int main() {
     assert(g.AddEdge(1, 1000, 1) == false);
     assert(g.AddEdge(1,2, 12) == false);
 
+    assert(g.ContainsEdge(1000, 99999) == true);
+    assert(g.ContainsEdge(99999, 1) == true);
+
 
     std::vector<WeightedEdge> es = g.GetEdges();
     std::vector<WeightedEdge> in = g.GetIncomingEdges(1000);
@@ -61,6 +64,8 @@ int main() {
     printf("remove 1000...\n");
 
     g.RemoveVertex(1000);
+    assert(g.ContainsEdge(1000, 99999) == false);
+    assert(g.ContainsEdge(1, 99999) == false);
 //    g.RemoveEdge(99999, 1);
 
     std::vector<int> vs2 = g.GetVertices();
@@ -77,11 +82,13 @@ int main() {
     printf("w(1000, 99999) = %d\n", g.GetWeight(1000, 99999));
 
     g.RemoveEdge(99999, 1);
+    assert(g.ContainsEdge(99999, 1) == false);
     std::vector<WeightedEdge> es3 = g.GetEdges();
     printf("es3: \n"); printvector(&es3);
 
     g.AddEdge(99999, 1, 9);
     assert(g.AddEdge(99999, 1, 100) == false);
+    assert(g.ContainsEdge(99999, 1) == true);
     assert(g.AddEdge(99999, 1, 1000) == false);
     std::vector<WeightedEdge> es4 = g.GetEdges();
     printf("es4: \n"); printvector(&es4);
