@@ -40,6 +40,7 @@ int main() {
     printf("es: \n"); printvector(&es);
     printf("in: \n"); printvector(&in);
     printf("out: \n"); printvector(&out);
+    printf("NR_edge = %d\n", g.CountEdges());
 
     for (auto &e : es) {
         int s = e.GetSource();
