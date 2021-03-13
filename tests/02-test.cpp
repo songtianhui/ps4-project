@@ -24,6 +24,7 @@ int main() {
     g.AddEdge(1000, 99999, 250);
     g.AddEdge(1000, 1, 800);
     g.AddEdge(99999, 1, 99);
+    g.AddEdge(1000, 1000, 10);
     assert(g.AddEdge(1, 1000, 1) == false);
     assert(g.AddEdge(1,2, 12) == false);
 
@@ -47,7 +48,6 @@ int main() {
     vector<int> nei = g.GetNeighbors(1000);
     for (int i : nei) printf("%d ", i);
     printf("\n");
-    printf("w(1000, 99999) = %d\n", g.GetWeight(1000, 99999));
 
     printf("remove 1000...\n");
     g.RemoveVertex(1000);

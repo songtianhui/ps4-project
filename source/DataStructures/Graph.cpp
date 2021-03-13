@@ -15,14 +15,13 @@
 //}
 
 int Graph::mapping(int vertex) {
-    for (int i = 1; i < MAXV; ++i) {
+    for (int i = 1; i <= 1000; ++i) {
         if (exist[i] == 0) {  //该映射值还没有用
             exist[i] = vertex;
             return i;
         }
     }
-    return 0;
-//    Assert(0, "Exceed the max number of vertices!\n");
+    Assert(0, "Exceed the max number of vertices!\n");
 }
 
 Graph::Graph() {
