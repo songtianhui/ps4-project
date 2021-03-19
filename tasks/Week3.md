@@ -17,8 +17,17 @@
 测试时，会测试目前为止的四个所有的类：
 
 1. `Graph`类和`WeightedGraph`类是前两周已经实现好了的类，你的新代码不能破坏这两个类的功能；
-2. `UndirectedGraph`类和`UndirectedWeightedGraph`类是本周需要新添加的类，他们的所有接口都和有向图版本相同；
-3. 测试数据中点的数量不会超过800。
+2. `UndirectedGraph`类和`UndirectedWeightedGraph`类是本周需要新添加的类，他们的所有接口都和有向图版本相同。
+
+## 测试数据
+
+|ID|图的大小|用到的接口|
+|:-:|:-:|:-:|
+|1-2|3|`AddVertex`, `AddEdge`, `RemoveEdge`, `CountEdges`, `ContainsEdge`|
+|3|800|`AddVertex`, `AddEdge`, `RemoveEdge`, `CountVertices`, `CountEdges` `ContainsEdge`|
+|4|800|`AddVertex`, `AddEdge`, `GetIncomingEdges`, `GetOutgoingEdges`|
+|5|800|`AddVertex`, `AddEdge`, `GetDegree`, `GetNeighbors`|
+|6|800|`AddVertex`, `AddEdge`, `ContainsEdge`, `GetWeight`（仅限有权图）|
 
 ---
 
