@@ -11,10 +11,9 @@ UndirectedWeightedGraph::UndirectedWeightedGraph() : UndirectedGraph(){
 UndirectedWeightedGraph::~UndirectedWeightedGraph() {}
 
 bool UndirectedWeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
-    bool succ1 = UndirectedGraph::AddEdge(vertex1, vertex2);
-    bool succ2 = UndirectedGraph::AddEdge(vertex2, vertex1);
+    bool succ = UndirectedGraph::AddEdge(vertex1, vertex2);
 
-    if (succ1 && succ2) {
+    if (succ) {
         vertex1 = Getmap(vertex1);
         vertex2 = Getmap(vertex2);
         weights[vertex1][vertex2] = weight;
