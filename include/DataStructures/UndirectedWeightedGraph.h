@@ -5,8 +5,8 @@
 #ifndef GRAPHLIBRARY_UNDIRECTEDWEIGHTEDGRAPH_H
 #define GRAPHLIBRARY_UNDIRECTEDWEIGHTEDGRAPH_H
 
-#include <DataStructures/WeightedGraph.h>
 #include <DataStructures/UndirectedGraph.h>
+#include <DataStructures/WeightedGraph.h>
 
 class UndirectedWeightedGraph : public UndirectedGraph {
 private:
@@ -32,5 +32,5 @@ public:
 
     std::vector<WeightedEdge> GetOutgoingEdges(int vertex) const;
 
-
+};
 #endif //GRAPHLIBRARY_UNDIRECTEDWEIGHTEDGRAPH_H

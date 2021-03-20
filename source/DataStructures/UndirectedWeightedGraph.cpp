@@ -11,11 +11,14 @@ UndirectedWeightedGraph::UndirectedWeightedGraph() : UndirectedGraph(){
 UndirectedWeightedGraph::~UndirectedWeightedGraph() {}
 
 bool UndirectedWeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
-    bool succ = UndirectedGraph::AddEdge(vertex1, vertex2);
-    if (succ) {
+    bool succ1 = UndirectedGraph::AddEdge(vertex1, vertex2);
+    bool succ2 = UndirectedGraph::AddEdge(vertex2, vertex1);
+
+    if (succ1 && succ2) {
         vertex1 = Getmap(vertex1);
         vertex2 = Getmap(vertex2);
         weights[vertex1][vertex2] = weight;
+        weights[vertex2][vertex1] = weight;
         return true;
     }
     return false;
@@ -42,20 +45,20 @@ std::vector<WeightedEdge> UndirectedWeightedGraph::giveweight(std::vector<Edge> 
 }
 
 std::vector<WeightedEdge> UndirectedWeightedGraph::GetEdges() const {
-    std::vector<Edge> alledges = Graph::GetEdges();
+    std::vector<Edge> alledges = UndirectedGraph::GetEdges();
     std::vector<WeightedEdge> allwedges;
     allwedges = giveweight(&alledges);
     return allwedges;
 }
 
 std::vector<WeightedEdge> UndirectedWeightedGraph::GetIncomingEdges(int vertex) const {
-    std::vector<Edge> in = Graph::GetIncomingEdges(vertex);
+    std::vector<Edge> in = UndirectedGraph::GetIncomingEdges(vertex);
     std::vector<WeightedEdge> inw = giveweight(&in);
     return inw;
 }
 
 std::vector<WeightedEdge> UndirectedWeightedGraph::GetOutgoingEdges(int vertex) const {
-    std::vector<Edge> out = Graph::GetOutgoingEdges(vertex);
+    std::vector<Edge> out = UndirectedGraph::GetOutgoingEdges(vertex);
     std::vector<WeightedEdge> outw = giveweight(&out);
     return outw;
 }
