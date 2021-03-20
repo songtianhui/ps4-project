@@ -1,26 +1,13 @@
-#ifndef GRAPH_H
-#define GRAPH_H
+//
+// Created by sth on 3/20/21.
+//
 
-#include <vector>
-#include <unordered_map>
-#include <cstring>
-#include <DataStructures/Edge.h>
-#include <cassert>
+#ifndef GRAPHLIBRARY_UNDIRECTEDGRAPH_H
+#define GRAPHLIBRARY_UNDIRECTEDGRAPH_H
 
-#define MAXV 1005
-#define INF 1e9+7
+#include <DataStructures/Graph.h>
 
-#define RED "\33[1;31m"
-#define ORI "\33[0m"
-#define Assert(_con, _fmt, ...) \
- do{\
-     if(!(_con)){\
-         fprintf(stderr,RED "Assertion failed:\nLine: %d\n" _fmt, __LINE__ ,##__VA_ARGS__);\
-         assert(0);\
-     }\
- }while(0)
-
-class Graph {
+class UndirectedGraph {
 private:
     bool used[MAXV + 1];
     int key[MAXV + 1];     //映射值对应的原值，0表示没有用
@@ -34,12 +21,11 @@ private:
 
 private:
     int mapping(int vertex);
-    //void update_list();
 
 public:
-    Graph();
+    UndirectedGraph();
 
-    virtual ~Graph();
+    ~UndirectedGraph();
 
 public:
     bool AddVertex(int vertex);
@@ -76,4 +62,4 @@ public:
     int Getmap(int vertex) const;
 };
 
-#endif
+#endif //GRAPHLIBRARY_UNDIRECTEDGRAPH_H
