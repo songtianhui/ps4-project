@@ -75,7 +75,7 @@ int main() {
 
     g.RemoveVertex(1000);
     assert(g.ContainsEdge(1000, 99999) == false);
-    assert(g.ContainsEdge(1, 99999) == false);
+    assert(g.ContainsEdge(1, 99999) == true);
 //    g.RemoveEdge(99999, 1);
 
     std::vector<int> vs2 = g.GetVertices();
