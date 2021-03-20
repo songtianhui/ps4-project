@@ -60,7 +60,6 @@ bool UndirectedGraph::RemoveVertex(int vertex) {
         }
         if (map[i][vertex]) {
             map[i][vertex] = 0;
-            NR_edges--;
         }
     }
     return true;
