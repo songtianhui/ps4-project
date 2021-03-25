@@ -40,10 +40,17 @@ class WeightedEdge {
     // ......
 };
 
-template <typename TEdge>
+// 做了step 1
+template <typename T>
+class WeightedGraph : public Generic<WeightedEdge<T>> {
+    // ......
+};
+
+// 没做step 1
+template <typename T>
 class WeightedGraph {
     private:
-        map<int, vector<TEdge>> edges; // 根据具体的类型创建不同的邻接表
+        map<int, vector<WeightedEdge<T>>> edges; // 根据具体的类型创建不同的邻接表
 };
 ```
 
