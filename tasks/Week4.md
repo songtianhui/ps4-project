@@ -43,7 +43,7 @@ class WeightedEdge {
 template <typename TEdge>
 class WeightedGraph {
     private:
-        map<int, vector<TEdge>> edges; // 根据具体的类型创建不同的临界表
+        map<int, vector<TEdge>> edges; // 根据具体的类型创建不同的邻接表
 };
 ```
 
