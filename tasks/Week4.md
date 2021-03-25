@@ -20,12 +20,12 @@ class Generic {
 class Graph : public Generic<Edge> {     // 模板实例化，这是一种使用了无权图的边
     public:
         bool AddEdge(int v1, int v2);    // 通过调用父类的InsertEdge方法（注意继承关系中一定要尽量避免重名）来实现具体的接口
-}
+};
 
 class WeightedGraph : public Generic<WeightedEdge> {
     public:
         bool AddEdge(int v1, int v2, int w);
-}
+};
 ```
 
 ## Step 2 - 将有权边和有权图更改为模板类型
@@ -49,7 +49,7 @@ class WeightedGraph {
 
 ## Step 3 - 提交代码进行测试
 
-- 本次测试的所有内容和上周完全一致（具体的测试接口看上周的task）。
+- 本次测试的所有内容和上周完全一致，时间限制提高到上周的1.5倍（具体的测试接口看上周的task）。
 - 实现继承关系不强制要求实现`Generic`模板类，四种图可以没有任何继承关系（能AC的代码依然是好代码）。
 - 测试有权图时，会测试两种C++内置的基础数据类型构成的有权图。
 
