@@ -14,7 +14,7 @@
 template <typename TEdge>
 class Generic {
 private:
-    std::unordered_map<int, std::vector<TEdge> > edges;    //邻接表, i不在表示没有点i，edges[i]为空表示有点i
+    std::map<int, std::vector<TEdge> > edges;    //邻接表, i不在表示没有点i，edges[i]为空表示有点i
     std::map<std::pair<int, int>, bool> exist;
     int NR_vertices;
     int NR_edges;
