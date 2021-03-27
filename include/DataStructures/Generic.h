@@ -26,7 +26,7 @@ public:
         NR_vertices = NR_edges = 0;
     }
 
-    virtual ~Generic();
+    virtual ~Generic() {}
 
 protected:
     bool InsertEdge(TEdge e) {
