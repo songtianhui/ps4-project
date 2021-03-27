@@ -21,8 +21,8 @@ private:
 
 public:
     Generic() {
-        edges.clear();
         exist.clear();
+        edges.clear();
         NR_vertices = NR_edges = 0;
     }
 
