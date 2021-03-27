@@ -123,8 +123,8 @@ public:
         auto it = edges.find(vertex);
         if (it == edges.end()) return 0;
         for (TEdge e : it->second) {
-            int src = e.GetSource;
-            int dst = e.GetDestination;
+            int src = e.GetSource();
+            int dst = e.GetDestination();
             if (exist.find(std::make_pair(src, dst)) != exist.end()) {
                 ans ++;
             }
@@ -136,8 +136,8 @@ public:
         std::vector<int> nei;
         auto it = edges.find(vertex);
         for (TEdge e : it->second) {
-            const int src = e.GetSource;
-            const int dst = e.GetDestination;
+            const int src = e.GetSource();
+            const int dst = e.GetDestination();
             if (exist.find(std::make_pair(src, dst)) != exist.end()) {
                 nei.push_back(dst);
             }
