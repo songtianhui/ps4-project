@@ -82,6 +82,12 @@
 class Graph : public Generic<Edge> {
 public:
     bool AddEdge(int vertex1, int vertex2);
+
+    std::vector<Edge> GetEdges() const;
+
+    std::vector<Edge> GetIncomingEdges(int vertex) const;
+
+    std::vector<Edge> GetOutgoingEdges(int vertex) const;
 };
 
 #endif

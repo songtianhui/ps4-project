@@ -94,7 +94,7 @@ public:
         return allvertices;
     }
 
-    std::vector<std::pair<int, int> > GetEdges() const {
+    std::vector<std::pair<int, int> > ObtainEdges() const {
         std::vector<std::pair<int, int> > alledges;
         for (auto it = exist.begin(); it != exist.end(); ++it) {
             alledges.push_back(it->first);
@@ -102,7 +102,7 @@ public:
         return alledges;
     }
 
-    std::vector<std::pair<int, int> > GetIncomingEdges(int vertex) const {
+    std::vector<std::pair<int, int> > ObtainIncomingEdges(int vertex) const {
         std::vector<std::pair<int, int> > inedges;
         for (auto it = exist.begin(); it != exist.end(); ++it) {
             if (it->first.second == vertex) inedges.push_back(it->first);
@@ -110,7 +110,7 @@ public:
         return inedges;
     }
 
-    std::vector<std::pair<int, int> > GetOutgoingEdges(int vertex) const {
+    std::vector<std::pair<int, int> > ObtainOutgoingEdges(int vertex) const {
         std::vector<std::pair<int, int> > outedges;
         for (auto it = exist.begin(); it != exist.end(); ++it) {
             if (it->first.first == vertex) outedges.push_back(it->first);

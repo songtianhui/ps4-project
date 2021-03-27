@@ -197,3 +197,27 @@ bool Graph::AddEdge(int vertex1, int vertex2) {
     Edge e = Edge(vertex1, vertex2);
     return InsertEdge(e);
 }
+
+std::vector<Edge> Graph::GetEdges() const {
+    std::vector<std::pair<int, int> > pairs = ObtainEdges();
+    std::vector<Edge> alledges;
+    for (std::pair<int, int> &e : pairs) {
+        alledges.push_back(Edge(e.first, e.second));
+    }
+}
+
+std::vector<Edge> Graph::GetIncomingEdges(int vertex) const {
+    std::vector<std::pair<int, int> > pairs = ObtainIncomingEdges(vertex);
+    std::vector<Edge> inedges;
+    for (std::pair<int, int> &e : pairs) {
+        inedges.push_back(Edge(e.first, e.second));
+    }
+}
+
+std::vector<Edge> Graph::GetOutgoingEdges(int vertex) const {
+    std::vector<std::pair<int, int> > pairs = ObtainOutcomingEdges(vertex);
+    std::vector<Edge> outedges;
+    for (std::pair<int, int> &e : pairs) {
+        outedges.push_back(Edge(e.first, e.second));
+    }
+}
