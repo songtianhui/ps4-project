@@ -195,5 +195,5 @@
 
 bool Graph::AddEdge(int vertex1, int vertex2) {
     Edge e = Edge(vertex1, vertex2);
-    InsertEdge(e);
+    return InsertEdge(e);
 }
