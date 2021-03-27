@@ -215,7 +215,7 @@ std::vector<Edge> Graph::GetIncomingEdges(int vertex) const {
 }
 
 std::vector<Edge> Graph::GetOutgoingEdges(int vertex) const {
-    std::vector<std::pair<int, int> > pairs = ObtainOutgocomingEdges(vertex);
+    std::vector<std::pair<int, int> > pairs = ObtainOutgoingEdges(vertex);
     std::vector<Edge> outedges;
     for (std::pair<int, int> &e : pairs) {
         outedges.push_back(Edge(e.first, e.second));
