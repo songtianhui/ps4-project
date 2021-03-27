@@ -122,7 +122,7 @@ public:
         int ans = 0;
         auto it = edges.find(vertex);
         if (it == edges.end()) return 0;
-        for (TEdge &e : it->second) {
+        for (TEdge e : it->second) {
             int src = e.GetSource;
             int dst = e.GetDestination;
             if (exist.find(std::make_pair(src, dst)) != exist.end()) {
