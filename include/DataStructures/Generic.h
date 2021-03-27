@@ -135,7 +135,7 @@ public:
     std::vector<int> GetNeighbors(int vertex) const {
         std::vector<int> nei;
         auto it = edges.find(vertex);
-        for (TEdge &e : it->second) {
+        for (TEdge e : it->second) {
             const int src = e.GetSource;
             const int dst = e.GetDestination;
             if (exist.find(std::make_pair(src, dst)) != exist.end()) {
