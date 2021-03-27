@@ -20,19 +20,19 @@ private:
     int NR_edges;
 
 public:
-    Graph() {
+    Generic() {
         edges.clear();
         exist.clear();
         NR_vertices = NR_edges = 0;
     }
 
-    virtual ~Graph();
+    virtual ~Generic();
 
 protected:
     bool InsertEdge(TEdge e) {
         const int src = e.GetSource();
         const int dst = e.GetDestination();
-        if (edges.find(src) == vertices.end() || edges.find(dst) == vertices.end() || exist.find(std::make_pair(src, dst)) != exist.end()) return false;
+        if (edges.find(src) == edges.end() || edges.find(dst) == edges.end() || exist.find(std::make_pair(src, dst)) != exist.end()) return false;
 
         edges[src].push_back(e);
         exist[std::make_pair(src, dst)] = true;
@@ -57,7 +57,7 @@ public:
     }
 
     bool RemoveEdge(int vertex1, int vertex2) {
-        if (edges.find(vertex1) == vertices.end() || edges.find(vertex2) == vertices.end() || exist.find(std::make_pair(src, dst)) == exist.end()) return false;
+        if (edges.find(vertex1) == edges.end() || edges.find(vertex2) == edges.end() || exist.find(std::make_pair(vertex1, vertex2)) == exist.end()) return false;
 
         auto it = exist.find(std::make_pair(vertex1, vertex2));
         edges.erase(it);
