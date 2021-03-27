@@ -13,7 +13,6 @@ int UndirectedGraph::mapping(int vertex) {
         }
     }
     return 0;
-    Assert(0, "Exceed the max number of vertices!\n");
 }
 
 int UndirectedGraph::Getmap(int vertex) const {
