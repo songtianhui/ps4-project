@@ -6,6 +6,7 @@
 #define GRAPHLIBRARY_UNDIRECTEDGRAPH_H
 
 #include <DataStructures/Graph.h>
+#include <cstring>
 
 class UndirectedGraph {
 private:
