@@ -204,6 +204,7 @@ std::vector<Edge> Graph::GetEdges() const {
     for (std::pair<int, int> &e : pairs) {
         alledges.push_back(Edge(e.first, e.second));
     }
+    return alledges;
 }
 
 std::vector<Edge> Graph::GetIncomingEdges(int vertex) const {
@@ -212,6 +213,7 @@ std::vector<Edge> Graph::GetIncomingEdges(int vertex) const {
     for (std::pair<int, int> &e : pairs) {
         inedges.push_back(Edge(e.first, e.second));
     }
+    return inedges;
 }
 
 std::vector<Edge> Graph::GetOutgoingEdges(int vertex) const {
@@ -220,4 +222,5 @@ std::vector<Edge> Graph::GetOutgoingEdges(int vertex) const {
     for (std::pair<int, int> &e : pairs) {
         outedges.push_back(Edge(e.first, e.second));
     }
+    return outedges;
 }
