@@ -80,7 +80,8 @@ public:
     }
 
     bool ContainsEdge(int vertex1, int vertex2) const {
-        if (exist.find(std::make_pair(vertex1, vertex2)) == edges.end()) return false;
+        auto it = exist.find({vertex1, vertex2});
+        if (it == edges.end()) return false;
         return true;
     }
 
