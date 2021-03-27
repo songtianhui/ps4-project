@@ -68,8 +68,11 @@ WeightedGraph::~WeightedGraph() {}
 
 bool WeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
     WeightedEdge e = WeightedEdge(vertex1, vertex2, weight);
-    this->weight[std::make_pair(vertex1, vertex2)] = weight;
-    return InsertEdge(e);
+    bool succ = InsertEdge(e);
+    if (succ) {
+        this->weight[std::make_pair(vertex1, vertex2)] = weight;
+    }
+    return succ;
 }
 
 int WeightedGraph::GetWeight(int vertex1, int vertex2) const {
