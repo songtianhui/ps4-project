@@ -134,7 +134,6 @@ public:
     std::vector<int> GetNeighbors(int vertex) const {
         std::vector<int> nei;
         auto it = edges.find(vertex);
-        if (it == edges.end()) return 0;
         for (TEdge &e : it->second) {
             const int src = e.GetSource;
             const int dst = e.GetDestination;
