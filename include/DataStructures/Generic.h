@@ -81,7 +81,7 @@ public:
 
     bool ContainsEdge(int vertex1, int vertex2) const {
         auto it = exist.find({vertex1, vertex2});
-        if (it == edges.end()) return false;
+        if (it == exist.end()) return false;
         return true;
     }
 
