@@ -60,7 +60,7 @@ public:
         if (edges.find(vertex1) == edges.end() || edges.find(vertex2) == edges.end() || exist.find(std::make_pair(vertex1, vertex2)) == exist.end()) return false;
 
         auto it = exist.find(std::make_pair(vertex1, vertex2));
-        edges.erase(it);
+        exist.erase(it);
         NR_edges--;
         return true;
     }
