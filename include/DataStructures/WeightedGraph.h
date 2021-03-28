@@ -49,11 +49,11 @@ public:
 
     bool AddEdge(int vertex1, int vertex2, int weight);
 
-    std::vector<WeightedEdge> GetEdges() const;
-
-    std::vector<WeightedEdge> GetIncomingEdges(int vertex) const;
-
-    std::vector<WeightedEdge> GetOutgoingEdges(int vertex) const;
+//    std::vector<WeightedEdge> GetEdges() const;
+//
+//    std::vector<WeightedEdge> GetIncomingEdges(int vertex) const;
+//
+//    std::vector<WeightedEdge> GetOutgoingEdges(int vertex) const;
 };
 
 #endif //GRAPHLIBRARY_WEIGHTEDGRAPH_H

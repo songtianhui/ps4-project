@@ -82,29 +82,29 @@ int WeightedGraph::GetWeight(int vertex1, int vertex2) const {
     return it->second;
 }
 
-std::vector<WeightedEdge> WeightedGraph::GetEdges() const {
-    std::vector<std::pair<int, int> > pairs = ObtainEdges();
-    std::vector<WeightedEdge> alledges;
-    for (std::pair<int, int> &e : pairs) {
-        alledges.push_back(WeightedEdge(e.first, e.second, GetWeight(e.first, e.second)));
-    }
-    return alledges;
-}
-
-std::vector<WeightedEdge> WeightedGraph::GetIncomingEdges(int vertex) const {
-    std::vector<std::pair<int, int> > pairs = ObtainIncomingEdges(vertex);
-    std::vector<WeightedEdge> inedges;
-    for (std::pair<int, int> &e : pairs) {
-        inedges.push_back(WeightedEdge(e.first, e.second, GetWeight(e.first, e.second)));
-    }
-    return inedges;
-}
-
-std::vector<WeightedEdge> WeightedGraph::GetOutgoingEdges(int vertex) const {
-    std::vector<std::pair<int, int> > pairs = ObtainOutgoingEdges(vertex);
-    std::vector<WeightedEdge> outedges;
-    for (std::pair<int, int> &e : pairs) {
-        outedges.push_back(WeightedEdge(e.first, e.second, GetWeight(e.first, e.second)));
-    }
-    return outedges;
+//std::vector<WeightedEdge> WeightedGraph::GetEdges() const {
+//    std::vector<std::pair<int, int> > pairs = ObtainEdges();
+//    std::vector<WeightedEdge> alledges;
+//    for (std::pair<int, int> &e : pairs) {
+//        alledges.push_back(WeightedEdge(e.first, e.second, GetWeight(e.first, e.second)));
+//    }
+//    return alledges;
+//}
+//
+//std::vector<WeightedEdge> WeightedGraph::GetIncomingEdges(int vertex) const {
+//    std::vector<std::pair<int, int> > pairs = ObtainIncomingEdges(vertex);
+//    std::vector<WeightedEdge> inedges;
+//    for (std::pair<int, int> &e : pairs) {
+//        inedges.push_back(WeightedEdge(e.first, e.second, GetWeight(e.first, e.second)));
+//    }
+//    return inedges;
+//}
+//
+//std::vector<WeightedEdge> WeightedGraph::GetOutgoingEdges(int vertex) const {
+//    std::vector<std::pair<int, int> > pairs = ObtainOutgoingEdges(vertex);
+//    std::vector<WeightedEdge> outedges;
+//    for (std::pair<int, int> &e : pairs) {
+//        outedges.push_back(WeightedEdge(e.first, e.second, GetWeight(e.first, e.second)));
+//    }
+//    return outedges;
 }

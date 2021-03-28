@@ -14,8 +14,8 @@
 template <typename TEdge>
 class Generic {
 private:
-    std::unordered_map<int, std::vector<TEdge> > edges;    //邻接表, i不在表示没有点i，edges[i]为空表示有点i
-    std::map<std::pair<int, int>, bool> exist;
+    std::unordered_map<int, std::vector<TEdge> > edges;      // 邻接表, i不在表示没有点i，edges[i]为空表示有点i
+    std::map<std::pair<int, int>, int> exist;              // 记录 edges[.first.first][.second] = .first.second, 找不到或.second = -1说明不存在
     int NR_vertices;
     int NR_edges;
 
@@ -35,7 +35,8 @@ protected:
         if (!ContainsVertex(src) || !ContainsVertex(dst) || ContainsEdge(src,dst)) return false;
 
         edges[src].push_back(e);
-        exist[std::make_pair(src, dst)] = true;
+        exist[std::make_pair(src, dst)] = edges[src].size() - 1;    // 该边在edges[src]中的id
+        assert(exist[std::make_pair(src,dst)] > 0);
         NR_edges++;
         return true;
     }
@@ -51,6 +52,7 @@ public:
     bool RemoveVertex(int vertex) {
         auto it = edges.find(vertex);
         if (it == edges.end()) return false;
+        it->second.clear();
         edges.erase(it);
         NR_vertices--;
         return true;
@@ -80,8 +82,8 @@ public:
     }
 
     bool ContainsEdge(int vertex1, int vertex2) const {
-        auto it = exist.find({vertex1, vertex2});
-        if (it == exist.end()) return false;
+        auto it = exist.find(std::make_pair(vertex1, vertex2));
+        if (it == exist.end() || it->second < 0) return false;
         return true;
     }
 
@@ -94,26 +96,41 @@ public:
         return allvertices;
     }
 
-    std::vector<std::pair<int, int> > ObtainEdges() const {
+    std::vector<TEdge> GetEdges() const {
         std::vector<std::pair<int, int> > alledges;
+
         for (auto it = exist.begin(); it != exist.end(); ++it) {
-            alledges.push_back(it->first);
+            const int src = it->first.first;
+            const int dst = it->first.second;
+            const int idx = it->second;
+            alledges.push_back(edges[src][idx]);
         }
+//        for (auto it = exist.begin(); it != exist.end(); ++it) {
+//            alledges.push_back(it->first);
+//        }
         return alledges;
     }
 
-    std::vector<std::pair<int, int> > ObtainIncomingEdges(int vertex) const {
+    std::vector<TEdge> GetIncomingEdges(int vertex) const {
         std::vector<std::pair<int, int> > inedges;
         for (auto it = exist.begin(); it != exist.end(); ++it) {
-            if (it->first.second == vertex) inedges.push_back(it->first);
+            const int src = it->first.first;
+            const int dst = it->first.second;
+            const int idx = it->second;
+            inedges.push_back(edges[src][idx]);
+//            if (it->first.second == vertex) inedges.push_back(it->first);
         }
         return inedges;
     }
 
-    std::vector<std::pair<int, int> > ObtainOutgoingEdges(int vertex) const {
+    std::vector<TEdge> GetOutgoingEdges(int vertex) const {
         std::vector<std::pair<int, int> > outedges;
         for (auto it = exist.begin(); it != exist.end(); ++it) {
-            if (it->first.first == vertex) outedges.push_back(it->first);
+            const int src = it->first.first;
+            const int dst = it->first.second;
+            const int idx = it->second;
+            outedges.push_back(edges[src][idx]);
+//            if (it->first.first == vertex) outedges.push_back(it->first);
         }
         return outedges;
     }
