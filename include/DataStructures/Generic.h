@@ -42,7 +42,7 @@ protected:
 
 public:
     bool AddVertex(int vertex) {
-        if (ContainsEdge(vertex)) return false;
+        if (ContainsVertex(vertex)) return false;
         edges[vertex].clear();
         NR_vertices++;
         return true;
