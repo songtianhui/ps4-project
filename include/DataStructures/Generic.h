@@ -103,11 +103,12 @@ public:
             const int src = it->first.first;
             const int dst = it->first.second;
             const int idx = it->second;
-            alledges.push_back(edges[src][idx]);
+
+            auto it2 = edges.find(src);
+            assert(it2 != edges.end());
+            alledges.push_back((it2->second)[idx]);
         }
-//        for (auto it = exist.begin(); it != exist.end(); ++it) {
-//            alledges.push_back(it->first);
-//        }
+
         return alledges;
     }
 
@@ -117,8 +118,10 @@ public:
             const int src = it->first.first;
             const int dst = it->first.second;
             const int idx = it->second;
-            inedges.push_back(edges[src][idx]);
-//            if (it->first.second == vertex) inedges.push_back(it->first);
+
+            auto it2 = edges.find(src);
+            assert(it2 != edges.end());
+            if (dst == vertex) inedges.push_back((it2->second)[idx]);
         }
         return inedges;
     }
@@ -129,8 +132,10 @@ public:
             const int src = it->first.first;
             const int dst = it->first.second;
             const int idx = it->second;
-            outedges.push_back(edges[src][idx]);
-//            if (it->first.first == vertex) outedges.push_back(it->first);
+
+            auto it2 = edges.find(src);
+            assert(it2 != edges.end());
+            if (src == vertex) outedges.push_back((it2->second)[idx]);
         }
         return outedges;
     }
