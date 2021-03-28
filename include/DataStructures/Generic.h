@@ -36,7 +36,7 @@ protected:
 
         edges[src].push_back(e);
         exist[std::make_pair(src, dst)] = edges[src].size() - 1;    // 该边在edges[src]中的id
-//        assert(exist[std::make_pair(src,dst)] >= 0);
+        assert(exist[std::make_pair(src,dst)] >= 0);
         NR_edges++;
         return true;
     }
@@ -105,7 +105,7 @@ public:
             const int idx = it->second;
 
             auto it2 = edges.find(src);
-//            assert(it2 != edges.end());
+            assert(it2 != edges.end());
             alledges.push_back((it2->second)[idx]);
         }
 
@@ -120,7 +120,7 @@ public:
             const int idx = it->second;
 
             auto it2 = edges.find(src);
-//            assert(it2 != edges.end());
+            assert(it2 != edges.end());
             if (dst == vertex) inedges.push_back((it2->second)[idx]);
         }
         return inedges;
@@ -134,7 +134,7 @@ public:
             const int idx = it->second;
 
             auto it2 = edges.find(src);
-//            assert(it2 != edges.end());
+            assert(it2 != edges.end());
             if (src == vertex) outedges.push_back((it2->second)[idx]);
         }
         return outedges;
