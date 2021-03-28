@@ -36,7 +36,7 @@ protected:
 
         edges[src].push_back(e);
         exist[std::make_pair(src, dst)] = edges[src].size() - 1;    // 该边在edges[src]中的id
-        assert(exist[std::make_pair(src,dst)] > 0);
+        assert(exist[std::make_pair(src,dst)] >= 0);
         NR_edges++;
         return true;
     }
