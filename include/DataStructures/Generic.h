@@ -32,7 +32,7 @@ protected:
     bool InsertEdge(TEdge e) {
         const int src = e.GetSource();
         const int dst = e.GetDestination();
-        if (edges.find(src) == edges.end() || edges.find(dst) == edges.end() || exist.find(std::make_pair(src, dst)) != exist.end()) return false;
+        if (!ContainsVertex(src) || !ContainsVertex(dst) || ContainsEdge(src,dst)) return false;
 
         edges[src].push_back(e);
         exist[std::make_pair(src, dst)] = true;
@@ -42,7 +42,7 @@ protected:
 
 public:
     bool AddVertex(int vertex) {
-        if (edges.find(vertex) != edges.end()) return false;
+        if (ContainsEdge(vertex)) return false;
         edges[vertex].clear();
         NR_vertices++;
         return true;
@@ -57,7 +57,7 @@ public:
     }
 
     bool RemoveEdge(int vertex1, int vertex2) {
-        if (edges.find(vertex1) == edges.end() || edges.find(vertex2) == edges.end() || exist.find(std::make_pair(vertex1, vertex2)) == exist.end()) return false;
+        if (!ContainsVertex(vertex1) || !ContainsVertex(vertex2) || !ContainsEdge(vertex1, vertex2)) return false;
 
         auto it = exist.find(std::make_pair(vertex1, vertex2));
         exist.erase(it);
