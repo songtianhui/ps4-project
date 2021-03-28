@@ -97,7 +97,7 @@ public:
     }
 
     std::vector<TEdge> GetEdges() const {
-        std::vector<std::pair<int, int> > alledges;
+        std::vector<TEdge> alledges;
 
         for (auto it = exist.begin(); it != exist.end(); ++it) {
             const int src = it->first.first;
@@ -112,7 +112,7 @@ public:
     }
 
     std::vector<TEdge> GetIncomingEdges(int vertex) const {
-        std::vector<std::pair<int, int> > inedges;
+        std::vector<TEdge> inedges;
         for (auto it = exist.begin(); it != exist.end(); ++it) {
             const int src = it->first.first;
             const int dst = it->first.second;
@@ -124,7 +124,7 @@ public:
     }
 
     std::vector<TEdge> GetOutgoingEdges(int vertex) const {
-        std::vector<std::pair<int, int> > outedges;
+        std::vector<TEdge> outedges;
         for (auto it = exist.begin(); it != exist.end(); ++it) {
             const int src = it->first.first;
             const int dst = it->first.second;
