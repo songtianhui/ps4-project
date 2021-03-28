@@ -69,8 +69,9 @@ int main() {
 
     printf("remove 1000...\n");
 
-    g.RemoveVertex(1000);
-    assert(g.ContainsEdge(1000, 99999) == false);
+    g.AddVertex(8);
+    g.RemoveVertex(8);
+    assert(g.ContainsEdge(1000, 99999) == true);
     assert(g.ContainsEdge(1, 99999) == false);
 //    g.RemoveEdge(99999, 1);
 
