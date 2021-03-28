@@ -103,6 +103,7 @@ public:
             const int src = it->first.first;
             const int dst = it->first.second;
             const int idx = it->second;
+            assert(idx >= 0);
 
             auto it2 = edges.find(src);
             assert(it2 != edges.end());
@@ -118,6 +119,7 @@ public:
             const int src = it->first.first;
             const int dst = it->first.second;
             const int idx = it->second;
+            assert(idx >= 0);
 
             auto it2 = edges.find(src);
             assert(it2 != edges.end());
@@ -132,6 +134,7 @@ public:
             const int src = it->first.first;
             const int dst = it->first.second;
             const int idx = it->second;
+            assert(idx >= 0);
 
             auto it2 = edges.find(src);
             assert(it2 != edges.end());
