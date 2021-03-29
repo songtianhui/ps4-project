@@ -32,7 +32,7 @@ public:
         bool succ2 = true;
 
         if (vertex1 != vertex2) {
-            succ2 = RemoveEdge(vertex2, vertex1);
+            succ2 = Generic<TEdge>::RemoveEdge(vertex2, vertex1);
             this->NR_edges++;
         }
 
