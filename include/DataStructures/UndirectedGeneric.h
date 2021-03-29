@@ -10,8 +10,8 @@
 template <typename TEdge>
 class UndirectedGeneric : public Generic<TEdge> {
 public:
-    UndirectedGeneric();
-    ~UndirectedGeneric();
+    UndirectedGeneric() : Generic<TEdge>(){}
+    ~UndirectedGeneric() {}
 
 public:
     bool InsertEdge(TEdge e) override {
