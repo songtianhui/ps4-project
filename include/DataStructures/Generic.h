@@ -30,7 +30,7 @@ public:
     virtual ~Generic() {}
 
 public:
-    bool InsertEdge(TEdge e) {
+    virtual bool InsertEdge(TEdge e) {
         const int src = e.GetSource();
         const int dst = e.GetDestination();
         if (!ContainsVertex(src) || !ContainsVertex(dst) || ContainsEdge(src,dst)) return false;
