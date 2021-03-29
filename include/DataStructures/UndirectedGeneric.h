@@ -10,6 +10,23 @@
 template <typename TEdge>
 class UndirectedGeneric : public Generic<TEdge> {
 public:
+    UndirectedGeneric();
+    ~UndirectedGeneric();
+
+public:
+    bool InsertEdge(TEdge e) override {
+        const int src = e.GetSource();
+        const int dst = e.GetDestination();
+        if (!this->ContainsVertex(src) || !this->ContainsVertex(dst) || (ContainsEdge(src,dst) && ContainsEdge(dst,src))) return false;
+
+        this->edges[src].push_back(e);
+        this->exist[std::make_pair(src, dst)] = this->edges[src].size() - 1;    // 该边在edges[src]中的id
+        assert(this->exist[std::make_pair(src,dst)] >= 0);
+        this->NR_edges++;
+        return true;
+    }
+
+
     bool RemoveEdge(int vertex1, int vertex2) override {
         bool succ1 = Generic<TEdge>::RemoveEdge(vertex1, vertex2);
         bool succ2 = true;

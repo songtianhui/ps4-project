@@ -66,7 +66,7 @@
 class UndirectedGraph : public UndirectedGeneric<Edge> {
 public:
     UndirectedGraph();
-    virtual ~UndirectedGraph();
+    ~UndirectedGraph();
 
     bool AddEdge(int vertex1, int vertex2);
 

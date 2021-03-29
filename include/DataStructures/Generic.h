@@ -29,7 +29,7 @@ public:
 
     virtual ~Generic() {}
 
-protected:
+public:
     bool InsertEdge(TEdge e) {
         const int src = e.GetSource();
         const int dst = e.GetDestination();
