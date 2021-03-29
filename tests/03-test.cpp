@@ -27,6 +27,12 @@ int main() {
     g.AddVertex(0);
     g.AddVertex(-114514);
 
+    assert(g.AddVertex(-114514) == false);
+    assert(g.AddVertex(6) == true);
+    assert(g.RemoveVertex(6) == true);
+    assert(g.RemoveVertex(6) == false);
+
+
     assert(g.AddEdge(1, 1000, 114514) == true);
     assert(g.AddEdge(0, 1000, 100) == true);
     assert(g.AddEdge(-114514, 0, -100) == true);
@@ -71,12 +77,12 @@ int main() {
     for (int i : nei) printf("%d ", i);
     printf("\n");
 
-    printf("remove 1000...\n");
+//    printf("remove 1000...\n");
 
 //    g.RemoveVertex(1000);
     assert(g.ContainsEdge(1000, 99999) == true);
     assert(g.ContainsEdge(1, 99999) == true);
-//    g.RemoveEdge(99999, 1);
+    assert(g.RemoveEdge(1, 99999) == true);
 
     std::vector<int> vs2 = g.GetVertices();
     printf("NR_v = %d\n", g.CountVertices());
