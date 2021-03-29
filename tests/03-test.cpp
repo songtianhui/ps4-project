@@ -44,6 +44,9 @@ int main() {
     assert(g.AddEdge(1, 1000, 1) == false);
     assert(g.AddEdge(1, 2, 12) == false);
     assert(g.AddEdge(0, -114514, 0) == false);
+    assert(g.RemoveEdge(0, -114514) == true);
+    assert(g.AddEdge(0, -114514) == true);
+
 
     assert(g.ContainsEdge(1000, 99999) == true);
     assert(g.ContainsEdge(99999, 1) == true);
