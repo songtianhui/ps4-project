@@ -13,9 +13,10 @@
 
 template <typename TEdge>
 class Generic {
-private:
-    std::unordered_map<int, std::vector<TEdge> > edges;      // 邻接表, i不在表示没有点i，edges[i]为空表示有点i
-    std::map<std::pair<int, int>, int> exist;              // 记录 edges[.first.first][.second] = .first.second, 找不到或.second = -1说明不存在
+protected:
+    std::map<std::pair<int, int>, int> exist;           // 邻接表, i不在表示没有点i，edges[i]为空表示有点i
+    std::unordered_map<int, std::vector<TEdge> > edges; // 记录 edges[.first.first][.second] = .first.second, 找不到或.second = -1说明不存在
+
     int NR_vertices;
     int NR_edges;
 
@@ -58,7 +59,7 @@ public:
         return true;
     }
 
-    bool RemoveEdge(int vertex1, int vertex2) {
+    virtual bool RemoveEdge(int vertex1, int vertex2) {
         if (!ContainsVertex(vertex1) || !ContainsVertex(vertex2) || !ContainsEdge(vertex1, vertex2)) return false;
 
         auto it = exist.find(std::make_pair(vertex1, vertex2));
@@ -81,7 +82,7 @@ public:
         return true;
     }
 
-    bool ContainsEdge(int vertex1, int vertex2) const {
+    virtual bool ContainsEdge(int vertex1, int vertex2) const {
         auto it = exist.find(std::make_pair(vertex1, vertex2));
         if (it == exist.end() || it->second < 0) return false;
         return true;
@@ -96,7 +97,7 @@ public:
         return allvertices;
     }
 
-    std::vector<TEdge> GetEdges() const {
+    virtual std::vector<TEdge> GetEdges() const {
         std::vector<TEdge> alledges;
 
         for (auto it = exist.begin(); it != exist.end(); ++it) {
@@ -143,7 +144,7 @@ public:
         return outedges;
     }
 
-    int GetDegree(int vertex) const {
+    virtual int GetDegree(int vertex) const {
         int ans = 0;
         auto it = edges.find(vertex);
         if (it == edges.end()) return 0;
