@@ -74,13 +74,12 @@ bool UndirectedWeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
     bool succ1 = InsertEdge(WeightedEdge(vertex1, vertex2, weight));
     bool succ2 = true;
 
-    if (vertex1 != vertex2) {
+    if (succ1 && vertex1 != vertex2) {
         succ2 = InsertEdge(WeightedEdge(vertex2, vertex1, weight));
         NR_edges--;
+        this->weight[std::make_pair(vertex1, vertex2)] = weight;
+        this->weight[std::make_pair(vertex2, vertex1)] = weight;
     }
-
-    this->weight[std::make_pair(vertex1, vertex2)] = weight;
-    this->weight[std::make_pair(vertex2, vertex1)] = weight;
 
     return succ1 && succ2;
 }
