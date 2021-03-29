@@ -17,7 +17,7 @@ public:
     bool InsertEdge(TEdge e) override {
         const int src = e.GetSource();
         const int dst = e.GetDestination();
-        if (!this->ContainsVertex(src) || !this->ContainsVertex(dst) || (ContainsEdge(src,dst) && ContainsEdge(dst,src))) return false;
+        if (!this->ContainsVertex(src) || !this->ContainsVertex(dst) || (this->exist.find(std::make_pair(src, dst)) != this->exist.end() && (this->exist.find(std::make_pair(src, dst)))) != this->exist.end()) return false;
 
         this->edges[src].push_back(e);
         this->exist[std::make_pair(src, dst)] = this->edges[src].size() - 1;    // 该边在edges[src]中的id
