@@ -210,7 +210,7 @@ bool UndirectedGraph::AddEdge(int vertex1, int vertex2) {
     bool succ1 = InsertEdge(Edge(vertex1, vertex2));
     bool succ2 = true;
 
-    if (vertex1 != vertex2) {
+    if (succ1 && vertex1 != vertex2) {
         succ2 = InsertEdge(Edge(vertex2, vertex1));
         NR_edges--;
     }
