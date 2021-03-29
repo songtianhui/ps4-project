@@ -64,11 +64,11 @@
 
 #include <DataStructures/UndirectedWeightedGraph.h>
 
-UndirectedWEightedGraph::UndirectedWeightedGraph() :UndirectedGeneric<WeightedEdge>() {
+UndirectedWeightedGraph::UndirectedWeightedGraph() :UndirectedGeneric<WeightedEdge>() {
     weight.clear();
 }
 
-UndirectedWEightedGraph::~UndirectedWeightedGraph() {}
+UndirectedWeightedGraph::~UndirectedWeightedGraph() {}
 
 bool UndirectedWeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
     bool succ1 = InsertEdge(WeightedEdge(vertex1, vertex2, weight));
