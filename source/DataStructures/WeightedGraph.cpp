@@ -80,7 +80,7 @@
 //    auto it = weight.find(std::make_pair(vertex1, vertex2));
 //    assert(it != weight.end());
 //    return it->second;
-}
+//}
 
 //std::vector<WeightedEdge> WeightedGraph::GetEdges() const {
 //    std::vector<std::pair<int, int> > pairs = ObtainEdges();
