@@ -50,7 +50,7 @@ public:
 
 public:
     bool AddEdge(int vertex1, int vertex2, T weight) {
-        bool succ1 = UndirectedWeightedGraph<WeightedEdge<T> >::InsertEdge(WeightedEdge<T>(vertex1, vertex2, weight));
+        bool succ1 = UndirectedGeneric<WeightedEdge<T> >::InsertEdge(WeightedEdge<T>(vertex1, vertex2, weight));
         bool succ2 = true;
 
         if (succ1) {
