@@ -5,7 +5,7 @@
 #include <DataStructures/UndirectedWeightedGraph.h>
 #include <DataStructures/UndirectedGraph.h>
 
-UndirectedWeightedGraph g;
+UndirectedWeightedGraph<int> g;
 
 void printvector(std::vector<WeightedEdge> *wes) {
     for (auto &e : *wes) {
