@@ -57,7 +57,7 @@ public:
             this->weight[std::make_pair(vertex1, vertex2)] = weight;
             this->weight[std::make_pair(vertex2, vertex1)] = weight;
             if (vertex1 != vertex2) {
-                succ2 = UndirectedWeightedGraph<WeightedEdge<T> >::InsertEdge(WeightedEdge<T>(vertex2, vertex1, weight));
+                succ2 = UndirectedGeneric<WeightedEdge<T> >::InsertEdge(WeightedEdge<T>(vertex2, vertex1, weight));
                 if (succ1 && succ2) this->NR_edges--;
             }
         }
