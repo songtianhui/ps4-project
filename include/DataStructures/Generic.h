@@ -131,16 +131,25 @@ public:
 
     std::vector<TEdge> GetOutgoingEdges(int vertex) const {
         std::vector<TEdge> outedges;
-        for (auto it = exist.begin(); it != exist.end(); ++it) {
-            const int src = it->first.first;
-            const int dst = it->first.second;
-            const int idx = it->second;
-            assert(idx >= 0);
-
-            auto it2 = edges.find(src);
-            assert(it2 != edges.end());
-            if (src == vertex) outedges.push_back((it2->second)[idx]);
+        auto it = edges.find(vertex);
+        for (auto e = it->second.begin(); e != it->second.end(); ++e) {
+            const int src = vertex;
+            const int dst = e->GetDestination;
+            if (exist.find(std::make_pair(src, dst)) != exist.end()) {
+                outedges.push_back(e);
+            }
         }
+
+//        for (auto it = exist.begin(); it != exist.end(); ++it) {
+//            const int src = it->first.first;
+//            const int dst = it->first.second;
+//            const int idx = it->second;
+//            assert(idx >= 0);
+//
+//            auto it2 = edges.find(src);
+//            assert(it2 != edges.end());
+//            if (src == vertex) outedges.push_back((it2->second)[idx]);
+//        }
         return outedges;
     }
 
