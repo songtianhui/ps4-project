@@ -72,7 +72,7 @@ public:
     }
 
     std::vector<WeightedEdge<T> > GetIncomingEdges(int vertex) const override {
-        return UndirectedGeneric<WeightedEdge<T> >::GetOutgoingEdges();
+        return UndirectedGeneric<WeightedEdge<T> >::GetOutgoingEdges(vertex);
     }
 };
 #endif //GRAPHLIBRARY_UNDIRECTEDWEIGHTEDGRAPH_H
