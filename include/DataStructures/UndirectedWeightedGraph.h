@@ -37,17 +37,39 @@
 #include <DataStructures/UndirectedGeneric.h>
 #include <DataStructures/WeightedEdge.h>
 
-class UndirectedWeightedGraph : public UndirectedGeneric<WeightedEdge> {
+template <typename T>
+class UndirectedWeightedGraph : public UndirectedGeneric<WeightedEdge<T> > {
 private:
-    std::map<std::pair<int,int>, int> weight;
+    std::map<std::pair<int,int>, T> weight;
 
 public:
-    UndirectedWeightedGraph();
-    virtual ~UndirectedWeightedGraph();
+    UndirectedWeightedGraph() {
+        weight.clear();
+    }
+    virtual ~UndirectedWeightedGraph() {}
 
 public:
-    bool AddEdge(int vertex1, int vertex2, int weight);
+    bool AddEdge(int vertex1, int vertex2, T weight) {
+        bool succ1 = InsertEdge(WeightedEdge(vertex1, vertex2, weight));
+        bool succ2 = true;
 
-    int GetWeight(int vertex1, int vertex2) const;
+        if (succ1) {
+            this->weight[std::make_pair(vertex1, vertex2)] = weight;
+            this->weight[std::make_pair(vertex2, vertex1)] = weight;
+            if (vertex1 != vertex2) {
+                succ2 = InsertEdge(WeightedEdge(vertex2, vertex1, weight));
+                if (succ1 && succ2) this->NR_edges--;
+            }
+        }
+
+        return succ1 && succ2;
+    }
+
+    T GetWeight(int vertex1, int vertex2) const {
+        auto it = weight.find(std::make_pair(vertex1, vertex2));
+        if (it == weight.end()) return 0;
+        else return it->second;
+    }
+
 };
 #endif //GRAPHLIBRARY_UNDIRECTEDWEIGHTEDGRAPH_H

@@ -36,18 +36,34 @@
 //
 //};
 
-class WeightedGraph : public Generic<WeightedEdge> {
+template <typename T>
+class WeightedGraph : public Generic<WeightedEdge<T> > {
 private:
-    std::map<std::pair<int, int>, int> weight;
+    std::map<std::pair<int, int>, T> weight;
 
 public:
-    WeightedGraph();
-    ~WeightedGraph();
+    WeightedGraph() {
+        weight.clear();
+    }
+
+    virtual ~WeightedGraph() {}
 
 public:
-    int GetWeight(int vertex1, int vertex2) const;
+    T GetWeight(int vertex1, int vertex2) const {
+        if (!Generic<WeightedGraph<T> >::ContainsEdge(vertex1, vertex2)) return 0;
+        auto it = weight.find(std::make_pair(vertex1, vertex2));
+        assert(it != weight.end());
+        return it->second;
+    }
 
-    bool AddEdge(int vertex1, int vertex2, int weight);
+    bool AddEdge(int vertex1, int vertex2, T weight) {
+        WeightedEdge<T> e = WeightedEdge<T>(vertex1, vertex2, weight);
+        bool succ = InsertEdge(e);
+        if (succ) {
+            this->weight[std::make_pair(vertex1, vertex2)] = weight;
+        }
+        return succ;
+    }
 
 //    std::vector<WeightedEdge> GetEdges() const;
 //

@@ -64,30 +64,30 @@
 
 #include <DataStructures/UndirectedWeightedGraph.h>
 
-UndirectedWeightedGraph::UndirectedWeightedGraph() :UndirectedGeneric<WeightedEdge>() {
-    weight.clear();
-}
-
-UndirectedWeightedGraph::~UndirectedWeightedGraph() {}
-
-bool UndirectedWeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
-    bool succ1 = InsertEdge(WeightedEdge(vertex1, vertex2, weight));
-    bool succ2 = true;
-
-    if (succ1) {
-        this->weight[std::make_pair(vertex1, vertex2)] = weight;
-        this->weight[std::make_pair(vertex2, vertex1)] = weight;
-        if (vertex1 != vertex2) {
-            succ2 = InsertEdge(WeightedEdge(vertex2, vertex1, weight));
-            if (succ1 && succ2) NR_edges--;
-        }
-    }
-
-    return succ1 && succ2;
-}
-
-int UndirectedWeightedGraph::GetWeight(int vertex1, int vertex2) const {
-    auto it = weight.find(std::make_pair(vertex1, vertex2));
-    if (it == weight.end()) return 0;
-    else return it->second;
-}
+//UndirectedWeightedGraph::UndirectedWeightedGraph() :UndirectedGeneric<WeightedEdge>() {
+//    weight.clear();
+//}
+//
+//UndirectedWeightedGraph::~UndirectedWeightedGraph() {}
+//
+//bool UndirectedWeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
+//    bool succ1 = InsertEdge(WeightedEdge(vertex1, vertex2, weight));
+//    bool succ2 = true;
+//
+//    if (succ1) {
+//        this->weight[std::make_pair(vertex1, vertex2)] = weight;
+//        this->weight[std::make_pair(vertex2, vertex1)] = weight;
+//        if (vertex1 != vertex2) {
+//            succ2 = InsertEdge(WeightedEdge(vertex2, vertex1, weight));
+//            if (succ1 && succ2) NR_edges--;
+//        }
+//    }
+//
+//    return succ1 && succ2;
+//}
+//
+//int UndirectedWeightedGraph::GetWeight(int vertex1, int vertex2) const {
+//    auto it = weight.find(std::make_pair(vertex1, vertex2));
+//    if (it == weight.end()) return 0;
+//    else return it->second;
+//}

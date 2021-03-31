@@ -6,14 +6,34 @@
 #define GRAPHLIBRARY_WEIGHTEDEDGE_H
 #include <DataStructures/Edge.h>
 
-class WeightedEdge : public Edge {
+template <typename T>
+class WeightedEdge {
 private:
-    int weight;
+    int source;
+    int destination;
+    T weight;
 
 public:
-    WeightedEdge(int source, int destination, int weight);
+    WeightedEdge(int source, int destination, T weight) {
+        this->source = source;
+        this->destination = destination;
+        this->weight = weight;
+    }
 
-    int GetWeight() const;
+    virtual ~WeightedEdge() {}
+
+public:
+    T GetWeight() const {
+        return weight;
+    }
+
+    int GetSource() const {
+        return source;
+    }
+
+    int GetDestination() const {
+        return destination;
+    }
 
 };
 
