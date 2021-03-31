@@ -58,7 +58,7 @@ public:
 
     bool AddEdge(int vertex1, int vertex2, T weight) {
         WeightedEdge<T> e = WeightedEdge<T>(vertex1, vertex2, weight);
-        bool succ = InsertEdge(e);
+        bool succ = Generic<WeightedGraph<T> >::InsertEdge(e);
         if (succ) {
             this->weight[std::make_pair(vertex1, vertex2)] = weight;
         }
