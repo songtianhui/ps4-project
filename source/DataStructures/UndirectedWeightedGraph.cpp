@@ -79,7 +79,7 @@ bool UndirectedWeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
         this->weight[std::make_pair(vertex2, vertex1)] = weight;
         if (vertex1 != vertex2) {
             succ2 = InsertEdge(WeightedEdge(vertex2, vertex1, weight));
-            NR_edges--;
+            if (succ1 && succ2) NR_edges--;
         }
     }
 
