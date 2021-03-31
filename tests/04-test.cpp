@@ -25,16 +25,33 @@ int main() {
     assert(g.AddVertex(99999) == true);
     assert(g.AddVertex(0) == true);
     assert(g.AddVertex(-114514) == true);
-    printf("NR_vertices = %d\n", g.CountVertices());
     assert(g.AddVertex(99999) == false);
-    printf("NR_vertices = %d\n", g.CountVertices());
     assert(g.AddVertex(0) == false);
-    printf("NR_vertices = %d\n", g.CountVertices());
     assert(g.RemoveVertex(1) == true);
-    printf("NR_vertices = %d\n", g.CountVertices());
     assert(g.AddVertex(1) == true);
 
     printf("NR_vertices = %d\n", g.CountVertices());
+
+    assert(g.AddEdge(1, 1000, 114514) == true);
+    assert(g.AddEdge(0, 1000, 100) == true);
+    assert(g.AddEdge(-114514, 0, -100) == true);
+    assert(g.AddEdge(99999, 0, 0) == true);
+    assert(g.AddEdge(1000, 99999, 250) == true);
+    printf("NR_edges = %d\n", g.CountEdges());
+    assert(g.AddEdge(1000, 1, 800) == false);
+    printf("NR_edges = %d\n", g.CountEdges());
+    assert(g.AddEdge(99999, 1, 99) == true);
+    printf("NR_edges = %d\n", g.CountEdges());
+    assert(g.AddEdge(1000, 1000, 10) == true);
+    printf("NR_edges = %d\n", g.CountEdges());
+    assert(g.AddEdge(1, 1000, 1) == false);
+    printf("NR_edges = %d\n", g.CountEdges());
+    assert(g.AddEdge(1, 2, 12) == false);
+    assert(g.AddEdge(0, -114514, 0) == false);
+    assert(g.RemoveEdge(0, -114514) == true);
+    printf("NR_edges = %d\n", g.CountEdges());
+    assert(g.AddEdge(0, -114514, -100) == true);
+    printf("NR_edges = %d\n", g.CountEdges());
 
 
     printf("OK!\n");
