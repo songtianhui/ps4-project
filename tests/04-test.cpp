@@ -28,6 +28,7 @@ int main() {
     assert(g.AddVertex(99999) == false);
     assert(g.AddVertex(0) == false);
     assert(g.RemoveVertex(1) == true);
+    assert(g.RemoveVertex(1) == false);
     assert(g.AddVertex(1) == true);
 
     printf("NR_vertices = %d\n", g.CountVertices());
