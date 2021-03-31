@@ -55,6 +55,22 @@ int main() {
     assert(g.AddEdge(0, -114514, -100) == true);
     printf("NR_edges = %d\n", g.CountEdges());
 
+    assert(g.ContainsEdge(1, 1000) == true);
+    assert(g.ContainsEdge(1000, 1) == true);
+    assert(g.ContainsEdge(0, 1000) == true);
+    assert(g.ContainsEdge(1000, 0) == true);
+    assert(g.ContainsEdge(0, -114514) == true);
+    assert(g.ContainsEdge(-114514, 0) == true);
+    assert(g.ContainsEdge(0, 99999) == true);
+    assert(g.ContainsEdge(99999, 0) == true);
+    assert(g.ContainsEdge(1000, 99999) == true);
+    assert(g.ContainsEdge(99999, 1000) == true);
+    assert(g.ContainsEdge(1, 99999) == true);
+    assert(g.ContainsEdge(99999, 1) == true);
+    assert(g.ContainsEdge(1000, 1000) == true);
+    assert(g.ContainsEdge(100, 1000) == false);
+
+
 
     printf("OK!\n");
 
