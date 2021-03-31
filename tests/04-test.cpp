@@ -7,7 +7,7 @@
 
 UndirectedWeightedGraph<int> g;
 
-void printvector(std::vector<WeightedEdge> *wes) {
+void printvector(std::vector<WeightedEdge<int> > *wes) {
     for (auto &e : *wes) {
         printf("w(%d, %d) = %d\n", e.GetSource(), e.GetDestination(), e.GetWeight());
     }
