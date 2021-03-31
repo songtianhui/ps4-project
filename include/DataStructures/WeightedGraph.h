@@ -50,7 +50,7 @@ public:
 
 public:
     T GetWeight(int vertex1, int vertex2) const {
-        if (!Generic<WeightedGraph<T> >::ContainsEdge(vertex1, vertex2)) return 0;
+        if (!Generic<WeightedEdge<T> >::ContainsEdge(vertex1, vertex2)) return 0;
         auto it = weight.find(std::make_pair(vertex1, vertex2));
         assert(it != weight.end());
         return it->second;
@@ -58,7 +58,7 @@ public:
 
     bool AddEdge(int vertex1, int vertex2, T weight) {
         WeightedEdge<T> e = WeightedEdge<T>(vertex1, vertex2, weight);
-        bool succ = Generic<WeightedGraph<T> >::InsertEdge(e);
+        bool succ = Generic<WeightedEdge<T> >::InsertEdge(e);
         if (succ) {
             this->weight[std::make_pair(vertex1, vertex2)] = weight;
         }
