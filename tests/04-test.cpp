@@ -5,6 +5,7 @@
 #include <DataStructures/UndirectedWeightedGraph.h>
 #include <DataStructures/UndirectedGraph.h>
 
+UndirectedWeightedGraph g;
 
 void printvector(std::vector<WeightedEdge> *wes) {
     for (auto &e : *wes) {
@@ -16,7 +17,6 @@ void printw(int s, int d) {
     printf("w(%d, %d) = %d\n", s, d ,g.GetWeight(s,d));
 }
 
-UndirectedWeightedGraph g;
 
 int main() {
     assert(g.AddVertex(1) == true);
