@@ -3,11 +3,11 @@
 //
 
 #include <DataStructures/WeightedEdge.h>
-
-WeightedEdge::WeightedEdge(int source, int destination, int weight) : Edge(source, destination) {
-    this->weight = weight;
-}
-
-int WeightedEdge::GetWeight() const {
-    return weight;
-}
+//
+//WeightedEdge::WeightedEdge(int source, int destination, int weight) : Edge(source, destination) {
+//    this->weight = weight;
+//}
+//
+//int WeightedEdge::GetWeight() const {
+//    return weight;
+//}
