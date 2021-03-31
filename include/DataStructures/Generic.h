@@ -137,7 +137,7 @@ public:
             assert(src == vertex);
             const int dst = e->GetDestination();
             if (exist.find(std::make_pair(src, dst)) != exist.end()) {
-                outedges.push_back(e);
+                outedges.push_back(*e);
             }
         }
 
