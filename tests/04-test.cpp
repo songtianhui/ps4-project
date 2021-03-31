@@ -49,6 +49,8 @@ int main() {
     assert(g.AddEdge(1, 2, 12) == false);
     assert(g.AddEdge(0, -114514, 0) == false);
     assert(g.RemoveEdge(0, -114514) == true);
+    assert(g.RemoveEdge(1, 100) == false);
+    assert(g.RemoveEdge(1000, -114514) == false);
     printf("NR_edges = %d\n", g.CountEdges());
     assert(g.AddEdge(0, -114514, -100) == true);
     printf("NR_edges = %d\n", g.CountEdges());
