@@ -19,15 +19,23 @@ void printw(int s, int d) {
 
 
 int main() {
+    // AddVertice
     assert(g.AddVertex(1) == true);
     assert(g.AddVertex(1000) == true);
     assert(g.AddVertex(99999) == true);
     assert(g.AddVertex(0) == true);
     assert(g.AddVertex(-114514) == true);
+    printf("NR_vertices = %d\n", g.CountVertices());
     assert(g.AddVertex(99999) == false);
+    printf("NR_vertices = %d\n", g.CountVertices());
     assert(g.AddVertex(0) == false);
+    printf("NR_vertices = %d\n", g.CountVertices());
     assert(g.RemoveVertex(1) == true);
+    printf("NR_vertices = %d\n", g.CountVertices());
     assert(g.AddVertex(1) == true);
+
+    printf("NR_vertices = %d\n", g.CountVertices());
+
 
     printf("OK!\n");
 
