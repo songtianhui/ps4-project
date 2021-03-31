@@ -50,14 +50,14 @@ public:
 
 public:
     bool AddEdge(int vertex1, int vertex2, T weight) {
-        bool succ1 = InsertEdge(WeightedEdge(vertex1, vertex2, weight));
+        bool succ1 = InsertEdge(WeightedEdge<T>(vertex1, vertex2, weight));
         bool succ2 = true;
 
         if (succ1) {
             this->weight[std::make_pair(vertex1, vertex2)] = weight;
             this->weight[std::make_pair(vertex2, vertex1)] = weight;
             if (vertex1 != vertex2) {
-                succ2 = InsertEdge(WeightedEdge(vertex2, vertex1, weight));
+                succ2 = InsertEdge(WeightedEdge<T>(vertex2, vertex1, weight));
                 if (succ1 && succ2) this->NR_edges--;
             }
         }
