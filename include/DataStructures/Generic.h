@@ -114,7 +114,7 @@ public:
         return alledges;
     }
 
-    std::vector<TEdge> GetIncomingEdges(int vertex) const {
+    virtual std::vector<TEdge> GetIncomingEdges(int vertex) const {
         std::vector<TEdge> inedges;
         for (auto it = exist.begin(); it != exist.end(); ++it) {
             const int src = it->first.first;
@@ -134,6 +134,7 @@ public:
         auto it = edges.find(vertex);
         for (auto e = it->second.begin(); e != it->second.end(); ++e) {
             const int src = vertex;
+            assert(src == vertex);
             const int dst = e->GetDestination;
             if (exist.find(std::make_pair(src, dst)) != exist.end()) {
                 outedges.push_back(e);
