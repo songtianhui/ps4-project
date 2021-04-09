@@ -25,6 +25,7 @@ public:
                 if (vis.find(next) == vis.end()) {
                     action(next);
                     q.emplace(next);
+                    vis.emplace(next);
                 }
             }
         }
