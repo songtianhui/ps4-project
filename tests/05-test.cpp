@@ -35,7 +35,7 @@ int main() {
 //    assert(g.AddEdge(0, -114514, -100) == true);
 
     DepthFirstSearcher<UndirectedWeightedGraph<int> >::VisitAllVertices(&g, 99999, &print);
-    printf("first: %d\n", DepthFirstSearcher<UndirectedWeightedGraph<int> >::FindFirstVertex(&g, 100, &cond));
+    printf("first: %d\n", DepthFirstSearcher<UndirectedWeightedGraph<int> >::FindFirstVertex(&g, 0, &cond));
 
     return 0;
 }
