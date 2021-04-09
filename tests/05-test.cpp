@@ -5,10 +5,11 @@
 #include <Algorithms/BreadthFirstSearcher.h>
 #include <Algorithms/DepthFirstSearcher.h>
 #include <DataStructures/Graph.h>
+#include <DataStructures/UndirectedGraph.h>
 #include <DataStructures/WeightedGraph.h>
 #include <DataStructures/UndirectedWeightedGraph.h>
 
-Graph g;
+UndirectedGraph g;
 
 void print(int x) {
     printf("%d\n", x);
@@ -35,11 +36,11 @@ int main() {
     assert(g.AddEdge(99999, -114514) == true);
     assert(g.AddEdge(0, -114514) == true);
 
-    BreadthFirstSearcher<Graph>::VisitAllVertices(&g, 0, &print);
-    printf("first: %d\n", BreadthFirstSearcher<Graph>::FindFirstVertex(&g, 0, &cond));
+    BreadthFirstSearcher<UndirectedGraph>::VisitAllVertices(&g, 0, &print);
+    printf("first: %d\n", BreadthFirstSearcher<UndirectedGraph>::FindFirstVertex(&g, 0, &cond));
 
-    DepthFirstSearcher<Graph>::VisitAllVertices(&g, 0, &print);
-    printf("first: %d\n", DepthFirstSearcher<Graph>::FindFirstVertex(&g, 0, &cond));
+    DepthFirstSearcher<UndirectedGraph>::VisitAllVertices(&g, 0, &print);
+    printf("first: %d\n", DepthFirstSearcher<UndirectedGraph>::FindFirstVertex(&g, 0, &cond));
 
     return 0;
 }
