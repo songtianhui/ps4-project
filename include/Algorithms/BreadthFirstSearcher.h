@@ -6,6 +6,7 @@
 #include <unordered_set>
 #include <vector>
 #include <queue>
+#include <cassert>
 
 template<typename TGraph>
 class BreadthFirstSearcher {
@@ -21,7 +22,7 @@ public:
         q.push(start);
         while (!q.empty()) {
             int cur = q.front(); q.pop();
-//            if (vis.find(cur) != vis.end()) continue;
+            assert(vis.find(cur) != vis.end());
             for (int next : graph->GetNeighbors(cur)) {
                 if (vis.find(next) == vis.end()) {
                     action(next);
@@ -44,7 +45,7 @@ public:
         q.push(start);
         while (!q.empty()) {
             int cur = q.front(); q.pop();
-//            vis.emplace(cur);
+            assert(vis.find(cur) != vis.end());
             for (int next : graph->GetNeighbors(cur)) {
                 if (vis.find(next) == vis.end()) {
                     if (predicate(next)) return next;
