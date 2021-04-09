@@ -36,11 +36,13 @@ int main() {
     assert(g.AddEdge(99999, -114514) == true);
 //    assert(g.AddEdge(0, -114514) == true);
 
-    BreadthFirstSearcher<UndirectedGraph>::VisitAllVertices(&g, 0, &print);
-    printf("first: %d\n", BreadthFirstSearcher<UndirectedGraph>::FindFirstVertex(&g, 0, &cond));
+    int start = 99999;
+    BreadthFirstSearcher<UndirectedGraph>::VisitAllVertices(&g, start, &print);
+    printf("first: %d\n", BreadthFirstSearcher<UndirectedGraph>::FindFirstVertex(&g, start, &cond));
 
-    DepthFirstSearcher<UndirectedGraph>::VisitAllVertices(&g, 0, &print);
-    printf("first: %d\n", DepthFirstSearcher<UndirectedGraph>::FindFirstVertex(&g, 0, &cond));
+    DepthFirstSearcher<UndirectedGraph>::VisitAllVertices(&g, start, &print);
+    printf("first: %d\n", DepthFirstSearcher<UndirectedGraph>::FindFirstVertex(&g, start, &cond));
+
 
     return 0;
 }
