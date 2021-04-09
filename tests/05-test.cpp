@@ -26,7 +26,7 @@ int main() {
     assert(g.AddVertex(0) == true);
     assert(g.AddVertex(-114514) == true);
 
-    assert(g.AddEdge(1, 1000) == true);
+//    assert(g.AddEdge(1, 1000) == true);
     assert(g.AddEdge(0, 1000) == true);
     assert(g.AddEdge(-114514, 0) == true);
     assert(g.AddEdge(99999, 0) == true);
