@@ -17,16 +17,16 @@ public:
         std::queue<int> q;
 
         action(start);
-        q.emplace(start);
+        vis.emplace(start);
+        q.push(start);
         while (!q.empty()) {
             int cur = q.front(); q.pop();
-            if (vis.find(cur) != vis.end()) continue;
-            vis.emplace(cur);
+//            if (vis.find(cur) != vis.end()) continue;
             for (int next : graph->GetNeighbors(cur)) {
                 if (vis.find(next) == vis.end()) {
                     action(next);
-                    q.emplace(next);
                     vis.emplace(next);
+                    q.push(next);
                 }
             }
         }
@@ -40,14 +40,16 @@ public:
         std::queue<int> q;
 
         if (predicate(start)) return start;
-        q.emplace(start);
+        vis.emplace(start);
+        q.push(start);
         while (!q.empty()) {
             int cur = q.front(); q.pop();
-            vis.emplace(cur);
+//            vis.emplace(cur);
             for (int next : graph->GetNeighbors(cur)) {
                 if (vis.find(next) == vis.end()) {
                     if (predicate(next)) return next;
-                    q.emplace(next);
+                    vis.emplace(next);
+                    q.push(next);
                 }
             }
         }
