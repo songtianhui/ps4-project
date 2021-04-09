@@ -6,11 +6,12 @@
 #include <unordered_set>
 #include <vector>
 #include <queue>
+#include <DataStructures/UndirectedGraph.h>
 
 template<typename TGraph>
 class BreadthFirstSearcher {
 public:
-    static void VisitAllVertices(const TGraph *graph, int start, const std::function<void(int)> &action) {
+    static void VisitAllVertices(const UndirectedGraph *graph, int start, const std::function<void(int)> &action) {
         if (!graph->ContainsVertex(start)) return;
 
         std::unordered_set<int> vis;

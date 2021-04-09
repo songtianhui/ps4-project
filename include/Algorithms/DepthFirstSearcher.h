@@ -3,13 +3,12 @@
 
 #include <functional>
 #include <optional>
-#include <DataStructures/UndirectedGraph.h>
 #include <unordered_set>
 
 template<typename TGraph>
 class DepthFirstSearcher {
 public:
-    static void VisitAllVertices(const UndirectedGraph *graph, int start, const std::function<void(int)> &action) {
+    static void VisitAllVertices(const TGraph *graph, int start, const std::function<void(int)> &action) {
         if(!graph->ContainsVertex(start)) return;
 
         static std::unordered_set<int> vis;
