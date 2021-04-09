@@ -33,8 +33,8 @@ int main() {
     assert(g.AddEdge(1000, 1000, 10) == true);
 //    assert(g.AddEdge(0, -114514, -100) == true);
 
-    BreadthFirstSearcher<UndirectedWeightedGraph<int> >::VisitAllVertices(&g, 99999, &print);
-    printf("first: %d\n", BreadthFirstSearcher<UndirectedWeightedGraph<int> >::FindFirstVertex(&g, 100, &cond));
+    DepthFirstSearcher<UndirectedWeightedGraph<int> >::VisitAllVertices(&g, 99999, &print);
+    printf("first: %d\n", DepthFirstSearcher<UndirectedWeightedGraph<int> >::FindFirstVertex(&g, 100, &cond));
 
     return 0;
 }
