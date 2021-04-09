@@ -34,7 +34,7 @@ int main() {
     assert(g.AddEdge(99999, 1) == true);
     assert(g.AddEdge(1000, 1000) == true);
     assert(g.AddEdge(99999, -114514) == true);
-    assert(g.AddEdge(0, -114514) == true);
+//    assert(g.AddEdge(0, -114514) == true);
 
     BreadthFirstSearcher<UndirectedGraph>::VisitAllVertices(&g, 0, &print);
     printf("first: %d\n", BreadthFirstSearcher<UndirectedGraph>::FindFirstVertex(&g, 0, &cond));
