@@ -13,6 +13,10 @@ void print(int x) {
     printf("%d\n", x);
 }
 
+bool cond(int x) {
+    return x > 100;
+}
+
 int main() {
     assert(g.AddVertex(1) == true);
     assert(g.AddVertex(1000) == true);
@@ -30,6 +34,7 @@ int main() {
 //    assert(g.AddEdge(0, -114514, -100) == true);
 
     BreadthFirstSearcher<UndirectedWeightedGraph<int> >::VisitAllVertices(&g, 1, &print);
+    printf("first: %d\n", BreadthFirstSearcher<UndirectedWeightedGraph<int> >::FindFirstVertex(&g, -114514, &cond));
 
     return 0;
 }
