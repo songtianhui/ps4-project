@@ -17,7 +17,7 @@ void print(int x) {
 }
 
 bool cond(int x) {
-    return x == 100;
+    return x == 1000;
 }
 
 int main() {
