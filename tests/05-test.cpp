@@ -7,7 +7,7 @@
 #include <DataStructures/WeightedGraph.h>
 #include <DataStructures/UndirectedWeightedGraph.h>
 
-WeightedGraph<int> g;
+UndirectedWeightedGraph<int> g;
 
 void print(int x) {
     printf("%d\n", x);
@@ -27,7 +27,7 @@ int main() {
     assert(g.AddEdge(1000, 99999, 250) == true);
     assert(g.AddEdge(99999, 1, 99) == true);
     assert(g.AddEdge(1000, 1000, 10) == true);
-    assert(g.AddEdge(0, -114514, -100) == true);
+//    assert(g.AddEdge(0, -114514, -100) == true);
 
     BreadthFirstSearcher<WeightedGraph<int> >::VisitAllVertices(&g, 1, &print);
 
