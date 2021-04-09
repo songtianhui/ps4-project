@@ -20,7 +20,7 @@ public:
         q.emplace(start);
         while (!q.empty()) {
             int cur = q.front(); q.pop();
-            if (vis.find(cur) != vis.end()) continue;
+//            if (vis.find(cur) != vis.end()) continue;
             vis.emplace(cur);
             for (int next : graph->GetNeighbors(cur)) {
                 if (vis.find(next) == vis.end()) {
