@@ -3,6 +3,7 @@
 
 #include <functional>
 #include <optional>
+#include <DataStructures/UndirectedGraph.h>
 #include <unordered_set>
 
 template<typename TGraph>
@@ -23,7 +24,7 @@ public:
     }
 
     static std::optional<int>
-    FindFirstVertex(const int *graph, int start, const std::function<bool(int)> &predicate) {
+    FindFirstVertex(const UndirectedGraph *graph, int start, const std::function<bool(int)> &predicate) {
         if(!graph->ContainsVertex(start)) return std::nullopt;
 
         static std::unordered_set<int> vis;
