@@ -35,7 +35,10 @@ int main() {
     assert(g.AddEdge(99999, -114514) == true);
     assert(g.AddEdge(0, -114514) == true);
 
-    DepthFirstSearcher<Graph>::VisitAllVertices(&g, 10, &print);
+    BreadthFirstSearcher<Graph>::VisitAllVertices(&g, 0, &print);
+    printf("first: %d\n", BreadthFirstSearcher<Graph>::FindFirstVertex(&g, 0, &cond));
+
+    DepthFirstSearcher<Graph>::VisitAllVertices(&g, 0, &print);
     printf("first: %d\n", DepthFirstSearcher<Graph>::FindFirstVertex(&g, 0, &cond));
 
     return 0;
