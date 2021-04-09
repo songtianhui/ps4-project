@@ -33,7 +33,7 @@ int main() {
     assert(g.AddEdge(1000, 1000, 10) == true);
 //    assert(g.AddEdge(0, -114514, -100) == true);
 
-    BreadthFirstSearcher<UndirectedWeightedGraph<int> >::VisitAllVertices(&g, -114514, &print);
+    BreadthFirstSearcher<UndirectedWeightedGraph<int> >::VisitAllVertices(&g, 100, &print);
     printf("first: %d\n", BreadthFirstSearcher<UndirectedWeightedGraph<int> >::FindFirstVertex(&g, -114514, &cond));
 
     return 0;
