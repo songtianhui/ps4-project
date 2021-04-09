@@ -9,8 +9,10 @@
 
 这两个类具有两个完全相同的接口：
 
-- `void VisitAllVertices(const TGraph *graph, int start, std::function<void(int)> action)`表示从起点开始按照宽度优先或深度优先的方式遍历所有的点，并在每个点上调用`action`操作
-- `std::optional<int> FindFirstVertex(const TGraph *graph, int start, std::function<bool(int)> predicate)`表示从起点开始按照宽度优先或深度优先的方式遍历所有的点，并找到第一个满足谓词`predicate`的点的编号，如果这样的点不存在返回`null`
+- `void VisitAllVertices(const TGraph *graph, int start, const std::function<void(int)> &action)`表示从起点开始按照宽度优先或深度优先的方式遍历所有的点，并在每个点上调用`action`操作
+- `std::optional<int> FindFirstVertex(const TGraph *graph, int start, const std::function<bool(int)> &predicate)`表示从起点开始按照宽度优先或深度优先的方式遍历所有的点，并找到第一个满足谓词`predicate`的点的编号，如果这样的点不存在返回`null`
+- 对于每一个点，先调用它本身的`action`或`predicate`，然后再遍历其他的点
+- 遍历可能从不存在的点开始，对于这种情况，第一个方法什么都不做，第二个方法直接返回空值
 - 特别的，对于有权图，宽度/深度优先的定义和无权图是一致的，**不需要考虑边的权重**，不需要用优先队列
 
 其中`std::optional`是C++17的新特性，用于存储某个可选的数值，特别用于处理某个值可能不存在的情况。你只需要通过阅读C++手册了解构造`std::optional<T>`对象的用法即可。
