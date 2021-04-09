@@ -24,7 +24,7 @@ public:
 
     static std::optional<int>
     FindFirstVertex(const TGraph *graph, int start, const std::function<bool(int)> &predicate) {
-        if(!graph->ContainsVertex(start)) return std::nullopt;
+        if(!graph->ContainsVertex(start)) return NULL;
 
         static std::unordered_set<int> vis;
         if (predicate(start)) return start;
