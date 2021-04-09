@@ -7,7 +7,7 @@
 #include <DataStructures/WeightedGraph.h>
 #include <DataStructures/UndirectedWeightedGraph.h>
 
-UndirectedWeightedGraph<int> g;
+WeightedGraph<int> g;
 
 void print(int x) {
     printf("%d\n", x);
