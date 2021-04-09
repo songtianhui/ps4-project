@@ -27,7 +27,7 @@ int main() {
     assert(g.AddEdge(1000, 99999, 250) == true);
     assert(g.AddEdge(99999, 1, 99) == true);
     assert(g.AddEdge(1000, 1000, 10) == true);
-//    assert(g.AddEdge(0, -114514, -100) == true);
+    assert(g.AddEdge(0, -114514, -100) == true);
 
     BreadthFirstSearcher<UndirectedWeightedGraph<int> >::VisitAllVertices(&g, 1, &print);
 
