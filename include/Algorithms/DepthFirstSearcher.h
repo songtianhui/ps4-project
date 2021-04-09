@@ -32,7 +32,7 @@ public:
 
         for (int next : graph->GetNeighbors(start)) {
             if (vis.find(next) == vis.end()) {
-                std::optional<int> tmp = DepthFirstSearcher<TGraph>::VisitAllVertices(graph, next, predicate);
+                std::optional<int> tmp = DepthFirstSearcher<TGraph>::FindFirstVertex(graph, next, predicate);
                 if (tmp != std::nullopt) return tmp;
             }
         }
