@@ -4,7 +4,7 @@
 #include <vector>
 #include <optional>
 
-template <typename<typename> class TGraph, typename TValue>
+template <template<typename> class TGraph, typename TValue>
 class ShortestPaths {
  public:
   ShortestPaths(const TGraph<TValue> *graph, int source);
