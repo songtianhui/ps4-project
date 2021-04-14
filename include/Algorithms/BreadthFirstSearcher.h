@@ -20,6 +20,7 @@ public:
         action(start);
         vis.emplace(start);
         q.push(start);
+
         while (!q.empty()) {
             int cur = q.front(); q.pop();
             assert(vis.find(cur) != vis.end());
@@ -43,6 +44,7 @@ public:
         if (predicate(start)) return start;
         vis.emplace(start);
         q.push(start);
+
         while (!q.empty()) {
             int cur = q.front(); q.pop();
             assert(vis.find(cur) != vis.end());
