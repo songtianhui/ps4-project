@@ -3,7 +3,7 @@
 
 #include <functional>
 #include <optional>
-#include <set>
+#include <unordered_set>
 #include <vector>
 #include <queue>
 #include <cassert>
@@ -14,7 +14,7 @@ public:
     static void VisitAllVertices(const TGraph *graph, int start, const std::function<void(int)> &action) {
         if (!graph->ContainsVertex(start)) return;
 
-        std::set<int> vis;
+        std::unordered_set<int> vis;
         std::queue<int> q;
 
         action(start);
@@ -38,7 +38,7 @@ public:
     FindFirstVertex(const TGraph *graph, int start, const std::function<bool(int)> &predicate) {
         if (!graph->ContainsVertex(start)) return std::nullopt;
 
-        std::set<int> vis;
+        std::unordered_set<int> vis;
         std::queue<int> q;
 
         if (predicate(start)) return start;
