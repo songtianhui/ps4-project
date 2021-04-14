@@ -4,7 +4,7 @@
 #include <vector>
 #include <optional>
 
-template <typename TGraph, typename TValue>
+template <typename<typename> class TGraph, typename TValue>
 class ShortestPaths {
  public:
   ShortestPaths(const TGraph<TValue> *graph, int source);
@@ -15,4 +15,4 @@ class ShortestPaths {
   virtual std::optional<std::vector<int>> GetShortestPathTo(int destination) = 0;
 };
 
-#undef
+#endif
