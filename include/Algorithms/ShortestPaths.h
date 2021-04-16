@@ -6,10 +6,18 @@
 
 template<template<typename> class TGraph, typename TValue>
 class ShortestPaths {
+private:
+
+    TGraph<TValue> *g;
+    int src;
+
 public:
     ShortestPaths() = delete;
 
-    ShortestPaths(const TGraph<TValue> *graph, int source);
+    ShortestPaths(const TGraph<TValue> *graph, int source) {
+        g = graph;
+        src = source;
+    }
 
     virtual ~ShortestPaths();
 
