@@ -39,10 +39,10 @@ int main() {
 
     int start = 99999;
     BreadthFirstSearcher<UndirectedGraph>::VisitAllVertices(&g, start, &print);
-    printf("first: %d\n", BreadthFirstSearcher<UndirectedGraph>::FindFirstVertex(&g, start, &cond) == std::nullopt);
+    printf("first: %d\n", BreadthFirstSearcher<UndirectedGraph>::TryFindFirstVertex(&g, start, &cond) == std::nullopt);
 
     DepthFirstSearcher<UndirectedGraph>::VisitAllVertices(&g, start, &print);
-    printf("first: %d\n", DepthFirstSearcher<UndirectedGraph>::FindFirstVertex(&g, start, &cond) == std::nullopt);
+    printf("first: %d\n", DepthFirstSearcher<UndirectedGraph>::TryFindFirstVertex(&g, start, &cond) == std::nullopt);
 
 
     return 0;
