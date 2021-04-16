@@ -8,7 +8,7 @@ template <typename TGraph>
 class DepthFirstSearcher {
  public:
   static void VisitAllVertices(const TGraph *graph, int start, const std::function<void(int)> &action);
-  static std::optional<int> FindFirstVertex(const TGraph *graph, int start, const std::function<bool(int)> &predicate);
+  static std::optional<int> TryFindFirstVertex(const TGraph *graph, int start, const std::function<bool(int)> &predicate);
 };
 
 #endif
