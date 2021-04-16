@@ -3,11 +3,11 @@
 
 #include <vector>
 #include <optional>
+#include <map>
 
 template<template<typename> class TGraph, typename TValue>
 class ShortestPaths {
 private:
-
     TGraph<TValue> *g;
     int src;
 
@@ -22,13 +22,11 @@ public:
     virtual ~ShortestPaths();
 
 public:
-    bool HasPathTo(int destination) const {
+    bool HasPathTo(int destination) const;
 
-    }
+    virtual std::optional<TValue> TryGetDistanceTo(int destination) const;
 
-    std::optional<TValue> TryGetDistanceTo(int destination) const;
-
-    std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const;
+    virtual std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const;
 };
 
 #endif
