@@ -8,7 +8,7 @@
 #include <Algorithms/ShortestPaths.h>
 #include <queue>
 
-template< class TGraph, typename TValue>
+template<template<typename> class TGraph, typename TValue>
 class DijkstraShortestPaths : public ShortestPaths<TGraph, TValue> {
 private:
     std::map<int, std::optional<TValue> > cost;  // src到点的距离
