@@ -8,7 +8,6 @@
 
 WeightedGraph<double> g;
 
-
 int main() {
 
-}
+    DijkstraShortestPaths<WeightedGraph, double> ssp(&g, 1);
