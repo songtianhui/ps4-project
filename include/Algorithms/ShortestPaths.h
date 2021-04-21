@@ -24,7 +24,7 @@ public:
     virtual ~ShortestPaths();
 
 public:
-    bool HasPathTo(int destination) const;
+    virtual bool HasPathTo(int destination) const;
 
     virtual std::optional<TValue> TryGetDistanceTo(int destination) const;
 

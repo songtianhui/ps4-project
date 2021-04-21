@@ -15,7 +15,8 @@ private:
     std::map<int, std::optional<int> >   pre;   // src到点最短路径的该点前一个点
 
 private:
-    void Relax(int u, int v, TValue w) {
+    void Init() {
+
     }
 
 public:
@@ -23,6 +24,7 @@ public:
 
     DijkstraShortestPaths(const TGraph<TValue>, *graph, int source) : ShortestPaths(graph, source) {
         if (!graph->ContainsVertex(source)) return;
+        Init();
         std::set<int> vis;
         std::priority_queue<std::pair<TValue, int>> pq;
         int src = GetSource();
@@ -47,21 +49,39 @@ public:
                     cost[new_idx] = new_cost;
                     pre[new_idx]  = cur_idx;
                 }
-
             }
         }
-
     }
 
     virtual ~DijkstraShortestPaths();
 
 public:
-    std::optional<TValue> TryGetDistanceTo(int destination) const override {
+    bool HasPathTo(int destination) const override {
+        auto it = cost.find(destination);
+        if (it == cost.end()) return false;
+        if (it->second == std::nullopt) return false;
+        return true;
+    }
 
+    std::optional<TValue> TryGetDistanceTo(int destination) const override {
+        auto it = cost.find(destination);
+        if (it == cost.end()) return std::nullopt;
+        return it->second;
     }
 
     std::optional<std::vector<int> > TryGetShortestPathTo(int destination) const override {
-
+        auto it = cost.find(destination);
+        if (it == cost.end() || it->second == std::nullopt) return std::nullopt;
+        std::vector<int> ret;
+        int cur = destination;
+        while (cur != GetSource()){
+            ret.push_back(cur);
+            auto it = pre.find(cur);
+            assert(it != pre.end() && it->second != std::nullopt);
+            cur = it->second;
+        }
+        ret.push_back(GetSource());
+        return ret;
     }
 };
 
