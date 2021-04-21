@@ -2,8 +2,10 @@
 #define SHORTEST_PATHS
 
 #include <vector>
+#include <cassert>
 #include <optional>
 #include <map>
+#include <set>
 
 template<template<typename> class TGraph, typename TValue>
 class ShortestPaths {
@@ -27,6 +29,11 @@ public:
     virtual std::optional<TValue> TryGetDistanceTo(int destination) const;
 
     virtual std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const;
+
+public:
+    int GetSource() {
+        return src;
+    }
 };
 
 #endif
