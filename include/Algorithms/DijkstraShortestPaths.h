@@ -22,12 +22,12 @@ private:
 public:
     DijkstraShortestPaths() = delete;
 
-    DijkstraShortestPaths(const TGraph<TValue>, *graph, int source) : ShortestPaths(graph, source) {
+    DijkstraShortestPaths(const TGraph<TValue> *graph, int source) : ShortestPaths<TGraph, TValue>(graph, source) {
         if (!graph->ContainsVertex(source)) return;
         Init();
         std::set<int> vis;
         std::priority_queue<std::pair<TValue, int>> pq;
-        int src = GetSource();
+        int src = this->GetSource();
         cost[src] = TValue();
         pre[src] = src;
         pq.emplace(cost[src], src);
@@ -74,13 +74,13 @@ public:
         if (it == cost.end() || it->second == std::nullopt) return std::nullopt;
         std::vector<int> ret;
         int cur = destination;
-        while (cur != GetSource()){
+        while (cur != this->GetSource()){
             ret.push_back(cur);
             auto it = pre.find(cur);
             assert(it != pre.end() && it->second != std::nullopt);
             cur = it->second;
         }
-        ret.push_back(GetSource());
+        ret.push_back(this->GetSource());
         return ret;
     }
 };
