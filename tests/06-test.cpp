@@ -39,7 +39,7 @@ int main() {
     printf("distance to %d: %lf\n", dst, ssp.TryGetDistanceTo(dst));
     printf("path to %d:\n", dst);
     std::vector<int> v = ssp.TryGetShortestPathTo(dst).value();
-    for (int &i : v) {
+    for (int &i : ssp.TryGetShortestPathTo(dst).value()) {
         printf("%d--", i);
     }
     printf("\n");
