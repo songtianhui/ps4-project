@@ -36,7 +36,6 @@ public:
             pq.pop();
             const TValue cur_cost = state.first;
             const int    cur_idx  = state.second;
-            assert(cur_cost != std::nullopt);
             if (vis.find(cur_idx) != vis.end()) continue;
             vis.insert(cur_idx);
             for (const auto &e : graph->GetOutgoingEdges(cur_idx)) {
