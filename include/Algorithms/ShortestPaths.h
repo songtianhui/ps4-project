@@ -30,7 +30,7 @@ public:
 
     virtual std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const;
 
-    int GetSource() {
+    int GetSource() const {
         return src;
     }
 };
