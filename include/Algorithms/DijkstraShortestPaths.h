@@ -42,7 +42,7 @@ public:
                 assert(cur_idx == e.GetSource());
                 const int new_idx  = e.GetDestination();
                 assert(graph->ContainsVertex(new_idx));
-                const int new_cost = cur_cost - e.GetWeight();
+                const TValue new_cost = cur_cost - e.GetWeight();
                 if (cost[new_idx] == std::nullopt || new_cost > cost[new_idx]) {
                     pq.push({new_cost, new_idx});
                     cost[new_idx] = new_cost;
