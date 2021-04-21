@@ -10,7 +10,7 @@
 template<template<typename> class TGraph, typename TValue>
 class ShortestPaths {
 private:
-    TGraph<TValue> *g;
+    const TGraph<TValue> *g;
     int src;
 
 public:
