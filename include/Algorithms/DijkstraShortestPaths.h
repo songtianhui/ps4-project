@@ -65,7 +65,7 @@ public:
     std::optional<TValue> TryGetDistanceTo(int destination) const override {
         auto it = cost.find(destination);
         if (it == cost.end()) return std::nullopt;
-        return it->second;
+        return -it->second;
     }
 
     std::optional<std::vector<int> > TryGetShortestPathTo(int destination) const override {
