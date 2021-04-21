@@ -34,5 +34,6 @@ int main() {
     init_g();
 
     DijkstraShortestPaths<WeightedGraph, double> ssp(&g, 1);
+    printf("Successful!");
 }
 
