@@ -11,7 +11,7 @@
 template<template<typename> class TGraph, typename TValue>
 class DijkstraShortestPaths : public ShortestPaths<TGraph, TValue> {
 private:
-    std::map<int, std::optiona<TValue> > cost;  // src到点的距离
+    std::map<int, std::optional<TValue> > cost;  // src到点的距离
     std::map<int, std::optional<int> >   pre;   // src到点最短路径的该点前一个点
 
 private:
