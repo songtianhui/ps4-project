@@ -38,7 +38,7 @@ int main() {
     if (ssp.HasPathTo(dst)) printf("HasPath to %d: %lf\n", dst, ssp.HasPathTo(dst));
     printf("distance to %d: %lf\n", dst, ssp.TryGetDistanceTo(dst));
     printf("path to %d:\n", dst);
-    for (int i : ssp.TryGetShortestPathTo(dst).value()) {
+    for (int &i : ssp.TryGetShortestPathTo(dst).value()) {
         printf("%d--", i);
     }
     printf("\n");
