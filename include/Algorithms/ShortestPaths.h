@@ -24,11 +24,11 @@ public:
     virtual ~ShortestPaths() {}
 
 public:
-    virtual bool HasPathTo(int destination) const {}
+    virtual bool HasPathTo(int destination) const {return false;}
 
-    virtual std::optional<TValue> TryGetDistanceTo(int destination) const {}
+    virtual std::optional<TValue> TryGetDistanceTo(int destination) const {return std::nullopt;}
 
-    virtual std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const {}
+    virtual std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const {return std::nullopt;}
 
     int GetSource() const {
         return src;
