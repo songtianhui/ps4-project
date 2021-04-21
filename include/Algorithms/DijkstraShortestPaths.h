@@ -30,7 +30,7 @@ public:
         int src = this->GetSource();
         cost[src] = TValue();
         pre[src] = src;
-        pq.emplace(cost[src], src);
+        pq.emplace(TValue(), src);
         while (!pq.empty()) {
             const auto state = pq.top();
             pq.pop();
