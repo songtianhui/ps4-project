@@ -78,7 +78,7 @@ public:
             ret.push_back(cur);
             auto it = pre.find(cur);
             assert(it != pre.end() && it->second != std::nullopt);
-            cur = it->second;
+            cur = it->second.value();
         }
         ret.push_back(this->GetSource());
         return ret;
