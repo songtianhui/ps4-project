@@ -21,7 +21,7 @@ public:
         src = source;
     }
 
-    virtual ~ShortestPaths();
+    virtual ~ShortestPaths() {}
 
 public:
     virtual bool HasPathTo(int destination) const;
