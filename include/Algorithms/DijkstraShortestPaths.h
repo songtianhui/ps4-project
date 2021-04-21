@@ -73,13 +73,13 @@ public:
         if (it == cost.end() || it->second == std::nullopt) return std::nullopt;
         std::vector<int> ret;
         int cur = destination;
-        while (cur != this->GetSource()){
+        while (cur != ShortestPaths<TGraph, TValue>::GetSource()){
             ret.push_back(cur);
             auto it = pre.find(cur);
             assert(it != pre.end() && it->second != std::nullopt);
             cur = it->second.value();
         }
-        ret.push_back(this->GetSource());
+        ret.push_back(ShortestPaths<TGraph, TValue>::GetSource());
         return ret;
     }
 };
