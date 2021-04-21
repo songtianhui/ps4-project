@@ -35,11 +35,11 @@ int main() {
 
     DijkstraShortestPaths<WeightedGraph, double> ssp(&g, 1);
     int dst = 0;
-    printf("HasPath to %lf: %lf\n", dst, ssp.HasPathTo(dst));
-    printf("distance to %lf: %lf\n", dst, ssp.TryGetDistanceTo(dst));
-    printf("path to %lf:\n", dst);
+    printf("HasPath to %d: %lf\n", dst, ssp.HasPathTo(dst));
+    printf("distance to %d: %lf\n", dst, ssp.TryGetDistanceTo(dst));
+    printf("path to %d:\n", dst);
     for (int i : ssp.TryGetShortestPathTo(dst).value()) {
-        printf("%lf--", i);
+        printf("%d--", i);
     }
     printf("\n");
 
