@@ -70,7 +70,7 @@ public:
 
     std::optional<std::vector<int> > TryGetShortestPathTo(int destination) const override {
         auto it = cost.find(destination);
-        int src = GetSource();
+        int src = this->GetSource();
         if (it == cost.end() || it->second == std::nullopt) return std::nullopt;
         std::vector<int> ret;
         int cur = destination;
