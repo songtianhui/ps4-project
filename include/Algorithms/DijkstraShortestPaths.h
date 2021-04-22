@@ -26,7 +26,7 @@ public:
         if (!graph->ContainsVertex(source)) return;
         Init();
         std::set<int> vis;
-        std::priority_queue<std::pair<TValue, int>, std::vector<TValue>, std::greater<TValue> > pq;
+        std::priority_queue<std::pair<TValue, int>, std::vector<std::pair<TValue, int> >, std::greater<std::pair<TValue, int>>> pq;
         int src = this->GetSource();
         cost[src] = TValue();
         pre[src] = src;
