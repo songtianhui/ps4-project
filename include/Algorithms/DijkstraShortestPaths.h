@@ -26,7 +26,7 @@ public:
         if (!graph->ContainsVertex(source)) return;
         Init();
         std::set<int> vis;
-        std::priority_queue<std::pair<TValue, int>> pq;
+        std::priority_queue<std::pair<TValue, int>, std::vector<TValue, int>, std::greater<TValue> > pq;
         int src = this->GetSource();
         cost[src] = TValue();
         pre[src] = src;
@@ -42,8 +42,8 @@ public:
                 assert(cur_idx == e.GetSource());
                 const int new_idx  = e.GetDestination();
                 assert(graph->ContainsVertex(new_idx));
-                const TValue new_cost = cur_cost - e.GetWeight();
-                if (cost[new_idx] == std::nullopt || new_cost > cost[new_idx]) {
+                const TValue new_cost = cur_cost + e.GetWeight();
+                if (cost[new_idx] == std::nullopt || new_cost < cost[new_idx]) {
                     pq.push({new_cost, new_idx});
                     cost[new_idx] = new_cost;
                     pre[new_idx]  = cur_idx;
