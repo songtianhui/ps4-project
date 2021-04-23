@@ -38,7 +38,7 @@ class ShortestPaths {
 
 | 错误类型                 | 报错信息                            |
 | ------------------------ | ----------------------------------- |
-| `TValue`没有默认构造函数 | TValue requires default-constructor |
+| `TValue`没有默认构造函数 | TValue requires default constructor |
 | `TValue`没有`operator+`  | TValue requires operator+           |
 | `TGraph`不是有权图       | TGraph should be weighted           |
 
