@@ -45,4 +45,6 @@ int main() {
     printf("\n");
 
     printf("Successful!\n");
+
+    return 0;
 }
