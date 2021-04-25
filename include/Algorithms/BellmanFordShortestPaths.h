@@ -30,7 +30,7 @@ public:
             for (int v : graph->GetVertices()) {
                 for (auto &e : graph->GetOutgoingEdges(v)) {
                     const int src = e.GetSource();
-                    assert(src == e);
+                    assert(src == v);
                     const int dst = e.GetDestination();
                     const TValue w = e.GetWeight();
                     const std::optional<TValue> cur_cost = cost[src];
