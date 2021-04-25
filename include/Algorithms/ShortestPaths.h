@@ -14,7 +14,7 @@ private:
     const TGraph *g;
     int src;
 
-protected:
+public:
     typedef typename TGraph::value_type Tvalue;
 
 public:

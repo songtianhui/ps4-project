@@ -20,8 +20,9 @@ private:
 
     }
 
-protected:
+public:
     typedef typename TGraph::value_type TValue;
+
 
 public:
     DijkstraShortestPaths() = delete;
