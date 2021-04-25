@@ -17,7 +17,7 @@ private:
     int src;
     typedef typename TGraph::value_type Tvalue;
     static_assert(std::is_default_constructible<Tvalue>::value,
-                  "Data structure requires default-constructible elements");
+                  "TValue requires default constructor");
 
 public:
     ShortestPaths() = delete;
