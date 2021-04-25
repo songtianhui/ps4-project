@@ -68,7 +68,7 @@ public:
         while (cur != src){
             ret.push_back(cur);
             auto it = pre.find(cur);
-//            assert(it != pre.end() && it->second != std::nullopt);
+            assert(it != pre.end() && it->second != std::nullopt);
             cur = it->second.value();
         }
         ret.push_back(src);
