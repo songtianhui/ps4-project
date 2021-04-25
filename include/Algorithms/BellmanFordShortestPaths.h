@@ -27,17 +27,20 @@ public:
         init();
         std::unordered_set<int> vis;
         for (int i = 1; i < graph->CountVertices(); ++i) {
-            for (auto &e : graph->GetEdges()) {
-                const int src = e.GetSource();
-                const int dst = e.GetDestination();
-                const TValue w = e.GetWeight();
-                const std::optional<TValue> cur_cost = cost[src];
-                // 检查cur_cost
-                if (cur_cost == std::nullopt) continue;
-                const TValue new_cost = cur_cost.value() + w;
-                if (cost[dst] == std::nullopt || new_cost < cost[dst].value()) {
-                    cost[dst] = new_cost;
-                    pre[dst] = src;
+            for (int v : graph->GetVertices()) {
+                for (auto &e : graph->GetOutgoingEdges(v)) {
+                    const int src = e.GetSource();
+                    assert(src == e);
+                    const int dst = e.GetDestination();
+                    const TValue w = e.GetWeight();
+                    const std::optional<TValue> cur_cost = cost[src];
+                    // 检查cur_cost
+                    if (cur_cost == std::nullopt) continue;
+                    const TValue new_cost = cur_cost.value() + w;
+                    if (cost[dst] == std::nullopt || new_cost < cost[dst].value()) {
+                        cost[dst] = new_cost;
+                        pre[dst] = src;
+                    }
                 }
             }
         }
