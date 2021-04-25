@@ -38,10 +38,12 @@
 
 template <typename T>
 class WeightedGraph : public Generic<WeightedEdge<T> > {
-    typedef T value_type;
 
 private:
     std::map<std::pair<int, int>, T> weight;
+
+public:
+    typedef T value_type;
 
 public:
     WeightedGraph() {
