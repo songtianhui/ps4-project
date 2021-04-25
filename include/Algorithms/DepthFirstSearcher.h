@@ -13,7 +13,7 @@ public:
 
         static std::unordered_set<int> vis;
         action(start);
-        vis.insert(start);
+        vis.emplace(start);
 
         for (int next : graph->GetNeighbors(start)) {
             if (vis.find(next) == vis.end()) {
@@ -28,7 +28,7 @@ public:
 
         static std::unordered_set<int> vis;
         if (predicate(start)) return start;
-        vis.insert(start);
+        vis.emplace(start);
 
         for (int next : graph->GetNeighbors(start)) {
             if (vis.find(next) == vis.end()) {

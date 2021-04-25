@@ -8,11 +8,12 @@
 #include <Algorithms/ShortestPaths.h>
 #include <queue>
 
-template<template<typename> class TGraph, typename TValue>
-class DijkstraShortestPaths : public ShortestPaths<TGraph, TValue> {
+template<class TGraph>
+class DijkstraShortestPaths : public ShortestPaths<TGraph> {
 private:
-    std::map<int, std::optional<TValue> > cost;  // src到点的距离
+    std::map<int, std::optional<typename TGraph::value_type> > cost;  // src到点的距离
     std::map<int, std::optional<int> >   pre;   // src到点最短路径的该点前一个点
+    typedef typename TGraph::value_type TValue;
 
 private:
     void Init() {
@@ -22,7 +23,7 @@ private:
 public:
     DijkstraShortestPaths() = delete;
 
-    DijkstraShortestPaths(const TGraph<TValue> *graph, int source) : ShortestPaths<TGraph, TValue>(graph, source) {
+    DijkstraShortestPaths(const TGraph *graph, int source) : ShortestPaths<TGraph>(graph, source) {
         if (!graph->ContainsVertex(source)) return;
         Init();
         std::set<int> vis;
@@ -37,7 +38,7 @@ public:
             const TValue cur_cost = state.first;
             const int    cur_idx  = state.second;
             if (vis.find(cur_idx) != vis.end()) continue;
-            vis.insert(cur_idx);
+            vis.emplace(cur_idx);
             for (const auto &e : graph->GetOutgoingEdges(cur_idx)) {
                 assert(cur_idx == e.GetSource());
                 const int new_idx  = e.GetDestination();
@@ -70,7 +71,7 @@ public:
 
     std::optional<std::vector<int> > TryGetShortestPathTo(int destination) const override {
         auto it = cost.find(destination);
-        int src = ShortestPaths<TGraph, TValue>::GetSource();
+        int src = ShortestPaths<TGraph>::GetSource();
         if (it == cost.end() || it->second == std::nullopt) return std::nullopt;
         std::vector<int> ret;
         int cur = destination;

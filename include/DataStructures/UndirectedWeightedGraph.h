@@ -40,6 +40,7 @@
 template <typename T>
 class UndirectedWeightedGraph : public UndirectedGeneric<WeightedEdge<T> > {
 private:
+    typedef T value_type;
     std::map<std::pair<int,int>, T> weight;
 
 public:

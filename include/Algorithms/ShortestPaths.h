@@ -7,16 +7,17 @@
 #include <map>
 #include <set>
 
-template<template<typename> class TGraph, typename TValue>
+template<class TGraph>
 class ShortestPaths {
 private:
-    const TGraph<TValue> *g;
+    const TGraph *g;
     int src;
+    typedef typename TGraph::value_type Tvalue;
 
 public:
     ShortestPaths() = delete;
 
-    ShortestPaths(const TGraph<TValue> *graph, int source) {
+    ShortestPaths(const TGraph *graph, int source) {
         g = graph;
         src = source;
     }
@@ -26,7 +27,7 @@ public:
 public:
     virtual bool HasPathTo(int destination) const {return false;}
 
-    virtual std::optional<TValue> TryGetDistanceTo(int destination) const {return std::nullopt;}
+    virtual std::optional<Tvalue> TryGetDistanceTo(int destination) const {return std::nullopt;}
 
     virtual std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const {return std::nullopt;}
 

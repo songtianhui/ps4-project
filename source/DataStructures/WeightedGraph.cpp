@@ -2,7 +2,7 @@
 // Created by sth on 3/12/21.
 //
 
-#include <DataStructures/WeightedGraph.h>
+//#include <DataStructures/WeightedGraph.h>
 //
 //WeightedGraph::WeightedGraph() : Graph(){
 //    memset(weights, 0, sizeof(weights));
