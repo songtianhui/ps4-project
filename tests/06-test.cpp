@@ -6,7 +6,7 @@
 #include <Algorithms/DijkstraShortestPaths.h>
 #include <DataStructures/WeightedGraph.h>
 
-WeightedGraph<double> g;
+WeightedGraph<int> g;
 
 void init_g() {
     assert(g.AddVertex(1) == true);
