@@ -9,10 +9,11 @@
 
 template<class TGraph>
 class ShortestPaths {
+typedef typename TGraph::value_type Tvalue;
+
 private:
     const TGraph *g;
     int src;
-    typedef typename TGraph::value_type Tvalue;
 
 public:
     ShortestPaths() = delete;

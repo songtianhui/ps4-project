@@ -10,10 +10,11 @@
 
 template<class TGraph>
 class DijkstraShortestPaths : public ShortestPaths<TGraph> {
+typedef typename TGraph::value_type TValue;
+
 private:
     std::map<int, std::optional<typename TGraph::value_type> > cost;  // src到点的距离
     std::map<int, std::optional<int> >   pre;   // src到点最短路径的该点前一个点
-    typedef typename TGraph::value_type TValue;
 
 private:
     void Init() {
