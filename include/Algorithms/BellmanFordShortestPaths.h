@@ -31,11 +31,11 @@ public:
                 const int src = e.GetSource();
                 const int dst = e.GetDestination();
                 const TValue w = e.GetWeight();
-                const TValue cur_cost = cost[src];
+                const std::optional<TValue> cur_cost = cost[src];
                 // 检查cur_cost
                 if (cur_cost == std::nullopt) continue;
-                const TValue new_cost = cur_cost + w;
-                if (cost[dst] == std::nullopt || new_cost < cost[dst]) {
+                const TValue new_cost = cur_cost.value() + w;
+                if (cost[dst] == std::nullopt || new_cost < cost[dst].value()) {
                     cost[dst] = new_cost;
                     pre[dst] = src;
                 }
