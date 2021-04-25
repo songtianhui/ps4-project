@@ -8,17 +8,17 @@
 #include <Algorithms/ShortestPaths.h>
 #include <queue>
 
-template<class TGraph>
+template<typename TGraph>
 class DijkstraShortestPaths : public ShortestPaths<TGraph> {
 
 private:
-    std::map<int, std::optional<typename TGraph::value_type> > cost;  // src到点的距离
-    std::map<int, std::optional<int> >   pre;   // src到点最短路径的该点前一个点
     typedef typename TGraph::value_type TValue;
+    std::map<int, std::optional<TValue> > cost;  // src到点的距离
+    std::map<int, std::optional<int> >   pre;   // src到点最短路径的该点前一个点
 
 private:
     void Init() {
-
+        cost[this->GetSource()] = TValue();
     }
 
 public:
@@ -27,7 +27,7 @@ public:
     DijkstraShortestPaths(const TGraph *graph, int source) : ShortestPaths<TGraph>(graph, source) {
         if (!graph->ContainsVertex(source)) return;
         Init();
-        std::set<int> vis;
+        std::unordered_set<int> vis;
         std::priority_queue<std::pair<TValue, int>, std::vector<std::pair<TValue, int> >, std::greater<std::pair<TValue, int>>> pq;
         int src = this->GetSource();
         cost[src] = TValue();

@@ -6,6 +6,7 @@
 #include <optional>
 #include <map>
 #include <set>
+#include <unordered_set>
 
 template<class TGraph>
 class ShortestPaths {
