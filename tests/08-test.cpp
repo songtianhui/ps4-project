@@ -39,7 +39,7 @@ int main() {
     if (ssp.TryGetDistanceTo(dst) != std::nullopt) printf("distance to %d: %d\n", dst, ssp.TryGetDistanceTo(dst));
     else printf("Infinity\n");
     printf("path to %d:\n", dst);
-    std::vector<int> v = ssp.TryGetShortestPathTo(dst).value();
+    std::vector<int> v = ssp.TryGetShortestPathTo(dst) == std::nullopt ? std::vector<int>() : ssp.TryGetShortestPathTo(dst).value();
     for (int &i : v) {
         printf("%d--", i);
     }
