@@ -16,7 +16,7 @@ private:
 
 private:
     void init() {
-        cost[this->GetSource()] = 0;
+        cost[this->GetSource()] = TValue();
     }
 
 public:
