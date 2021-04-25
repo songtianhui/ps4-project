@@ -13,8 +13,6 @@ class ShortestPaths {
 private:
     const TGraph *g;
     int src;
-
-public:
     typedef typename TGraph::value_type Tvalue;
 
 public:

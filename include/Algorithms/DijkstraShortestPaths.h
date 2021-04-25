@@ -14,15 +14,12 @@ class DijkstraShortestPaths : public ShortestPaths<TGraph> {
 private:
     std::map<int, std::optional<typename TGraph::value_type> > cost;  // src到点的距离
     std::map<int, std::optional<int> >   pre;   // src到点最短路径的该点前一个点
+    typedef typename TGraph::value_type TValue;
 
 private:
     void Init() {
 
     }
-
-public:
-    typedef typename TGraph::value_type TValue;
-
 
 public:
     DijkstraShortestPaths() = delete;
