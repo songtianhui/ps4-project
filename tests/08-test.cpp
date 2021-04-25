@@ -6,7 +6,12 @@
 #include <Algorithms/BellmanFordShortestPaths.h>
 #include <DataStructures/WeightedGraph.h>
 
-WeightedGraph<int> g;
+struct no_default
+{
+    no_default () = delete;
+};
+
+WeightedGraph<no_default> g;
 
 void init_g() {
     assert(g.AddVertex(1) == true);
@@ -21,19 +26,19 @@ void init_g() {
     assert(g.AddVertex(1) == true);
 
 
-    assert(g.AddEdge(1, 1000, 114514) == true);
-    assert(g.AddEdge(0, 1000, 100) == true);
-    assert(g.AddEdge(-114514, 0, -100) == true);
-    assert(g.AddEdge(99999, 0, 0) == true);
-    assert(g.AddEdge(1000, 99999, 250) == true);
-    assert(g.AddEdge(99999, 1, 99) == true);
-    assert(g.AddEdge(1000, 1000, 10) == true);
+//    assert(g.AddEdge(1, 1000, 114514) == true);
+//    assert(g.AddEdge(0, 1000, 100) == true);
+//    assert(g.AddEdge(-114514, 0, -100) == true);
+//    assert(g.AddEdge(99999, 0, 0) == true);
+//    assert(g.AddEdge(1000, 99999, 250) == true);
+//    assert(g.AddEdge(99999, 1, 99) == true);
+//    assert(g.AddEdge(1000, 1000, 10) == true);
 }
 
 int main() {
     init_g();
 
-    BellmanFordShortestPaths<WeightedGraph<int>> ssp(&g, 99999);
+    BellmanFordShortestPaths<WeightedGraph<no_default>> ssp(&g, 99999);
     int dst = 1;
     if (ssp.HasPathTo(dst)) printf("HasPath to %d: %d\n", dst, ssp.HasPathTo(dst));
     if (ssp.TryGetDistanceTo(dst) != std::nullopt) printf("distance to %d: %d\n", dst, ssp.TryGetDistanceTo(dst).value());
