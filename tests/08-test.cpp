@@ -11,7 +11,7 @@ struct no_default
     no_default () = delete;
 };
 
-WeightedGraph<no_default> g;
+WeightedGraph<int> g;
 
 void init_g() {
     assert(g.AddVertex(1) == true);
@@ -38,7 +38,7 @@ void init_g() {
 int main() {
     init_g();
 
-    BellmanFordShortestPaths<WeightedGraph<no_default>> ssp(&g, 99999);
+    BellmanFordShortestPaths<WeightedGraph<int>> ssp(&g, 99999);
     int dst = 1;
     if (ssp.HasPathTo(dst)) printf("HasPath to %d: %d\n", dst, ssp.HasPathTo(dst));
     if (ssp.TryGetDistanceTo(dst) != std::nullopt) printf("distance to %d: %d\n", dst, ssp.TryGetDistanceTo(dst).value());
