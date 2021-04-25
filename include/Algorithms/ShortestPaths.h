@@ -7,6 +7,7 @@
 #include <map>
 #include <set>
 #include <unordered_set>
+#include <type_traits>
 
 template<class TGraph>
 class ShortestPaths {
@@ -15,6 +16,8 @@ private:
     const TGraph *g;
     int src;
     typedef typename TGraph::value_type Tvalue;
+    static_assert(std::is_default_constructible<Tvalue>::value,
+                  "Data structure requires default-constructible elements");
 
 public:
     ShortestPaths() = delete;
