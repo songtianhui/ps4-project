@@ -34,7 +34,7 @@ int main() {
     init_g();
 
     BellmanFordShortestPaths<WeightedGraph<int>> ssp(&g, 99999);
-    int dst = 1;
+    int dst = -114514;
     if (ssp.HasPathTo(dst)) printf("HasPath to %d: %d\n", dst, ssp.HasPathTo(dst));
     printf("distance to %d: %d\n", dst, ssp.TryGetDistanceTo(dst).value());
     printf("path to %d:\n", dst);
