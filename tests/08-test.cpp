@@ -34,9 +34,9 @@ int main() {
     init_g();
 
     BellmanFordShortestPaths<WeightedGraph<int>> ssp(&g, 99999);
-    int dst = -114514;
+    int dst = 1;
     if (ssp.HasPathTo(dst)) printf("HasPath to %d: %d\n", dst, ssp.HasPathTo(dst));
-    if (ssp.TryGetDistanceTo(dst) != std::nullopt) printf("distance to %d: %d\n", dst, ssp.TryGetDistanceTo(dst));
+    if (ssp.TryGetDistanceTo(dst) != std::nullopt) printf("distance to %d: %d\n", dst, ssp.TryGetDistanceTo(dst).value);
     else printf("Infinity\n");
     printf("path to %d:\n", dst);
     std::vector<int> v = ssp.TryGetShortestPathTo(dst) == std::nullopt ? std::vector<int>() : ssp.TryGetShortestPathTo(dst).value();
