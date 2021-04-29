@@ -1,5 +1,5 @@
-#ifndef SHORTEST_PATHS
-#define SHORTEST_PATHS
+#ifndef MULTI_SOURCE_SHORTEST_PATHS
+#define MULTI_SOURCE_SHORTEST_PATHS
 
 #include <vector>
 #include <optional>
