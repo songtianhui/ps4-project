@@ -3,6 +3,7 @@
 > 从Week7起，BFS类和DFS类中的`FindFirstVertex`函数名称修改为`TryFindFirstVertex`，请在合并代码时做出对应的修改。
 
 本周我们需要完成Floyd多源最短路算法，**请在`Algorithms/FloydShortestPaths.h`中定义模板类`FloydShortestPaths`**。在`Algorithms/MultiSourceShortestPaths.h`中定义了一个多源最短路基类，你的实现需要继承这个基类。
+（注：由于从`TGraph`中萃取出`TValue`的做法因人而异，因此`MultiSourceShortestPaths`的定义中略去了，你需要补上才能正确编译）
 
 多源最短路类是一个模板类，接受一个参数`TGraph`表示图的类型，保证只会出现`WeightedGraph<TValue>`和`UndirectedWeightedGraph<TValue>`。（其中，`TValue`是权重的类型，保证它有默认构造函数，`operator+`和比较运算符，且默认构造函数返回的是`operator+`下的幺元。此外你还需要特别注意的是`operator+`未必满足交换律，因此你进行松弛的时候计算新的距离必须是已有距离加上边的权重，如果反过来加会导致错误。）
 
