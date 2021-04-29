@@ -8,7 +8,7 @@ template <typename TGraph>
 class MultiSourceShortestPaths {
  public:
   MultiSourceShortestPaths() = delete;
-  MultiSourceShortestPaths(const TGraph<TValue> *graph);
+  MultiSourceShortestPaths(const TGraph *graph);
   virtual ~MultiSourceShortestPaths();
  public:
   bool HasPathTo(int source, int destination) const;
