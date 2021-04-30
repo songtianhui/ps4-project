@@ -16,3 +16,4 @@
 3. `std::optional<TValue> TryGetDistanceTo(int, int)`：返回从起点到达终点的最短路径权重，如果不存在路径返回空，起点的距离定义为`TValue`类型的默认值`TValue()`（例如`int()`表示0）。
 4. `std::optional<std::vector<int>> TryGetShortestPathTo(int, int)`：返回从起点到达终点的一条最短路径上所有点的编号（包含起点和终点），如果不存在返回空，如果存在多条返回任意一条。
 
+本周的测试仍保证不存在负环。
