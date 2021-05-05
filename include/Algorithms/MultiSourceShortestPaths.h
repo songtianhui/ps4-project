@@ -4,16 +4,29 @@
 #include <vector>
 #include <optional>
 
-template <typename TGraph>
+template<typename TGraph>
 class MultiSourceShortestPaths {
- public:
-  MultiSourceShortestPaths() = delete;
-  explicit MultiSourceShortestPaths(const TGraph *graph);
-  virtual ~MultiSourceShortestPaths();
- public:
-  bool HasPathTo(int source, int destination) const;
-  std::optional<TValue> TryGetDistanceTo(int source, int destination) const;
-  std::optional<std::vector<int>> TryGetShortestPathTo(int source, int destination) const;
+private:
+    const TGraph *g;
+    typedef typename TGraph::value_type Tvalue;
+    static_assert(std::is_default_constructible<Tvalue>::value,
+                  "TValue requires default constructor");
+
+public:
+    MultiSourceShortestPaths() = delete;
+
+    explicit MultiSourceShortestPaths(const TGraph *graph) {
+        g = graph;
+    }
+
+    virtual ~MultiSourceShortestPaths() {}
+
+public:
+    virtual bool HasPathTo(int source, int destination) const { return false; }
+
+    virtual std::optional<TValue> TryGetDistanceTo(int source, int destination) const { return std::nullopt; }
+
+    virtual std::optional<std::vector<int>> TryGetShortestPathTo(int source, int destination) const { return std::nullopt; }
 };
 
 #endif
