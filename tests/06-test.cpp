@@ -34,7 +34,7 @@ int main() {
     init_g();
 
     DijkstraShortestPaths<WeightedGraph<int>> ssp(&g, 99999);
-    int dst = 100;
+    int dst = 1000;
     if (ssp.HasPathTo(dst)) printf("HasPath to %d: %d\n", dst, ssp.HasPathTo(dst));
     printf("distance to %d: %d\n", dst, ssp.TryGetDistanceTo(dst));
     printf("path to %d:\n", dst);
