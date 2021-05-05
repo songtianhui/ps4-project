@@ -32,6 +32,7 @@ void init_g() {
 
 int main() {
     init_g();
+    FloydShortestPaths<UndirectedWeightedGraph<int>> apsp(&g);
 
     return 0;
 }
