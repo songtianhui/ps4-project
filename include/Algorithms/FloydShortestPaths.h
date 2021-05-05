@@ -42,9 +42,9 @@ public:
         for (int k : vertices) {
             for (int i : vertices) {
                 for (int j : vertices) {
-                    std::optional<TValue> cur_cost   = cost.find(std::make_pair(i,j));
-                    std::optional<TValue> new_first  = cost.find(std::make_pair(i,k));
-                    std::optional<TValue> new_second = cost.find(std::make_pair(k,j));
+                    std::optional<TValue> cur_cost   = cost[std::make_pair(i,j)];
+                    std::optional<TValue> new_first  = cost[std::make_pair(i,k)];
+                    std::optional<TValue> new_second = cost[std::make_pair(k,j)];
                     std::optional<TValue> new_cost;
                     if (new_first == std::nullopt || new_second == std::nullopt) new_cost = std::nullopt;
                     else new_cost = new_first + new_second;
