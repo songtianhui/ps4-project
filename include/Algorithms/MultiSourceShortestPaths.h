@@ -9,7 +9,7 @@ class MultiSourceShortestPaths {
 private:
     const TGraph *g;
     typedef typename TGraph::value_type TValue;
-    static_assert(std::is_default_constructible<Tvalue>::value,
+    static_assert(std::is_default_constructible<TValue>::value,
                   "TValue requires default constructor");
 
 public:
