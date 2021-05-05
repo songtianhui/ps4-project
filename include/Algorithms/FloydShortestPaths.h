@@ -17,7 +17,7 @@ private:
     std::map<std::pair<int, int>, std::optional<int> > pre;
 private:
     void init(const TGraph *g) {
-        for (int i : g->GetVeertices()) {
+        for (int i : g->GetVertices()) {
             for (int j : g->GetVertices()) {
                 if (g->ContainsEdge(i,j)) {
                     cost[std::make_pair(i,j)] = g->GetWeight(i,j);
