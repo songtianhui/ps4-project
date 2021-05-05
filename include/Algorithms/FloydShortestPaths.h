@@ -16,7 +16,7 @@ private:
     std::unordered_map<std::pair<int, int>, std::optional<TValue> > cost;
     std::unordered_map<std::pair<int, int>, std::optional<int> > pre;
 private:
-    void init() const {
+    void init(TGraph *g) {
         for (int i : g->GetVeertices()) {
             for (int j : g->GetVertices()) {
                 if (g->ContainsEdge(i,j)) {
@@ -37,7 +37,7 @@ public:
     FloydShortestPaths() = delete;
 
     FloydShortestPaths(const TGraph *graph) : MultiSourceShortestPaths<TGraph>(graph) {
-        init();
+        init(graph);
         const std::vector<int> vertices = graph->GetVertices();
         for (int k : vertices) {
             for (int i : vertices) {
