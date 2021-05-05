@@ -33,6 +33,7 @@ void init_g() {
 int main() {
     init_g();
     FloydShortestPaths<UndirectedWeightedGraph<int>> apsp(&g);
+    printf("%d", apsp.TryGetDistanceTo(99999,1));
 
     return 0;
 }
