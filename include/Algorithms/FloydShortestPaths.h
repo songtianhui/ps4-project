@@ -13,8 +13,8 @@ template <typename TGraph>
 class FloydShortestPaths : public MultiSourceShortestPaths<TGraph> {
 private:
     typedef typename TGraph::value_type TValue;
-    std::unordered_map<std::pair<int, int>, std::optional<TValue> > cost;
-    std::unordered_map<std::pair<int, int>, std::optional<int> > pre;
+    std::map<std::pair<int, int>, std::optional<TValue> > cost;
+    std::map<std::pair<int, int>, std::optional<int> > pre;
 private:
     void init(TGraph *g) {
         for (int i : g->GetVeertices()) {
