@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <optional>
+#include <cassert>
 
 template<typename TGraph>
 class MultiSourceShortestPaths {
