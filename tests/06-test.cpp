@@ -5,8 +5,9 @@
 
 #include <Algorithms/DijkstraShortestPaths.h>
 #include <DataStructures/WeightedGraph.h>
+#include <DataStructures/UndirectedWeightedGraph.h>
 
-WeightedGraph<int> g;
+UndirectedWeightedGraph<int> g;
 
 void init_g() {
     assert(g.AddVertex(1) == true);
@@ -33,7 +34,7 @@ void init_g() {
 int main() {
     init_g();
 
-    DijkstraShortestPaths<WeightedGraph<int>> ssp(&g, 99999);
+    DijkstraShortestPaths<UndirectedWeightedGraph<int>> ssp(&g, 99999);
     int dst = 1000;
     if (ssp.HasPathTo(dst)) printf("HasPath to %d: %d\n", dst, ssp.HasPathTo(dst));
     printf("distance to %d: %d\n", dst, ssp.TryGetDistanceTo(dst));
