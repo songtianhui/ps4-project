@@ -4,6 +4,7 @@
 
 
 #include <Algorithms/BellmanFordShortestPaths.h>
+#include <DataStructures/UndirectedWeightedGraph.h>
 #include <DataStructures/WeightedGraph.h>
 
 struct no_default
@@ -11,7 +12,7 @@ struct no_default
     no_default () = delete;
 };
 
-WeightedGraph<int> g;
+UndirectedWeightedGraph<int> g;
 
 void init_g() {
     assert(g.AddVertex(1) == true);
@@ -28,7 +29,7 @@ void init_g() {
 
     assert(g.AddEdge(1, 1000, 114514) == true);
     assert(g.AddEdge(0, 1000, 100) == true);
-    assert(g.AddEdge(-114514, 0, -100) == true);
+    assert(g.AddEdge(-114514, 0, 100) == true);
     assert(g.AddEdge(99999, 0, 0) == true);
     assert(g.AddEdge(1000, 99999, 250) == true);
     assert(g.AddEdge(99999, 1, 99) == true);
