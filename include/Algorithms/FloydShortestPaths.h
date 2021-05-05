@@ -16,7 +16,7 @@ private:
     std::map<std::pair<int, int>, std::optional<TValue> > cost;
     std::map<std::pair<int, int>, std::optional<int> > pre;
 private:
-    void init(TGraph *g) {
+    void init(const TGraph *g) {
         for (int i : g->GetVeertices()) {
             for (int j : g->GetVertices()) {
                 if (g->ContainsEdge(i,j)) {
