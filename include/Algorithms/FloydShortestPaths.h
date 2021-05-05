@@ -16,7 +16,7 @@ private:
     std::unordered_map<std::pair<int, int>, std::optional<TValue> > cost;
     std::unordered_map<std::pair<int, int>, std::optional<int> > pre;
 private:
-    void init() {
+    void init() const {
         for (int i : g->GetVeertices()) {
             for (int j : g->GetVertices()) {
                 if (g->ContainsEdge(i,j)) {
