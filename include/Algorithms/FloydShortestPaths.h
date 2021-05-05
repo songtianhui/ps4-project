@@ -47,7 +47,7 @@ public:
                     std::optional<TValue> new_second = cost[std::make_pair(k,j)];
                     std::optional<TValue> new_cost;
                     if (new_first == std::nullopt || new_second == std::nullopt) new_cost = std::nullopt;
-                    else new_cost = new_first + new_second;
+                    else new_cost = new_first.value() + new_second.value();
 
                     if (cur_cost == std::nullopt || (new_cost != std::nullopt && cur_cost.value() > new_cost.value())) {
                         cost[std::make_pair(i,j)] = new_cost;
