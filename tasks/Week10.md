@@ -16,3 +16,52 @@
 
 你throw的异常中可以包含任意你觉得可能有助于debug的信息，我们只会通过`operator<<(std::ostream&, const GLException&)`对结果进行评判。
 
+### 浮点误差
+
+如果`TValue`都是整型，那么没有什么难度。但实际上，`TValue`可能是浮点数，那就有可能导致判断时发生误判。
+
+这个问题比较难，因此这里直接给出解决方案。
+
+我们在比较误差时，可以采用一个函数
+
+```c++
+template<typename TValue>
+TValue delta();
+```
+
+我们希望，当`TValue`是浮点数时，delta返回`1e-5`，其他情况，则返回`TValue()`。
+
+如何判断`TValue`是不是浮点数呢？我们可以用到`<type_traits>`里的`is_floating_point`。
+
+`is_floating_point<TValue>()`是一个特殊的函数，当`TValue`是浮点数时，返回值的类型是`true_type`，否则，则是`false_type`。
+
+`true_type`和`false_type`是什么呢？
+
+还记得我们在讲迭代器的时候，讲到迭代器有一个tag域，用来表示自己是什么样的迭代器，进而使用不同的函数调用吗？
+
+`true_type`和`false_type`也是类似的！
+
+既然`is_floating_point<TValue>`的返回类型会根据`TValue`的类型而变，那么，我们就可以写出这样的实现
+
+```c++
+template<typename TValue>
+TValue delta() {
+    return delta_real<TValue>(std::is_floating_point<TValue>());
+}
+```
+
+然后，把两种情况的`delta_real`分别实现
+
+```c++
+template<typename TValue>
+TValue delta_real(std::true_type) {
+    return 1e-5;
+}
+
+template<typename TValue>
+TValue delta_real(std::false_type) {
+    return TValue();
+}
+```
+
+而`delta`函数的调用，就是简单的`delta<TValue>()`。
