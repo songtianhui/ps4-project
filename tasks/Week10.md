@@ -6,7 +6,7 @@
 
 
 
-本周我们需要实现对异常的支持，在`include/Exceptions/GLException`中已经定义了`GLException`，**请在`include/Exceptions`中定义`NegCycleException`**，并继承自`GLException`。
+本周我们需要实现对异常的支持，在`include/Exceptions/GLException`中已经定义了`GLException`，**请在`include/Exceptions`中定义`NegativeCycleException`**，并继承自`GLException`。
 
 ## 不符合规约的情况
 
@@ -16,7 +16,7 @@
 
 我们前两周实现的Bellman Ford和Floyd都是这样的例子。如果输入的图中存在负环（在Bellman-Ford中只需要检查从起点可达的负环即可），那么算法的更新就无法停止或者返回的结果没有意义。
 
-所以，我们要修改上周的代码，在检测到这种情况时，通过`throw`抛出一个类型为`NegCycleException`或其子类的异常。
+所以，我们要修改上周的代码，在检测到这种情况时，通过`throw`抛出一个类型为`NegativeCycleException`或其子类的异常。
 
 由于负环难以定义，所以抛出的异常中不需要包含负环。但为了方便潜在的用户debug，异常中需包含当前正在运行的算法名（分别是`Bellman-Ford`和`Floyd`）。（这样，如果用户在运行一个非常复杂的算法时遇到异常，他就可以通过异常中的信息，确定异常发生在哪个函数的内部）
 
