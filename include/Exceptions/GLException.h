@@ -1,22 +1,17 @@
-#ifndef GRAPHLIBRARY_GLEXCEPTION_H
-#define GRAPHLIBRARY_GLEXCEPTION_H
+#ifndef GL_EXCEPTION
+#define GL_EXCEPTION
 
 #include <iostream>
 #include <exception>
 #include <string>
 
 class GLException : public std::exception {
-private:
-    std::string msg;
-public:
-    GLException(std::string s): msg(s) {}
-    virtual std::string get_msg() const {
-        return msg;
-    }
+ protected:
+  std::string message;
+ public:
+  explicit GLException(const std::string &s);
+  virtual std::string GetMessage() const;
 };
 
-std::ostream& operator<<(std::ostream& os, const GLException& e) {
-    return os << e.get_msg();
-}
+#endif
 
-#endif //GRAPHLIBRARY_GLEXCEPTION_H
