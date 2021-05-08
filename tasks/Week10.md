@@ -28,14 +28,14 @@
 
 这个问题比较难，因此这里直接给出解决方案。
 
-我们在比较误差时，可以采用一个函数
+我们在比较误差时，可以采用一个模板$\epsilon$：
 
 ```c++
 template<typename TValue>
-TValue delta();
+TValue epsilon();
 ```
 
-我们希望，当`TValue`是浮点数时，delta返回`1e-5`，其他情况，则返回`TValue()`。
+我们希望，当`TValue`是浮点数时，epsilon返回`1e-5`，其他情况，则返回`TValue()`。
 
 如何判断`TValue`是不是浮点数呢？我们可以用到`<type_traits>`里的`is_floating_point`。
 
@@ -51,26 +51,26 @@ TValue delta();
 
 ```c++
 template<typename TValue>
-TValue delta() {
-    return delta_real<TValue>(std::is_floating_point<TValue>());
+TValue epsilon() {
+    return epsilon_real<TValue>(std::is_floating_point<TValue>());
 }
 ```
 
-然后，把两种情况的`delta_real`分别实现
+然后，把两种情况的`epsilon_real`（偏特化模板）分别实现：
 
 ```c++
 template<typename TValue>
-TValue delta_real(std::true_type) {
+TValue epsilon_real(std::true_type) {
     return 1e-5;
 }
 
 template<typename TValue>
-TValue delta_real(std::false_type) {
+TValue epsilon_real(std::false_type) {
     return TValue();
 }
 ```
 
-而`delta`函数的调用，就是简单的`delta<TValue>()`。
+而`epsilon`函数的调用，就是简单的`epsilon<TValue>()`。
 
 ### 为什么负环难以定义
 
