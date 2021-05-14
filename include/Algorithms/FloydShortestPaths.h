@@ -62,14 +62,14 @@ public:
     virtual ~FloydShortestPaths() {}
 
 public:
-    bool HasPathTo(int source, int destination) const override {
+    bool HasPathOf(int source, int destination) const override {
         auto it = cost.find(std::make_pair(source, destination));
         if (it == cost.end()) return false;
         if (it->second == std::nullopt) return false;
         return true;
     }
 
-    std::optional<TValue> TryGetDistanceTo(int source, int destination) const override {
+    std::optional<TValue> TryGetDistanceOf(int source, int destination) const override {
         auto it = cost.find(std::make_pair(source, destination));
         if (it == cost.end()) return std::nullopt;
         if (it->second == std::nullopt) return std::nullopt;
@@ -77,7 +77,7 @@ public:
 
     }
 
-    std::optional<std::vector<int>> TryGetShortestPathTo(int source, int destination) const override {
+    std::optional<std::vector<int>> TryGetShortestPathOf(int source, int destination) const override {
         auto it = cost.find(std::make_pair(source, destination));
         if (it == cost.end() || it->second == std::nullopt) return std::nullopt;
         std::vector<int> ret;
