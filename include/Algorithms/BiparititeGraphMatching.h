@@ -68,7 +68,7 @@ public:
 
     int SumOfMatches() const { return total; }
 
-    std::optional<int> FindMatchOf(int idx) {
+    std::optional<int> FindMatchOf(int idx) const {
         auto it = belong.find(idx);
         if (it == belong.end()) return std::nullopt;
         if (!graph->ContainsVertex(idx)) return std::nullopt;
