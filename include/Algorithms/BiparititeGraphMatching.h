@@ -46,6 +46,11 @@ public:
                 throw std::invalid_argument("vertex not in g");
             }
         }
+        for (int i : right) {
+            if (!g->ContainsVertex(i)) {
+                throw std::invalid_argument("vertex not in g");
+            }
+        }
         for (int i : left) {
             for (int j : g->GetNeighbors(i)) {
                 if (right.find(j) == right.end()) {
