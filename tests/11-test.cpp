@@ -21,7 +21,7 @@ void init_g() {
     assert(g.AddVertex(1) == true);
 
 
-//    assert(g.AddEdge(1, 1000, 114514) == true);
+    assert(g.AddEdge(1, 1000, 114514) == true);
     assert(g.AddEdge(0, 1000, 100) == true);
 //    assert(g.AddEdge(-114514, 0, 100) == true);
 //    assert(g.AddEdge(99999, 0, 0) == true);
@@ -35,7 +35,6 @@ int main() {
     std::unordered_set<int> left;
     std::unordered_set<int> right;
     left.insert(1);
-    left.insert(0);
     left.insert(1000);
     right.insert(99999);
     right.insert(0);
