@@ -8,6 +8,7 @@
 UndirectedWeightedGraph<int> g;
 
 void init_g() {
+    g.AddVertex(8);
     assert(g.AddVertex(1) == true);
     assert(g.AddVertex(1000) == true);
     assert(g.AddVertex(99999) == true);
