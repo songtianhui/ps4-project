@@ -14,7 +14,7 @@ private:
 
 private:
     bool find(int x) {
-        for (auto &y : graph->GetNeighbors()) {
+        for (auto &y : graph->GetNeighbors(x)) {
             if (used.find(y) == used.end()) {
                 used.insert(y);
                 if (belong.find(y) == belong.end() || find(belong[y])) {
