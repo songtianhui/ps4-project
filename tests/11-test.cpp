@@ -34,9 +34,8 @@ int main() {
     init_g();
     std::unordered_set<int> left;
     std::unordered_set<int> right;
-    left.insert(1);
+    left.insert(2);
     left.insert(1000);
-    left.insert(0);
     right.insert(99999);
     right.insert(0);
     right.insert(-114514);
