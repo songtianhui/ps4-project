@@ -7,7 +7,7 @@
 template<typename TGraph>
 class BipariteGraphMatching {
 private:
-    TGraph *graph;
+    const TGraph *graph;
     std::unordered_set<int> used;
     std::unordered_map<int, int> belong;
     int total;

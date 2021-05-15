@@ -42,7 +42,7 @@ int main() {
     printf("ans = %d\n", bm.SumOfMatches());
     for (int i : g.GetVertices()) {
         if (bm.FindMatchOf(i) != std::nullopt)
-            printf("%d : %d\n", i, bm.FindMatchOf(i));
+            printf("%d : %d\n", i, bm.FindMatchOf(i).value());
     }
     return 0;
 }
