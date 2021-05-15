@@ -11,11 +11,13 @@ private:
     std::unordered_set<int> used;
     std::unordered_map<int, int> belong;
     int total;
+    std::unordered_set<int> l;
+    std::unordered_set<int> r;
 
 private:
     bool find(int x) {
         for (auto &y : graph->GetNeighbors(x)) {
-            if (used.find(y) == used.end()) {
+            if (l.find(y) == l.end() && used.find(y) == used.end()) {
                 used.insert(y);
                 if (belong.find(y) == belong.end() || find(belong[y])) {
                     belong[y] = x;
@@ -29,6 +31,8 @@ private:
 public:
     BipariteGraphMatching(const TGraph* g, std::unordered_set<int> left, std::unordered_set<int> right) {
         graph = g;
+        l = left;
+        r = right;
         belong.clear();
         total = 0;
         for (int i : left) {
