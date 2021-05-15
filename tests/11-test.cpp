@@ -36,6 +36,7 @@ int main() {
     std::unordered_set<int> right;
     left.insert(1);
     left.insert(1000);
+    left.insert(0);
     right.insert(99999);
     right.insert(0);
     right.insert(-114514);
