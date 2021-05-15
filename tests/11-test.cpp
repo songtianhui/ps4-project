@@ -40,15 +40,11 @@ int main() {
     right.insert(99999);
     right.insert(0);
     right.insert(-114514);
-    try {
-        BipariteGraphMatching<UndirectedWeightedGraph<int>> bm(&g, left, right);
-        printf("ans = %d\n", bm.SumOfMatches());
-        for (int i : g.GetVertices()) {
-            if (bm.FindMatchOf(i) != std::nullopt)
-                printf("%d : %d\n", i, bm.FindMatchOf(i).value());
-        }
-    } catch (std::invalid_argument) {
-        printf("catch\n");
+    BipariteGraphMatching<UndirectedWeightedGraph<int>> bm(&g, left, right);
+    printf("ans = %d\n", bm.SumOfMatches());
+    for (int i : g.GetVertices()) {
+        if (bm.FindMatchOf(i) != std::nullopt)
+            printf("%d : %d\n", i, bm.FindMatchOf(i).value());
     }
     return 0;
 }
