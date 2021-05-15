@@ -21,7 +21,7 @@ void init_g() {
     assert(g.AddVertex(1) == true);
 
 
-    g.AddEdge(8,1,1);
+//    g.AddEdge(8,1,1);
 //    assert(g.AddEdge(1, 1000, 114514) == true);
     assert(g.AddEdge(0, 1000, 100) == true);
 //    assert(g.AddEdge(-114514, 0, 100) == true);
