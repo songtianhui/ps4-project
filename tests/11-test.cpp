@@ -39,7 +39,7 @@ int main() {
     left.insert(1000);
     right.insert(99999);
     right.insert(0);
-    right.insert(1);
+    right.insert(2);
     right.insert(-114514);
     BipariteGraphMatching<UndirectedWeightedGraph<int>> bm(&g, left, right);
     printf("ans = %d\n", bm.SumOfMatches());
