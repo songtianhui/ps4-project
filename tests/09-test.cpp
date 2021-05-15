@@ -32,16 +32,16 @@ void init_g() {
 
 int main() {
     init_g();
-    FloydShortestPaths<UndirectedWeightedGraph<int>> apsp(&g);
-    int src = 99999, dst = 1000;
-    if (apsp.HasPathTo(src, dst)) printf("HasPath to %d: %d\n", dst, apsp.HasPathTo(src, dst));
-    printf("distance to %d: %d\n", dst, apsp.TryGetDistanceTo(src, dst));
-    printf("path from %d to %d:\n", src, dst);
-    std::vector<int> v = apsp.TryGetShortestPathTo(src, dst).value();
-    for (int &i : v) {
-        printf("%d--", i);
-    }
-    printf("\n");
+//    FloydShortestPaths<UndirectedWeightedGraph<int>> apsp(&g);
+//    int src = 99999, dst = 1000;
+//    if (apsp.HasPathTo(src, dst)) printf("HasPath to %d: %d\n", dst, apsp.HasPathTo(src, dst));
+//    printf("distance to %d: %d\n", dst, apsp.TryGetDistanceTo(src, dst));
+//    printf("path from %d to %d:\n", src, dst);
+//    std::vector<int> v = apsp.TryGetShortestPathTo(src, dst).value();
+//    for (int &i : v) {
+//        printf("%d--", i);
+//    }
+//    printf("\n");
 
     printf("Successful!\n");
     return 0;
