@@ -29,6 +29,8 @@ private:
 public:
     BipariteGraphMatching(const TGraph* g, std::unordered_set<int> left, std::unordered_set<int> right) {
         graph = g;
+        belong.clear();
+        total = 0;
         for (int i : left) {
             used.clear();
             if (find(i)) total++;
