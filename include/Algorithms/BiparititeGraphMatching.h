@@ -35,6 +35,31 @@ public:
         r = right;
         belong.clear();
         total = 0;
+
+        for (int i : left) {
+            if (right.find(i) != right.end()) {
+                throw std::invalid_argument("shared vertex");
+            }
+        }
+        for (int i : left) {
+            if (!g->ContainsVertex(i)) {
+                throw std::invalid_argument("vertex not in g");
+            }
+        }
+        for (int i : left) {
+            for (int j : g->GetNeighbors(i)) {
+                if (right.find(j) == right.end()) {
+                    throw std::invalid_argument("neighbors of left not in right");
+                }
+            }
+        }
+        for (int i : right) {
+            for (int j : g->GetNeighbors(i)) {
+                if (left.find(j) == left.end()) {
+                    throw std::invalid_argument("neighbors of right not in left");
+                }
+            }
+        }
         for (int i : left) {
             used.clear();
             if (find(i)) total++;
